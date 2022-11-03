@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Enemies/Parent/PigHead.png" type="Texture" id=1]
+[ext_resource path="res://Misc/SeveredHead/Head.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 13.0
+
+[sub_resource type="SphereMesh" id=3]
+
+[sub_resource type="SpatialMaterial" id=4]
+resource_local_to_scene = true
+flags_unshaded = true
+albedo_texture = ExtResource( 1 )
+uv1_scale = Vector3( 3, 3, 3 )
+uv1_offset = Vector3( -0.25, -1, 0 )
+
+[sub_resource type="SphereMesh" id=8]
+
+[sub_resource type="OpenSimplexNoise" id=9]
+octaves = 6
+period = 24.4
+lacunarity = 2.84
+
+[sub_resource type="NoiseTexture" id=10]
+seamless = true
+noise = SubResource( 9 )
+
+[sub_resource type="SpatialMaterial" id=7]
+flags_unshaded = true
+albedo_color = Color( 0.878431, 0.815686, 0.6, 1 )
+albedo_texture = SubResource( 10 )
+
+[sub_resource type="ViewportTexture" id=5]
+viewport_path = NodePath("Viewport")
+
+[node name="SeveredHead" type="KinematicBody2D"]
+z_index = -1
+z_as_relative = false
+collision_layer = 64
+collision_mask = 66
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 32, 32 )
+own_world = true
+transparent_bg = true
+handle_input_locally = false
+usage = 3
+render_target_v_flip = true
+
+[node name="Head" type="Spatial" parent="Viewport"]
+
+[node name="Camera" type="Camera" parent="Viewport/Head"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.79125 )
+projection = 1
+current = true
+size = 2.0
+
+[node name="Sphere" type="Spatial" parent="Viewport/Head"]
+
+[node name="Mesh" type="MeshInstance" parent="Viewport/Head/Sphere"]
+transform = Transform( -4.37047e-08, 7.62869e-10, -1, 0.0174524, 0.999848, 0, 0.999848, -0.0174524, -4.37114e-08, 0, 0, 0 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Viewport/Head/Sphere"]
+visible = false
+mesh = SubResource( 8 )
+material/0 = SubResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.8, 0.8 )
+texture = SubResource( 5 )
