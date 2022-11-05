@@ -34,8 +34,10 @@ func movement(delta:float):
 	if velocity.length() <= 10 and not still:
 		still = true
 		spawnBlood()
+		$Blood.emitting = false
 	elif velocity.length() > 10:
 		still = false
+		$Blood.emitting = true
 		
 var Blood = preload("res://Blood/Blood.tscn")
 		
@@ -49,6 +51,7 @@ func spawnBlood():
 
 func rotateHead(vel:Vector2):
 	vel *= 0.1
+	vel = vel.clamped(1000)
 	sphere.rotate_x(vel.y)
 	sphere.rotate_y(vel.x)
 	sphere.orthonormalize()
@@ -59,7 +62,12 @@ func bounceHead(delta:float):
 	$Sprite.scale = startScale+Vector2(1, 1)*bounceHeight*bGraph*((ceil(timeToZero/timeOneBounce)/totalBounces))
 	
 func bump(vel:Vector2):
-	velocity += vel
+	velocity += vel*0.5
 	
 func _physics_process(delta: float) -> void:
 	movement(delta)
+	
+func spit(alligator):
+	velocity = Vector2(800, 0).rotated(alligator.global_rotation)
+	alligator.get_parent().add_child(self)
+	global_position = alligator.global_position

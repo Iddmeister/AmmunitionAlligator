@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Misc/Legs.png" type="Texture" id=1]
 [ext_resource path="res://Alligator/HeadRecolour.png" type="Texture" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://Misc/Circle.png" type="Texture" id=9]
 [ext_resource path="res://Misc/Square.png" type="Texture" id=10]
 [ext_resource path="res://Alligator/Weapons/Revolver/Revolver.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Alligator/Camera.gd" type="Script" id=12]
+[ext_resource path="res://Alligator/HeadRecolourFull.png" type="Texture" id=13]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
@@ -79,6 +81,19 @@ animations = [ {
 "loop": true,
 "name": "walk",
 "speed": 20.0
+} ]
+
+[sub_resource type="SpriteFrames" id=25]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "full",
+"speed": 5.0
 } ]
 
 [sub_resource type="Animation" id=17]
@@ -164,11 +179,28 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
+"times": PoolRealArray( 0.05, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "startSwallow"
+}, {
+"args": [  ],
+"method": "stopSwallow"
+} ]
+}
+tracks/7/type = "method"
+tracks/7/path = NodePath("../../..")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
 "times": PoolRealArray( 0.25 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "bite"
+"method": "biteDamage"
 } ]
 }
 
@@ -254,6 +286,9 @@ radius = 15.0
 radius = 26.0
 height = 4.0
 
+[sub_resource type="CircleShape2D" id=24]
+radius = 42.2019
+
 [sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 7 )
 region = Rect2( 0, 0, 36, 38 )
@@ -288,7 +323,7 @@ position = Vector2( 0, 2 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 16 )
 animation = "walk"
-frame = 6
+frame = 4
 playing = true
 
 [node name="Torso" type="Node2D" parent="Graphics"]
@@ -301,9 +336,9 @@ texture = ExtResource( 4 )
 [node name="Head" type="Node2D" parent="Graphics/Torso"]
 z_index = 2
 
-[node name="Normal" type="Sprite" parent="Graphics/Torso/Head"]
+[node name="Normal" type="AnimatedSprite" parent="Graphics/Torso/Head"]
 self_modulate = Color( 0.290196, 0.6, 0.305882, 1 )
-texture = ExtResource( 2 )
+frames = SubResource( 25 )
 
 [node name="Mouth" type="Sprite" parent="Graphics/Torso/Head"]
 visible = false
@@ -347,9 +382,11 @@ pitch_scale = 0.8
 [node name="Camera" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 1.2, 1.2 )
+script = ExtResource( 12 )
+
+[node name="Tween" type="Tween" parent="Camera"]
 
 [node name="BiteArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 32
 collision_mask = 4
 
@@ -357,6 +394,15 @@ collision_mask = 4
 position = Vector2( 15, 0 )
 rotation = 1.5708
 shape = SubResource( 19 )
+
+[node name="SwallowArea" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwallowArea"]
+position = Vector2( 32, 0 )
+rotation = 1.57079
+shape = SubResource( 24 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -407,3 +453,9 @@ texture = ExtResource( 9 )
 position = Vector2( 1, 4 )
 
 [node name="Revolver" parent="Weapon/Pivot" instance=ExtResource( 11 )]
+
+[connection signal="tween_completed" from="Camera/Tween" to="Camera" method="_on_Tween_tween_completed"]
+[connection signal="area_entered" from="SwallowArea" to="." method="_on_SwallowArea_area_entered"]
+[connection signal="area_exited" from="SwallowArea" to="." method="_on_SwallowArea_area_exited"]
+[connection signal="body_entered" from="SwallowArea" to="." method="_on_SwallowArea_body_entered"]
+[connection signal="body_exited" from="SwallowArea" to="." method="_on_SwallowArea_body_exited"]

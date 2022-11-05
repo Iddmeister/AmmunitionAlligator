@@ -10,8 +10,17 @@ var velocity:Vector2
 onready var legs = $Graphics/Legs
 onready var weaponPivot = $Weapon/Pivot
 onready var weapon = $Weapon/Pivot.get_child(0)
+onready var camera = $Camera
 
-var Head = preload("res://Misc/SeveredHead/Head.tscn")
+var Spit = preload("res://Alligator/SpitParticles.tscn")
+
+var swallowedObjects = []
+var swallowAreaBodies = []
+var swallowing:bool = false
+	
+
+func _ready() -> void:
+	weapon.alligator = self
 
 func getMoveDir() -> Vector2:
 	
@@ -49,19 +58,85 @@ func actions(delta:float):
 		weapon.reload()
 	
 	if Input.is_action_just_pressed("bite"):
-		$Bite.pitch_scale = 0.8+rand_range(-0.2, 0)
-		$Bite.play()
-		$Graphics/Torso/Head/Animation.play("Bite")
+		if swallowedObjects.empty() and not $Graphics/Torso/Head/Animation.is_playing():
+			bite()
+		elif not swallowedObjects.empty():
+			spit()
 		
 	if Input.is_action_just_pressed("attack"):
 		weapon.attack(get_global_mouse_position())
 		
+		
+func spit():
+	
+	var meat:bool = false
+	for body in swallowedObjects:
+		body.spit(self)
+		if body.is_in_group("Meat"):
+			meat = true
+		yield(get_tree().create_timer(0.01), "timeout")
+	swallowedObjects.clear()
+	$Graphics/Torso/Head/Normal.play("default")
+	var s = Spit.instance()
+	get_parent().add_child(s)
+	s.global_position = global_position
+	s.global_rotation = global_rotation
+	s.color = Color(1, 0.219608, 0.219608) if meat else Color(0.284991, 0.612786, 0.828125, 0.388235)
+		
 func bite():
+	$Bite.pitch_scale = 0.8+rand_range(-0.2, 0)
+	$Bite.play()
+	$Graphics/Torso/Head/Animation.play("Bite")
+	
+			
+func biteDamage():
 	for body in $BiteArea.get_overlapping_bodies():
-		if body.is_in_group("Enemy"):
-			body.hit(10)
+		if body.is_in_group("Eatable"):
+			body.bite(self)
 
 func _physics_process(delta: float) -> void:
 	movement(delta)
 	actions(delta)
 	$Lighter/AnimatedSprite.global_rotation = 0
+
+
+func startSwallow():
+	swallowing = true
+	for object in swallowAreaBodies:
+		swallow(object)
+		
+func stopSwallow():
+	swallowing = false
+	
+func swallow(object):
+	$Graphics/Torso/Head/Normal.play("full")
+	if object.has_method("swallow"):
+		object.swallow()
+	swallowedObjects.append(object)
+	if object in swallowAreaBodies:
+		swallowAreaBodies.erase(object)
+
+func _on_SwallowArea_body_entered(body: Node) -> void:
+	if body.is_in_group("Swallowable") and not body in swallowAreaBodies:
+		if swallowing:
+			swallow(body)
+		else:
+			swallowAreaBodies.append(body)
+
+
+func _on_SwallowArea_body_exited(body: Node) -> void:
+	if body in swallowAreaBodies:
+		swallowAreaBodies.erase(body)
+
+
+func _on_SwallowArea_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Swallowable") and not area in swallowAreaBodies:
+		if swallowing:
+			swallow(area)
+		else:
+			swallowAreaBodies.append(area)
+
+
+func _on_SwallowArea_area_exited(area: Area2D) -> void:
+	if area in swallowAreaBodies:
+		swallowAreaBodies.erase(area)

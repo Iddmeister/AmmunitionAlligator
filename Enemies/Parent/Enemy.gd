@@ -24,6 +24,20 @@ func hit(damage:int=1):
 	yield($Squelch, "finished")
 	queue_free()
 	
+	
+func bite(alligator):
+	health = 0
+	
+	hide()
+	spawnBlood()
+	$CollisionShape2D.set_deferred("disabled", true)
+	$Squelch.pitch_scale = 1+rand_range(-0.5, 0.5)
+	$Squelch.play()
+	alligator.swallow(Head.instance())
+	yield($Squelch, "finished")
+	queue_free()
+	
+	
 func spawnBlood():
 	
 	for n in range(5):
@@ -36,3 +50,4 @@ func spawnHead():
 	h.velocity = Vector2(300, 0).rotated(rand_range(0, 2*PI))
 	get_parent().add_child(h)
 	h.global_position = global_position
+	

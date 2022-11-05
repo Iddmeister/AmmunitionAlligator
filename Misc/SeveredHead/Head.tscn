@@ -38,7 +38,7 @@ viewport_path = NodePath("Viewport")
 [sub_resource type="Curve" id=11]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.3, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[node name="SeveredHead" type="KinematicBody2D" groups=["Loose"]]
+[node name="SeveredHead" type="KinematicBody2D" groups=["Loose", "Meat"]]
 z_index = -1
 z_as_relative = false
 collision_layer = 64
@@ -86,7 +86,7 @@ texture = SubResource( 5 )
 
 [node name="Blood" type="CPUParticles2D" parent="."]
 z_index = -1
-amount = 50
+amount = 250
 lifetime = 5.0
 local_coords = false
 texture = ExtResource( 4 )

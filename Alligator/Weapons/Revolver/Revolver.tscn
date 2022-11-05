@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Alligator/Weapons/Weapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Alligator/Weapons/Revolver/Revolver.png" type="Texture" id=2]
 [ext_resource path="res://Bullets/NormalBullet/NormalBullet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Alligator/Weapons/Revolver/Revolver.gd" type="Script" id=4]
+[ext_resource path="res://Alligator/Weapons/Revolver/RevolverReload.wav" type="AudioStream" id=5]
+[ext_resource path="res://Alligator/Weapons/Revolver/RevolverShoot.wav" type="AudioStream" id=6]
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -46,7 +48,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "Reload"
-length = 2.5
+length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:rotation_degrees")
 tracks/0/interp = 1
@@ -70,6 +72,32 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0.8, 0.8 ), Vector2( 0.8, 0.8 ), Vector2( 0.5, 0.8 ), Vector2( 0.8, 0.8 ), Vector2( 0.5, 0.8 ), Vector2( 0.8, 0.8 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "finishReload"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Reload:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=1]
@@ -99,9 +127,34 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( 0.8, 0.8 ), Vector2( 0.6, 0.8 ), Vector2( 0.8, 0.8 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Shoot:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3, -2 ), Vector2( -5, -2 ), Vector2( 3, -2 ) ]
+}
 
 [node name="Revolver" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
+ammo = 60
 Bullet = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
@@ -118,3 +171,17 @@ playback_speed = 4.0
 anims/RESET = SubResource( 2 )
 anims/Reload = SubResource( 3 )
 anims/Shoot = SubResource( 1 )
+
+[node name="FireDelay" type="Timer" parent="." index="4"]
+wait_time = 0.1
+one_shot = true
+
+[node name="Reload" type="AudioStreamPlayer" parent="." index="5"]
+stream = ExtResource( 5 )
+volume_db = -5.0
+
+[node name="Shoot" type="AudioStreamPlayer" parent="." index="6"]
+stream = ExtResource( 6 )
+volume_db = -3.0
+
+[connection signal="timeout" from="FireDelay" to="." method="_on_FireDelay_timeout"]

@@ -7,10 +7,10 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 20.0
 
-[node name="Enemy" type="KinematicBody2D" groups=["Enemy", "Hittable"]]
+[node name="Enemy" type="KinematicBody2D" groups=["Eatable", "Enemy", "Hittable"]]
 z_index = -1
 z_as_relative = false
-collision_layer = 4
+collision_layer = 132
 collision_mask = 2
 script = ExtResource( 2 )
 
