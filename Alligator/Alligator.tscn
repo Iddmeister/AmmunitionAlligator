@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Misc/Legs.png" type="Texture" id=1]
 [ext_resource path="res://Alligator/HeadRecolour.png" type="Texture" id=2]
@@ -6,7 +6,11 @@
 [ext_resource path="res://Alligator/Body.png" type="Texture" id=4]
 [ext_resource path="res://Alligator/Mouth.png" type="Texture" id=5]
 [ext_resource path="res://Alligator/Alligator.gd" type="Script" id=6]
+[ext_resource path="res://Alligator/Lighter.png" type="Texture" id=7]
 [ext_resource path="res://Alligator/Bite.wav" type="AudioStream" id=8]
+[ext_resource path="res://Misc/Circle.png" type="Texture" id=9]
+[ext_resource path="res://Misc/Square.png" type="Texture" id=10]
+[ext_resource path="res://Alligator/Weapons/Revolver/Revolver.tscn" type="PackedScene" id=11]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
@@ -250,6 +254,26 @@ radius = 15.0
 radius = 26.0
 height = 4.0
 
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 36, 38 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 7 )
+region = Rect2( 36, 0, 36, 38 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 7 )
+region = Rect2( 72, 0, 36, 38 )
+
+[sub_resource type="SpriteFrames" id=20]
+animations = [ {
+"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
+"loop": true,
+"name": "flicker",
+"speed": 12.0
+} ]
+
 [node name="Alligator" type="KinematicBody2D" groups=["Alligator", "Hittable"]]
 z_as_relative = false
 collision_mask = 6
@@ -264,7 +288,7 @@ position = Vector2( 0, 2 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 16 )
 animation = "walk"
-frame = 2
+frame = 6
 playing = true
 
 [node name="Torso" type="Node2D" parent="Graphics"]
@@ -275,6 +299,7 @@ modulate = Color( 0.290196, 0.0392157, 0.380392, 1 )
 texture = ExtResource( 4 )
 
 [node name="Head" type="Node2D" parent="Graphics/Torso"]
+z_index = 2
 
 [node name="Normal" type="Sprite" parent="Graphics/Torso/Head"]
 self_modulate = Color( 0.290196, 0.6, 0.305882, 1 )
@@ -312,6 +337,7 @@ anims/Bite = SubResource( 17 )
 anims/RESET = SubResource( 18 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 1 )
 
 [node name="Bite" type="AudioStreamPlayer" parent="."]
@@ -320,8 +346,10 @@ pitch_scale = 0.8
 
 [node name="Camera" type="Camera2D" parent="."]
 current = true
+zoom = Vector2( 1.2, 1.2 )
 
 [node name="BiteArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 32
 collision_mask = 4
 
@@ -335,3 +363,47 @@ shape = SubResource( 19 )
 [node name="Main" type="Control" parent="UI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+
+[node name="Lighter" type="Node2D" parent="."]
+visible = false
+position = Vector2( 14, -13 )
+
+[node name="Hand" type="Sprite" parent="Lighter"]
+modulate = Color( 0.290196, 0.6, 0.305882, 1 )
+position = Vector2( -6, 0 )
+scale = Vector2( 0.075, 0.051 )
+texture = ExtResource( 9 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Lighter"]
+position = Vector2( -4.50446, -0.24489 )
+rotation = 1.57079
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 20 )
+animation = "flicker"
+frame = 2
+playing = true
+offset = Vector2( -2.517, -15.0149 )
+
+[node name="Weapon" type="Node2D" parent="."]
+position = Vector2( 14, 12 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Arm" type="Sprite" parent="Weapon"]
+modulate = Color( 0.290196, 0.0392157, 0.380392, 1 )
+position = Vector2( -8, 3 )
+rotation = 0.132252
+scale = Vector2( 0.493907, 0.16487 )
+texture = ExtResource( 10 )
+
+[node name="Hand" type="Sprite" parent="Weapon"]
+modulate = Color( 0.290196, 0.6, 0.305882, 1 )
+position = Vector2( -1, 4 )
+scale = Vector2( 0.075, 0.051 )
+texture = ExtResource( 9 )
+
+[node name="Pivot" type="Node2D" parent="Weapon"]
+position = Vector2( 1, 4 )
+
+[node name="Revolver" parent="Weapon/Pivot" instance=ExtResource( 11 )]

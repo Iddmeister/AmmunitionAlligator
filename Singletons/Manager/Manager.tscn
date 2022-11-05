@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Singletons/Manager/Manager.gd" type="Script" id=1]
+[ext_resource path="res://Misc/Cursor/TeethCursorOpen.png" type="Texture" id=2]
+[ext_resource path="res://Misc/Cursor/TeethCursorClosed.png" type="Texture" id=3]
+
+[node name="Manager" type="Node"]
+script = ExtResource( 1 )
+cursorOpen = ExtResource( 2 )
+cursorClosed = ExtResource( 3 )
+
+[node name="CursorBite" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="CursorBite" to="." method="_on_CursorBite_timeout"]

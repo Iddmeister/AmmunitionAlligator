@@ -8,6 +8,8 @@ export var acceleration:float = 0.5
 var velocity:Vector2
 
 onready var legs = $Graphics/Legs
+onready var weaponPivot = $Weapon/Pivot
+onready var weapon = $Weapon/Pivot.get_child(0)
 
 var Head = preload("res://Misc/SeveredHead/Head.tscn")
 
@@ -39,31 +41,27 @@ func movement(delta:float):
 		
 	legs.global_rotation = velocity.angle()+(PI/2)
 	
-var start:Vector2
-var aiming:bool = false
+func actions(delta:float):
 	
-func actions():
+	weaponPivot.global_rotation = lerp_angle(weaponPivot.global_rotation, (get_global_mouse_position()-weaponPivot.global_position).angle(), 0.5*delta*60)
+	
+	if Input.is_action_just_pressed("reload"):
+		weapon.reload()
+	
 	if Input.is_action_just_pressed("bite"):
 		$Bite.pitch_scale = 0.8+rand_range(-0.2, 0)
 		$Bite.play()
 		$Graphics/Torso/Head/Animation.play("Bite")
-	if Input.is_action_pressed("attack"):
-		if aiming:
-			return
-		start = get_global_mouse_position()
-		aiming = true
-	elif Input.is_action_just_released("attack"):
-		aiming = false
-		var h = Head.instance()
-		get_parent().add_child(h)
-		h.global_position = start
-		h.velocity = (get_global_mouse_position()-start).normalized()*500
-
+		
+	if Input.is_action_just_pressed("attack"):
+		weapon.attack(get_global_mouse_position())
+		
 func bite():
 	for body in $BiteArea.get_overlapping_bodies():
 		if body.is_in_group("Enemy"):
-			body.hit()
+			body.hit(10)
 
 func _physics_process(delta: float) -> void:
 	movement(delta)
-	actions()
+	actions(delta)
+	$Lighter/AnimatedSprite.global_rotation = 0
