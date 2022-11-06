@@ -1,6 +1,6 @@
 extends Enemy
 
-var seenAlligator:bool = true
+var seenAlligator:bool = false
 var canSeeAlligator:bool = false
 var canShoot:bool = false
 
@@ -30,7 +30,6 @@ func eaten(_alligator):
 	$Pistol.hide()
 	
 func think(delta:float):
-	moving = true
 	if canSeeAlligator:
 		global_rotation = lerp_angle(global_rotation, (alligator.global_position-global_position).angle(), 0.5*delta*60)
 		$Pistol.global_rotation = lerp_angle($Pistol.global_rotation, (alligator.global_position-$Pistol.global_position).angle(), 0.7*delta*60)
@@ -42,13 +41,17 @@ func navUpdate():
 	if not seenAlligator and canSeeAlligator:
 		seenAlligator = canSeeAlligator
 	if canSeeAlligator:
-		navAgent.set_target_location(alligator.global_position+(global_position-alligator.global_position).normalized()*140)
+		moving = true
+		navAgent.set_target_location(alligator.global_position+Vector2(140, 0).rotated((global_position-alligator.global_position).angle()+rand_range(-PI, PI)))
 		if canShoot:
 			shoot()
 	elif seenAlligator:
 		navAgent.set_target_location(alligator.global_position)
+		moving = true
 		
 func castToAlligator():
+	if not alligator:
+		return true
 	if get_world_2d().direct_space_state.intersect_ray(global_position, alligator.global_position, [self], 0b10):
 		return true
 	else:

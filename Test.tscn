@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Alligator/Alligator.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Enemies/Pig/Pig.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Misc/Square.png" type="Texture" id=3]
 
 [sub_resource type="NavigationPolygon" id=1]
-vertices = PoolVector2Array( -92, -170, 523, -176, 473, 226, -22, 383, -390, 51, -173, -146 )
-polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5 ) ]
-outlines = [ PoolVector2Array( -173, -146, -390, 51, -22, 383, 473, 226, 523, -176, -92, -170 ) ]
+vertices = PoolVector2Array( 497, -3, 523, -176, 923, 220, 488, 97, 261, 118, -68, 716, 116, 320, -603, 53, 9, 247, 7, -112, 145, 64, -173, -146, -92, -170, 239, 7, 73, -154 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 3, 2, 5, 6 ), PoolIntArray( 6, 5, 7, 8 ), PoolIntArray( 9, 10, 8, 7, 11, 12 ), PoolIntArray( 1, 0, 13, 14 ), PoolIntArray( 12, 1, 14 ), PoolIntArray( 9, 12, 14 ) ]
+outlines = [ PoolVector2Array( -173, -146, -603, 53, -68, 716, 923, 220, 523, -176, -92, -170 ), PoolVector2Array( 239, 7, 73, -154, 7, -112, 145, 64, 9, 247, 116, 320, 261, 118, 488, 97, 497, -3 ) ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16.1317, 16 )
 
 [node name="Test" type="Navigation2D"]
 
@@ -17,7 +21,7 @@ position = Vector2( 362, -13 )
 z_index = -1
 
 [node name="Pig2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 288, 235 )
+position = Vector2( 269, 232 )
 rotation = -1.92063
 z_index = -1
 
@@ -37,7 +41,7 @@ rotation = -1.92063
 z_index = -1
 
 [node name="Pig6" parent="." instance=ExtResource( 2 )]
-position = Vector2( -11, 172 )
+position = Vector2( 399, 140 )
 rotation = -1.92063
 z_index = -1
 
@@ -51,3 +55,57 @@ navpoly = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 150, -22 )
+rotation = 0.785397
+scale = Vector2( 7.81651, 1 )
+collision_layer = 2
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 0.131706, 3.8147e-05 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2( 154, 153 )
+rotation = -0.927472
+scale = Vector2( 7.81651, 1 )
+collision_layer = 2
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D2"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( 0.131706, 3.8147e-05 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 2 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2( 335, 47 )
+rotation = -0.0523064
+scale = Vector2( 7.81651, 1 )
+collision_layer = 2
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D3"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2( 0.131706, 3.8147e-05 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 2 )
