@@ -29,7 +29,7 @@ func useAmmo(amount:int=1):
 		reload()
 		
 func reload():
-	if not ammo > 0 or currentClip == clipSize:
+	if not ammo > 0 or currentClip == clipSize or reloading:
 		return false
 	ammo -= (clipSize-currentClip)
 	reloadAmmo = int(clipSize-abs(ammo)) if ammo < 0 else clipSize

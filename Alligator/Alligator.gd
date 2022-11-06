@@ -18,9 +18,13 @@ var swallowedObjects = []
 var swallowAreaBodies = []
 var swallowing:bool = false
 	
+var dead:bool = false
+
+signal restart()
 
 func _ready() -> void:
 	weapon.alligator = self
+	get_tree().set_group("Enemy", "alligator", self)
 
 func getMoveDir() -> Vector2:
 	
@@ -53,6 +57,7 @@ func movement(delta:float):
 func actions(delta:float):
 	
 	weaponPivot.global_rotation = lerp_angle(weaponPivot.global_rotation, (get_global_mouse_position()-weaponPivot.global_position).angle(), 0.5*delta*60)
+	$Lighter/AnimatedSprite.global_rotation = 0
 	
 	if Input.is_action_just_pressed("reload"):
 		weapon.reload()
@@ -66,17 +71,44 @@ func actions(delta:float):
 	if Input.is_action_just_pressed("attack"):
 		weapon.attack(get_global_mouse_position())
 		
+export var spitSpreadDegrees:float = 20
+onready var spitSpread = deg2rad(spitSpreadDegrees)
 		
 func spit():
 	
 	var meat:bool = false
+	var bullets:int = 0
+	var objectTypes:Dictionary
 	for body in swallowedObjects:
-		body.spit(self)
-		if body.is_in_group("Meat"):
-			meat = true
-		yield(get_tree().create_timer(0.01), "timeout")
+		if not objectTypes.has(body.filename):
+			objectTypes[body.filename] = [body]
+		else:
+			objectTypes[body.filename].append(body)
+			
+	for objectType in objectTypes.keys():
+		for index in objectTypes[objectType].size():
+			var obj = objectTypes[objectType][index]
+			if objectTypes[objectType].size() > 1:
+				var n = float(index)/(objectTypes[objectType].size()-1)
+				var angle = global_rotation-(spitSpread/2)+((spitSpread/2)*n)
+				obj.spit(self, angle)
+			else:
+				obj.spit(self, global_rotation)
+			if obj.is_in_group("Meat"):
+				meat = true
+			if obj.is_in_group("Bullet"):
+				bullets += 1
+			yield(get_tree().create_timer(0.01), "timeout")
+			
 	swallowedObjects.clear()
-	$Graphics/Torso/Head/Normal.play("default")
+	$Graphics/Torso/Head/Normal.play("spit")
+	$Spit.pitch_scale = 1+rand_range(0, 0.3)
+	$Spit.play()
+	
+	if bullets > 0:
+		$SpitBullets.volume_db = 0+((bullets-1)*1.2)
+		$SpitBullets.play()
+	
 	var s = Spit.instance()
 	get_parent().add_child(s)
 	s.global_position = global_position
@@ -95,9 +127,16 @@ func biteDamage():
 			body.bite(self)
 
 func _physics_process(delta: float) -> void:
-	movement(delta)
-	actions(delta)
-	$Lighter/AnimatedSprite.global_rotation = 0
+	if not dead:
+		movement(delta)
+		actions(delta)
+	else:
+		if Input.is_action_just_pressed("restart"):
+			restart()
+			
+func restart():
+	emit_signal("restart")
+	get_tree().reload_current_scene()
 
 
 func startSwallow():
@@ -109,7 +148,10 @@ func stopSwallow():
 	swallowing = false
 	
 func swallow(object):
-	$Graphics/Torso/Head/Normal.play("full")
+	if swallowedObjects.empty():
+		$Graphics/Torso/Head/Normal.play("full")
+		$Swallow.pitch_scale = 1+rand_range(-0.2, 0)
+		$Swallow.play()
 	if object.has_method("swallow"):
 		object.swallow()
 	swallowedObjects.append(object)
@@ -140,3 +182,36 @@ func _on_SwallowArea_area_entered(area: Area2D) -> void:
 func _on_SwallowArea_area_exited(area: Area2D) -> void:
 	if area in swallowAreaBodies:
 		swallowAreaBodies.erase(area)
+
+func hit(_damage:int, dir:float=0):
+	
+	if dead:
+		return
+		
+	else:
+		
+		dead = true
+		
+		$CollisionShape2D.set_deferred("disabled", true)
+		$Graphics.hide()
+		$Body.show()
+		$Body.global_rotation = dir
+		$Weapon.hide()
+		$Lighter.hide()
+		spawnBlood()
+		$UI/Restart.show()
+		$Grey/Animation.play("FadeIn")
+		
+var Blood = preload("res://Blood/Blood.tscn")
+		
+func spawnBlood():
+	
+	for n in range(5):
+		var b = Blood.instance()
+		get_parent().add_child(b)
+		b.global_position = global_position+(Vector2(10, 0).rotated(2*PI*(float(n)/5)))
+	var t = Blood.instance()
+	get_parent().add_child(t)
+	t.global_position = global_position
+	t.z_index = 10
+	t.scale = Vector2(0.5, 0.5)

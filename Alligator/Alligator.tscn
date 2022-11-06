@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=72 format=2]
 
 [ext_resource path="res://Misc/Legs.png" type="Texture" id=1]
 [ext_resource path="res://Alligator/HeadRecolour.png" type="Texture" id=2]
@@ -12,7 +12,12 @@
 [ext_resource path="res://Misc/Square.png" type="Texture" id=10]
 [ext_resource path="res://Alligator/Weapons/Revolver/Revolver.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Alligator/Camera.gd" type="Script" id=12]
-[ext_resource path="res://Alligator/HeadRecolourFull.png" type="Texture" id=13]
+[ext_resource path="res://Alligator/Gulp.wav" type="AudioStream" id=13]
+[ext_resource path="res://Alligator/HeadRecolourSpitFrames.png" type="Texture" id=14]
+[ext_resource path="res://Alligator/Spit.wav" type="AudioStream" id=15]
+[ext_resource path="res://Alligator/AlligatorDead.png" type="Texture" id=16]
+[ext_resource path="res://Misc/Fonts/coolvetica rg.otf" type="DynamicFontData" id=17]
+[ext_resource path="res://Alligator/Weapons/Revolver/RevolverShoot.wav" type="AudioStream" id=18]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
@@ -83,6 +88,94 @@ animations = [ {
 "speed": 20.0
 } ]
 
+[sub_resource type="AtlasTexture" id=47]
+atlas = ExtResource( 14 )
+region = Rect2( 320, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=46]
+atlas = ExtResource( 14 )
+region = Rect2( 288, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=45]
+atlas = ExtResource( 14 )
+region = Rect2( 256, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=44]
+atlas = ExtResource( 14 )
+region = Rect2( 224, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 14 )
+region = Rect2( 192, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 14 )
+region = Rect2( 160, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 14 )
+region = Rect2( 128, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 14 )
+region = Rect2( 96, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 14 )
+region = Rect2( 64, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 14 )
+region = Rect2( 32, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 14 )
+region = Rect2( 32, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 14 )
+region = Rect2( 64, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 14 )
+region = Rect2( 96, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 14 )
+region = Rect2( 128, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 14 )
+region = Rect2( 160, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 14 )
+region = Rect2( 192, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 14 )
+region = Rect2( 224, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 14 )
+region = Rect2( 256, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 14 )
+region = Rect2( 288, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 14 )
+region = Rect2( 320, 0, 32, 48 )
+
 [sub_resource type="SpriteFrames" id=25]
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
@@ -90,10 +183,15 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
+"frames": [ SubResource( 47 ), SubResource( 46 ), SubResource( 45 ), SubResource( 44 ), SubResource( 43 ), SubResource( 42 ), SubResource( 41 ), SubResource( 40 ), SubResource( 39 ), SubResource( 38 ), SubResource( 37 ) ],
+"loop": false,
 "name": "full",
-"speed": 5.0
+"speed": 60.0
+}, {
+"frames": [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "spit",
+"speed": 50.0
 } ]
 
 [sub_resource type="Animation" id=17]
@@ -179,7 +277,7 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0.05, 0.25 ),
+"times": PoolRealArray( 0, 0.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -287,7 +385,92 @@ radius = 26.0
 height = 4.0
 
 [sub_resource type="CircleShape2D" id=24]
-radius = 42.2019
+radius = 73.2462
+
+[sub_resource type="Shader" id=50]
+code = "shader_type canvas_item;
+
+void fragment() {
+	
+	vec4 col = texture(SCREEN_TEXTURE, SCREEN_UV);
+	
+	if (col.r < 0.5 || col.g > 0.5 || col.b >0.5) {
+		COLOR = vec4((col.r+col.g+col.b)/3.0,(col.r+col.g+col.b)/3.0, (col.r+col.g+col.b)/3.0, 1);
+	} else {
+		COLOR = col;
+	}
+	
+}"
+
+[sub_resource type="ShaderMaterial" id=51]
+shader = SubResource( 50 )
+
+[sub_resource type="Animation" id=52]
+resource_name = "FadeIn"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Grey:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Grey:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=53]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Grey:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Grey:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=48]
+size = 24
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 17 )
+
+[sub_resource type="DynamicFont" id=49]
+size = 24
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 17 )
 
 [sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 7 )
@@ -310,20 +493,21 @@ animations = [ {
 } ]
 
 [node name="Alligator" type="KinematicBody2D" groups=["Alligator", "Hittable"]]
+z_index = 10
 z_as_relative = false
-collision_mask = 6
+collision_mask = 2
 script = ExtResource( 6 )
 
 [node name="Graphics" type="Node2D" parent="."]
 rotation = 1.5708
 
 [node name="Legs" type="AnimatedSprite" parent="Graphics"]
-modulate = Color( 0.0862745, 0.0862745, 0.0862745, 1 )
+modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 0, 2 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 16 )
 animation = "walk"
-frame = 4
+frame = 6
 playing = true
 
 [node name="Torso" type="Node2D" parent="Graphics"]
@@ -339,6 +523,7 @@ z_index = 2
 [node name="Normal" type="AnimatedSprite" parent="Graphics/Torso/Head"]
 self_modulate = Color( 0.290196, 0.6, 0.305882, 1 )
 frames = SubResource( 25 )
+playing = true
 
 [node name="Mouth" type="Sprite" parent="Graphics/Torso/Head"]
 visible = false
@@ -400,15 +585,58 @@ collision_layer = 32
 collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SwallowArea"]
-position = Vector2( 32, 0 )
+position = Vector2( 36, 0 )
 rotation = 1.57079
 shape = SubResource( 24 )
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="Grey" type="CanvasLayer" parent="."]
 
-[node name="Main" type="Control" parent="UI"]
+[node name="Grey" type="Panel" parent="Grey"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 51 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+
+[node name="Animation" type="AnimationPlayer" parent="Grey"]
+anims/FadeIn = SubResource( 52 )
+anims/RESET = SubResource( 53 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Restart" type="CenterContainer" parent="UI"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -157.0
+mouse_filter = 2
+
+[node name="RestartText" type="RichTextLabel" parent="UI/Restart"]
+margin_left = 156.0
+margin_top = 46.0
+margin_right = 356.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 200, 50 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 48 )
+bbcode_enabled = true
+bbcode_text = "[center][wave freq=5 amp=20]Press R to Restart[/wave][/center]"
+text = "Press R to Restart"
+scroll_active = false
+
+[node name="RestartText2" type="RichTextLabel" parent="UI/Restart/RestartText"]
+show_behind_parent = true
+margin_right = 200.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 200, 50 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 49 )
+bbcode_enabled = true
+bbcode_text = "[center][wave freq=5 amp=50]Press R to Restart[/wave][/center]"
+text = "Press R to Restart"
+scroll_active = false
 
 [node name="Lighter" type="Node2D" parent="."]
 visible = false
@@ -431,21 +659,21 @@ playing = true
 offset = Vector2( -2.517, -15.0149 )
 
 [node name="Weapon" type="Node2D" parent="."]
-position = Vector2( 14, 12 )
+position = Vector2( 14, 8 )
 __meta__ = {
 "_editor_description_": ""
 }
 
 [node name="Arm" type="Sprite" parent="Weapon"]
 modulate = Color( 0.290196, 0.0392157, 0.380392, 1 )
-position = Vector2( -8, 3 )
-rotation = 0.132252
+position = Vector2( -9, 6 )
+rotation = 0.261799
 scale = Vector2( 0.493907, 0.16487 )
 texture = ExtResource( 10 )
 
 [node name="Hand" type="Sprite" parent="Weapon"]
 modulate = Color( 0.290196, 0.6, 0.305882, 1 )
-position = Vector2( -1, 4 )
+position = Vector2( -1, 8 )
 scale = Vector2( 0.075, 0.051 )
 texture = ExtResource( 9 )
 
@@ -453,6 +681,22 @@ texture = ExtResource( 9 )
 position = Vector2( 1, 4 )
 
 [node name="Revolver" parent="Weapon/Pivot" instance=ExtResource( 11 )]
+position = Vector2( 0, 4 )
+
+[node name="Swallow" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+
+[node name="Spit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+
+[node name="Body" type="Sprite" parent="."]
+visible = false
+rotation = -1.57079
+texture = ExtResource( 16 )
+
+[node name="SpitBullets" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+pitch_scale = 0.5
 
 [connection signal="tween_completed" from="Camera/Tween" to="Camera" method="_on_Tween_tween_completed"]
 [connection signal="area_entered" from="SwallowArea" to="." method="_on_SwallowArea_area_entered"]

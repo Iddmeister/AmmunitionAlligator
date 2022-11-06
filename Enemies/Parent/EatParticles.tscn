@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Misc/TempParticles/TempParticles.tscn" type="PackedScene" id=1]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/Circle.png-1fc7cb306c048127f1d184d3ea0a9c87.stex"
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.725807, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[node name="EatParticles" instance=ExtResource( 1 )]
+z_index = -2
+z_as_relative = false
+emitting = false
+amount = 30
+lifetime = 5.0
+one_shot = true
+speed_scale = 3.0
+explosiveness = 0.7
+texture = SubResource( 1 )
+direction = Vector2( 0, -1 )
+spread = 25.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 170.0
+initial_velocity_random = 0.8
+damping = 200.0
+scale_amount = 0.05
+scale_amount_random = 0.05
+scale_amount_curve = SubResource( 2 )
+color = Color( 1, 0.25098, 0.25098, 1 )
+hue_variation = -0.1
+hue_variation_random = 0.5

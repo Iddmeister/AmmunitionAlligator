@@ -1,68 +1,53 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Alligator/Alligator.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Enemies/Parent/Enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Enemies/Pig/Pig.tscn" type="PackedScene" id=2]
 
-[node name="Test" type="Node2D"]
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( -92, -170, 523, -176, 473, 226, -22, 383, -390, 51, -173, -146 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5 ) ]
+outlines = [ PoolVector2Array( -173, -146, -390, 51, -22, 383, 473, 226, 523, -176, -92, -170 ) ]
+
+[node name="Test" type="Navigation2D"]
 
 [node name="Alligator" parent="." instance=ExtResource( 1 )]
 
-[node name="Enemy" parent="." instance=ExtResource( 2 )]
-position = Vector2( 98, 43 )
+[node name="Pig" parent="." instance=ExtResource( 2 )]
+position = Vector2( 362, -13 )
+z_index = -1
 
-[node name="Enemy2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 25, 103 )
+[node name="Pig2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 288, 235 )
+rotation = -1.92063
+z_index = -1
 
-[node name="Enemy3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 204, 77 )
+[node name="Pig3" parent="." instance=ExtResource( 2 )]
+position = Vector2( -139, 129 )
+rotation = -1.92063
+z_index = -1
 
-[node name="Enemy4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 167, -32 )
+[node name="Pig4" parent="." instance=ExtResource( 2 )]
+position = Vector2( -161, -25 )
+rotation = -1.92063
+z_index = -1
 
-[node name="Enemy5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 22, -71 )
+[node name="Pig5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 183, -76 )
+rotation = -1.92063
+z_index = -1
 
-[node name="Enemy6" parent="." instance=ExtResource( 2 )]
-position = Vector2( -127, -41 )
+[node name="Pig6" parent="." instance=ExtResource( 2 )]
+position = Vector2( -11, 172 )
+rotation = -1.92063
+z_index = -1
 
-[node name="Enemy7" parent="." instance=ExtResource( 2 )]
-position = Vector2( -109, 60 )
+[node name="Pig7" parent="." instance=ExtResource( 2 )]
+position = Vector2( -297, 69 )
+rotation = -1.92063
+z_index = -1
 
-[node name="Enemy8" parent="." instance=ExtResource( 2 )]
-position = Vector2( -172, 22 )
-
-[node name="Enemy9" parent="." instance=ExtResource( 2 )]
-position = Vector2( -34, 88 )
-
-[node name="Enemy10" parent="." instance=ExtResource( 2 )]
-position = Vector2( -134, 115 )
-
-[node name="Enemy11" parent="." instance=ExtResource( 2 )]
-position = Vector2( -119, 197 )
-
-[node name="Enemy12" parent="." instance=ExtResource( 2 )]
-position = Vector2( -28, 161 )
-
-[node name="Enemy13" parent="." instance=ExtResource( 2 )]
-position = Vector2( -19, 216 )
-
-[node name="Enemy14" parent="." instance=ExtResource( 2 )]
-position = Vector2( 32, 260 )
-
-[node name="Enemy15" parent="." instance=ExtResource( 2 )]
-position = Vector2( 78, 216 )
-
-[node name="Enemy16" parent="." instance=ExtResource( 2 )]
-position = Vector2( 113, 160 )
-
-[node name="Enemy17" parent="." instance=ExtResource( 2 )]
-position = Vector2( -51, -55 )
-
-[node name="Enemy18" parent="." instance=ExtResource( 2 )]
-position = Vector2( 224, -60 )
-
-[node name="Enemy19" parent="." instance=ExtResource( 2 )]
-position = Vector2( 271, 1 )
-
-[node name="Enemy20" parent="." instance=ExtResource( 2 )]
-position = Vector2( 116, -103 )
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
+navpoly = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}

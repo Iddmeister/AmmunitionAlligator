@@ -1,48 +1,33 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Enemies/Parent/PigHead.png" type="Texture" id=1]
 [ext_resource path="res://Misc/SeveredHead/Head.gd" type="Script" id=2]
 [ext_resource path="res://Enemies/Pig/PigHead.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Misc/Circle.png" type="Texture" id=4]
+[ext_resource path="res://Blood/BloodSplats.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 13.0
 
-[sub_resource type="SphereMesh" id=3]
-
-[sub_resource type="SpatialMaterial" id=4]
-flags_unshaded = true
-albedo_texture = ExtResource( 1 )
-uv1_scale = Vector3( 3, 3, 3 )
-uv1_offset = Vector3( -0.25, -1, 0 )
-
-[sub_resource type="SphereMesh" id=8]
-
-[sub_resource type="OpenSimplexNoise" id=9]
-octaves = 6
-period = 24.4
-lacunarity = 2.84
-
-[sub_resource type="NoiseTexture" id=10]
-seamless = true
-noise = SubResource( 9 )
-
-[sub_resource type="SpatialMaterial" id=7]
-flags_unshaded = true
-albedo_color = Color( 0.878431, 0.815686, 0.6, 1 )
-albedo_texture = SubResource( 10 )
-
 [sub_resource type="ViewportTexture" id=5]
 viewport_path = NodePath("Viewport")
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="Curve" id=11]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.3, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[node name="SeveredHead" type="KinematicBody2D" groups=["Loose", "Meat"]]
-z_index = -1
+[sub_resource type="StreamTexture" id=13]
+load_path = "res://.import/Circle.png-1fc7cb306c048127f1d184d3ea0a9c87.stex"
+
+[sub_resource type="Curve" id=14]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -1.0, 0.0, 1, 0 ]
+
+[node name="SeveredHead" type="KinematicBody2D" groups=["Hittable", "Loose", "Meat"]]
+z_index = -2
 z_as_relative = false
 collision_layer = 64
-collision_mask = 70
+collision_mask = 74
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -66,18 +51,6 @@ size = 2.0
 
 [node name="Sphere" type="Spatial" parent="Viewport/Head"]
 
-[node name="Mesh" type="MeshInstance" parent="Viewport/Head/Sphere"]
-transform = Transform( -4.37047e-08, 7.62869e-10, -1, 0.0174524, 0.999848, 0, 0.999848, -0.0174524, -4.37114e-08, 0, 0, 0 )
-visible = false
-mesh = SubResource( 3 )
-skeleton = NodePath("../..")
-material/0 = SubResource( 4 )
-
-[node name="MeshInstance" type="MeshInstance" parent="Viewport/Head/Sphere"]
-visible = false
-mesh = SubResource( 8 )
-material/0 = SubResource( 7 )
-
 [node name="PigHead" parent="Viewport/Head/Sphere" instance=ExtResource( 3 )]
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -89,11 +62,34 @@ z_index = -1
 amount = 250
 lifetime = 5.0
 local_coords = false
-texture = ExtResource( 4 )
+texture = SubResource( 12 )
 gravity = Vector2( 0, 0 )
+angle = 720.0
+angle_random = 1.0
+scale_amount = 0.5
+scale_amount_random = 0.5
+scale_amount_curve = SubResource( 11 )
+color = Color( 0.752941, 0.101961, 0.101961, 1 )
+hue_variation = -0.05
+hue_variation_random = 0.5
+
+[node name="Explode" type="CPUParticles2D" parent="."]
+z_index = -2
+z_as_relative = false
+emitting = false
+amount = 20
+lifetime = 0.6
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+texture = SubResource( 13 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 200.0
+initial_velocity_random = 0.8
 scale_amount = 0.1
 scale_amount_random = 0.05
-scale_amount_curve = SubResource( 11 )
-color = Color( 0.980392, 0.129412, 0.129412, 1 )
-hue_variation = -0.05
+scale_amount_curve = SubResource( 14 )
+color = Color( 1, 0.25098, 0.25098, 1 )
+hue_variation = -0.1
 hue_variation_random = 0.5

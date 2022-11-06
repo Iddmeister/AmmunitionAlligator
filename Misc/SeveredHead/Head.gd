@@ -15,6 +15,7 @@ onready var sphere = $Viewport/Head/Sphere
 onready var startScale = $Sprite.scale
 
 var still:bool = false
+var exploded:bool = false
 
 func movement(delta:float):
 	
@@ -42,16 +43,15 @@ func movement(delta:float):
 var Blood = preload("res://Blood/Blood.tscn")
 		
 func spawnBlood():
-	
-	for n in range(1):
-		var b = Blood.instance()
-		get_parent().add_child(b)
-		b.global_position = global_position+(Vector2(10, 0).rotated(2*PI*(float(n)/5)))
+	var b = Blood.instance()
+	b.slow = true
+	get_parent().add_child(b)
+	b.global_position = global_position+Vector2(rand_range(0, 15), 0).rotated(rand_range(0, 2*PI))
 
 
 func rotateHead(vel:Vector2):
 	vel *= 0.1
-	vel = vel.clamped(1000)
+	vel = vel.limit_length(1000)
 	sphere.rotate_x(vel.y)
 	sphere.rotate_y(vel.x)
 	sphere.orthonormalize()
@@ -65,9 +65,19 @@ func bump(vel:Vector2):
 	velocity += vel*0.5
 	
 func _physics_process(delta: float) -> void:
-	movement(delta)
+	if not exploded:
+		movement(delta)
 	
-func spit(alligator):
-	velocity = Vector2(800, 0).rotated(alligator.global_rotation)
+func spit(alligator, dir:float=0):
+	velocity = Vector2(685+rand_range(-40, 40), 0).rotated(dir)
 	alligator.get_parent().add_child(self)
+	sphere.rotate_x(rand_range(0, 1))
+	sphere.rotate_y(rand_range(0, 1))
 	global_position = alligator.global_position
+	
+func hit(_damage:int, _dir:float=0):
+	exploded = true
+	$Sprite.hide()
+	$Blood.emitting = false
+	$Explode.emitting  = true
+	$CollisionShape2D.set_deferred("disabled", true)
