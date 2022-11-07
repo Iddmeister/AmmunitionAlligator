@@ -4,6 +4,11 @@ var currentImportance:int = 0
 
 var moving:bool = false
 
+func _physics_process(delta: float) -> void:
+	if Input.is_action_pressed("look"):
+		position = Vector2(200, 0)
+	else:
+		position = Vector2(0, 0)
 
 func move_camera(move:Vector2):
 	if not moving:

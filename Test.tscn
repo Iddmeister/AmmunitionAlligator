@@ -1,63 +1,54 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Alligator/Alligator.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Enemies/Pig/Pig.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Misc/Square.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Door/Door.tscn" type="PackedScene" id=4]
 
-[sub_resource type="NavigationPolygon" id=1]
-vertices = PoolVector2Array( 497, -3, 523, -176, 923, 220, 488, 97, 261, 118, -68, 716, 116, 320, -603, 53, 9, 247, 7, -112, 145, 64, -173, -146, -92, -170, 239, 7, 73, -154 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 3, 2, 5, 6 ), PoolIntArray( 6, 5, 7, 8 ), PoolIntArray( 9, 10, 8, 7, 11, 12 ), PoolIntArray( 1, 0, 13, 14 ), PoolIntArray( 12, 1, 14 ), PoolIntArray( 9, 12, 14 ) ]
-outlines = [ PoolVector2Array( -173, -146, -603, 53, -68, 716, 923, 220, 523, -176, -92, -170 ), PoolVector2Array( 239, 7, 73, -154, 7, -112, 145, 64, 9, 247, 116, 320, 261, 118, 488, 97, 497, -3 ) ]
+[sub_resource type="NavigationPolygon" id=6]
+vertices = PoolVector2Array( 32, -189, 61, -169, -5, -98, -57, -94, 150, 61, 86, 197, -147, 59 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 2, 4, 5, 6, 3 ) ]
+outlines = [ PoolVector2Array( 86, 197, 150, 61, -5, -98, 61, -169, 32, -189, -57, -94, -147, 59 ) ]
+
+[sub_resource type="NavigationPolygon" id=4]
+vertices = PoolVector2Array( 94, -242, 321, -190, 298, -172, 248, -178, 202, -29, 56, -164, 19, -172, 27, -152 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 3, 4, 5, 0 ), PoolIntArray( 6, 0, 5, 7 ) ]
+outlines = [ PoolVector2Array( 56, -164, 202, -29, 248, -178, 298, -172, 321, -190, 94, -242, 19, -172, 27, -152 ) ]
+
+[sub_resource type="NavigationPolygon" id=5]
+vertices = PoolVector2Array( 431, -2, 293, 4, 318, -141, 426, -156, 304, -191, 298, -172 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 3, 2, 5 ) ]
+outlines = [ PoolVector2Array( 304, -191, 426, -156, 431, -2, 293, 4, 318, -141, 298, -172 ) ]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 16.1317, 16 )
 
 [node name="Test" type="Navigation2D"]
+edge_connection_margin = 10.0
 
 [node name="Alligator" parent="." instance=ExtResource( 1 )]
-
-[node name="Pig" parent="." instance=ExtResource( 2 )]
-position = Vector2( 362, -13 )
-z_index = -1
-
-[node name="Pig2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 269, 232 )
-rotation = -1.92063
-z_index = -1
-
-[node name="Pig3" parent="." instance=ExtResource( 2 )]
-position = Vector2( -139, 129 )
-rotation = -1.92063
-z_index = -1
-
-[node name="Pig4" parent="." instance=ExtResource( 2 )]
-position = Vector2( -161, -25 )
-rotation = -1.92063
-z_index = -1
-
-[node name="Pig5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 183, -76 )
-rotation = -1.92063
-z_index = -1
-
-[node name="Pig6" parent="." instance=ExtResource( 2 )]
-position = Vector2( 399, 140 )
-rotation = -1.92063
-z_index = -1
-
-[node name="Pig7" parent="." instance=ExtResource( 2 )]
-position = Vector2( -297, 69 )
-rotation = -1.92063
-z_index = -1
+position = Vector2( -13, 334 )
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
-navpoly = SubResource( 1 )
+navpoly = SubResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="NavigationPolygonInstance2" type="NavigationPolygonInstance" parent="."]
+navpoly = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="NavigationPolygonInstance3" type="NavigationPolygonInstance" parent="."]
+navpoly = SubResource( 5 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2( 150, -22 )
+position = Vector2( 141, -26 )
 rotation = 0.785397
 scale = Vector2( 7.81651, 1 )
 collision_layer = 2
@@ -71,12 +62,11 @@ texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 0.131706, 3.8147e-05 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 2 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2( 154, 153 )
-rotation = -0.927472
+rotation = -1.0472
 scale = Vector2( 7.81651, 1 )
 collision_layer = 2
 collision_mask = 0
@@ -89,7 +79,91 @@ texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2( 0.131706, 3.8147e-05 )
-scale = Vector2( 1, 1 )
+shape = SubResource( 2 )
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2( -150, -22 )
+rotation = -1.0472
+scale = Vector2( 7.81651, 1 )
+collision_layer = 2
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D5"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2( 0.131706, 3.8147e-05 )
+shape = SubResource( 2 )
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+position = Vector2( -6.00001, -211 )
+rotation = -0.785397
+scale = Vector2( 7.81651, 1 )
+collision_layer = 2
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D6"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+position = Vector2( 0.131706, 3.8147e-05 )
+shape = SubResource( 2 )
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="."]
+position = Vector2( 186, -259 )
+rotation = 0.261799
+scale = Vector2( 7.81651, 1 )
+collision_layer = 2
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D7"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7"]
+position = Vector2( 0.131706, 3.8147e-05 )
+shape = SubResource( 2 )
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="."]
+position = Vector2( 249, -42 )
+rotation = 1.83259
+scale = Vector2( 6.7076, 1 )
+collision_layer = 2
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D8"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D8"]
+position = Vector2( 0.131706, 3.8147e-05 )
+shape = SubResource( 2 )
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2( -82, 143 )
+rotation = -2.61799
+scale = Vector2( 7.81651, 1 )
+collision_layer = 2
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D4"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2( 0.131706, 3.8147e-05 )
 shape = SubResource( 2 )
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
@@ -107,5 +181,66 @@ texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
 position = Vector2( 0.131706, 3.8147e-05 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 2 )
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="."]
+position = Vector2( 474, -69 )
+rotation = -1.57079
+scale = Vector2( 7.81651, 1 )
+collision_layer = 2
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D9"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D9"]
+position = Vector2( 0.131706, 3.8147e-05 )
+shape = SubResource( 2 )
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="."]
+position = Vector2( 404, -201 )
+rotation = -2.87979
+scale = Vector2( 6.56562, 1 )
+collision_layer = 2
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D10"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D10"]
+position = Vector2( 0.131706, 3.8147e-05 )
+shape = SubResource( 2 )
+
+[node name="Door" parent="." instance=ExtResource( 4 )]
+position = Vector2( 53, 229 )
+rotation = -1.0472
+
+[node name="Door2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 282, -180 )
+rotation = -2.87979
+
+[node name="Pig" parent="." instance=ExtResource( 2 )]
+position = Vector2( 140, -189 )
+rotation = 2.71187
+
+[node name="Pig2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 296, -14 )
+rotation = -1.23242
+
+[node name="Pig5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 437, -130 )
+rotation = -3.40339
+
+[node name="Pig3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 131, 80 )
+rotation = -2.09439
+
+[node name="Pig4" parent="." instance=ExtResource( 2 )]
+position = Vector2( -129, 53 )
+rotation = -0.105767

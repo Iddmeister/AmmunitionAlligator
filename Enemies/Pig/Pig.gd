@@ -29,6 +29,11 @@ func eaten(_alligator):
 	$Squelch.play()
 	$Pistol.hide()
 	
+func die():
+	.die()
+	$Firerate.stop()
+	canShoot = false
+	
 func think(delta:float):
 	if canSeeAlligator:
 		global_rotation = lerp_angle(global_rotation, (alligator.global_position-global_position).angle(), 0.5*delta*60)
@@ -42,7 +47,7 @@ func navUpdate():
 		seenAlligator = canSeeAlligator
 	if canSeeAlligator:
 		moving = true
-		navAgent.set_target_location(alligator.global_position+Vector2(140, 0).rotated((global_position-alligator.global_position).angle()+rand_range(-PI, PI)))
+		navAgent.set_target_location(alligator.global_position+Vector2(140, 0).rotated((global_position-alligator.global_position).angle()))#+rand_range(-PI, PI)))
 		if canShoot:
 			shoot()
 	elif seenAlligator:
@@ -58,6 +63,10 @@ func castToAlligator():
 		return false
 		
 func shoot():
+	
+	if dead:
+		return
+	
 	canShoot = false
 	$Firerate.start(1.6+rand_range(0, 0.2))
 	
@@ -72,4 +81,5 @@ func shoot():
 
 
 func _on_Firerate_timeout() -> void:
-	canShoot = true
+	if not dead:
+		canShoot = true

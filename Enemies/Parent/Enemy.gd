@@ -52,33 +52,33 @@ func hit(damage:int=1, dir:float=0):
 	
 	if not health <= 0:
 		return
-		
-	dead = true
 	
 	shot(dir)
 	
 func shot(_dir:float=0):
-	$Graphics.hide()
-	$CollisionShape2D.set_deferred("disabled", true)
-	$NavUpdate.stop()
-	navAgent.disconnect("velocity_computed", self, "move")
-	navAgent.queue_free()
-	z_index = -2
+	die()
+	
 	
 func bite(_alligator):
 	if dead:
 		return
 	health = 0
-	dead = true
 	eaten(_alligator)
 	
 func eaten(_alligator):
+	die()
+	
+func die():
+	if dead:
+		return
+		
 	$Graphics.hide()
 	$CollisionShape2D.set_deferred("disabled", true)
 	$NavUpdate.stop()
 	navAgent.disconnect("velocity_computed", self, "move")
 	navAgent.queue_free()
-	z_index = -2
+	z_index = -4
+	dead = true
 	
 func spawnBlood(pos:Vector2=global_position):
 	for n in range(5):

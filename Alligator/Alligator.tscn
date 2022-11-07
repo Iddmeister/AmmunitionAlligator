@@ -507,7 +507,7 @@ position = Vector2( 0, 2 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 16 )
 animation = "walk"
-frame = 1
+frame = 4
 playing = true
 
 [node name="Torso" type="Node2D" parent="Graphics"]
@@ -557,7 +557,6 @@ anims/Bite = SubResource( 17 )
 anims/RESET = SubResource( 18 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource( 1 )
 
 [node name="Bite" type="AudioStreamPlayer" parent="."]
@@ -572,6 +571,7 @@ script = ExtResource( 12 )
 [node name="Tween" type="Tween" parent="Camera"]
 
 [node name="BiteArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 32
 collision_mask = 4
 
@@ -581,6 +581,7 @@ rotation = 1.5708
 shape = SubResource( 19 )
 
 [node name="SwallowArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 32
 collision_mask = 128
 
@@ -654,7 +655,7 @@ rotation = 1.57079
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 20 )
 animation = "flicker"
-frame = 1
+frame = 2
 playing = true
 offset = Vector2( -2.517, -15.0149 )
 
