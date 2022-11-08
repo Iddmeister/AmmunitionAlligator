@@ -19,7 +19,9 @@ func _on_KnockArea_body_entered(body: Node) -> void:
 		return
 	if not knocked:
 		
+		$Debris.emitting = true
 		$Break.play()
+		body.camera.shake(20, 0.4, 5)
 		randomize()
 		set_collision_layer_bit(1, false)
 		set_collision_mask_bit(1, true)

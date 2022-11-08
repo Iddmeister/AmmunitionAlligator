@@ -8,6 +8,8 @@ func attack(pos:Vector2):
 	
 	if not reloading and $FireDelay.time_left == 0 and currentClip > 0:
 		shoot()
+	elif not reloading and not currentClip > 0:
+		$Empty.play()
 	
 func shoot():
 	

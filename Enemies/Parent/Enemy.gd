@@ -58,6 +58,8 @@ func hit(damage:int=1, dir:float=0):
 func shot(_dir:float=0):
 	die()
 	
+func ignite():
+	die()
 	
 func bite(_alligator):
 	if dead:

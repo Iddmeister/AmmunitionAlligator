@@ -8,8 +8,9 @@ export var damage:int = 1
 var isEnemy:bool = false
 
 func _ready() -> void:
-	if isEnemy:
-		add_to_group("Swallowable")
+#	if isEnemy:
+#		add_to_group("Swallowable")
+	pass
 
 func _physics_process(delta: float) -> void:
 	global_position += Vector2(speed*delta, 0).rotated(global_rotation)

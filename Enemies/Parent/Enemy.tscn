@@ -111,7 +111,7 @@ tracks/0/keys = {
 "values": [ false ]
 }
 
-[node name="Enemy" type="KinematicBody2D" groups=["Eatable", "Enemy", "Hittable"]]
+[node name="Enemy" type="KinematicBody2D" groups=["Eatable", "Enemy", "Flammable", "Hittable"]]
 z_index = 2
 z_as_relative = false
 collision_layer = 132
@@ -130,7 +130,7 @@ rotation = 1.5708
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 16 )
 animation = "walk"
-frame = 11
+frame = 3
 playing = true
 
 [node name="Torso" type="Sprite" parent="Graphics"]
