@@ -11,6 +11,7 @@ var smokeRadii := []
 onready var lastRot:float = global_rotation
 
 func _ready() -> void:
+	$Ignite.play()
 	
 	for n in range(numPoints):
 		
@@ -70,6 +71,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_Firerate_timeout() -> void:
+	return
 	for n in range(5):
 		var f = Flame.instance()
 		get_parent().get_parent().add_child(f)

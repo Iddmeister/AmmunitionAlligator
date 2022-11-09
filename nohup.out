@@ -1,0 +1,775 @@
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "!item" is true.
+   at: _cell_button_pressed (editor/scene_tree_editor.cpp:55)
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+     at: cleanup (core/object.cpp:2070)
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: (Node not found: "Puf2" (relative to "/root/Test/Alligator/Flamethrower").)
+   at: get_node (scene/main/node.cpp:1465)
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+     at: cleanup (core/object.cpp:2070)
+ERROR: Resources still in use at exit (run with --verbose for details).
+   at: clear (core/resource.cpp:417)
+ERROR: There are still MemoryPool allocs in use at exit!
+   at: cleanup (core/pool_vector.cpp:63)
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+ 
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-fiGodot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+     at: cleanup (core/object.cpp:2070)
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+     at: cleanup (core/object.cpp:2070)
+ERROR: Resources still in use at exit (run with --verbose for details).
+   at: clear (core/resource.cpp:417)
+ERROR: There are still MemoryPool allocs in use at exit!
+   at: cleanup (core/pool_vector.cpp:63)
+les' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' notGodot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+     at: cleanup (core/object.cpp:2070)
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+     at: cleanup (core/object.cpp:2070)
+ERROR: Resources still in use at exit (run with --verbose for details).
+   at: clear (core/resource.cpp:417)
+ERROR: There are still MemoryPool allocs in use at exit!
+   at: cleanup (core/pool_vector.cpp:63)
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+     at: cleanup (core/object.cpp:2070)
+ERROR: Resources still in use at exit (run with --verbose for details).
+   at: clear (core/resource.cpp:417)
+ERROR: There are still MemoryPool allocs in use at exit!
+   at: cleanup (core/pool_vector.cpp:63)
+ supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+     at: cleanup (core/object.cpp:2070)
+ERROR: Resources still in use at exit (run with --verbose for details).
+   at: clear (core/resource.cpp:417)
+ERROR: There are still MemoryPool allocs in use at exit!
+   at: cleanup (core/pool_vector.cpp:63)
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+     at: cleanup (core/object.cpp:2070)
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gGodot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+     at: cleanup (core/object.cpp:2070)
+ERROR: Resources still in use at exit (run with --verbose for details).
+   at: clear (core/resource.cpp:417)
+ERROR: There are still MemoryPool allocs in use at exit!
+   at: cleanup (core/pool_vector.cpp:63)
+SHADER ERROR: Invalid arguments to operator '*' :int and float
+          at: (null) (:14)
+SHADER ERROR: Expected expression, found: OP_MOD
+          at: (null) (:14)
+SHADER ERROR: Invalid arguments to operator '*' :int and float
+          at: (null) (:14)
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+     at: cleanup (core/object.cpp:2070)
+ERROR: Resources still in use at exit (run with --verbose for details).
+   at: clear (core/resource.cpp:417)
+ERROR: There are still MemoryPool allocs in use at exit!
+   at: cleanup (core/pool_vector.cpp:63)
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+ator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+    1 | shader_type canvas_item;
+    2 | 
+    3 | uniform sampler2D noise;
+    4 | uniform vec4 colour1 : hint_color;
+    5 | uniform vec4 colour2 : hint_color;
+    6 | 
+    7 | 
+    8 | void fragment() {
+    9 | 	
+   10 | 	if (texture(TEXTURE, UV).a > 0.0) {
+   11 | 	
+   12 | 		vec4 new;
+   13 | 		
+E  14-> 		vec2 uv = vec2(0*TIME-UV.x, UV.y);
+   15 | 		
+   16 | 		float grey = (texture(noise, uv).r+texture(noise, uv).g+texture(noise, uv).b)/3.0;
+   17 | 		
+   18 | 		if (grey < 0.4) {
+   19 | 			new = colour1;
+   20 | 			new.a = grey;
+   21 | 		} else if (grey > 0.5) {
+   22 | 			new = colour1;
+   23 | 		} else if (grey > 0.6) {
+   24 | 			new = colour2;
+   25 | 			new.a = grey;
+   26 | 		} else {
+   27 | 			new = colour2;
+   28 | 		}
+   29 | 		COLOR = new;
+   30 | 		
+   31 | 	} else {
+   32 | 		COLOR = vec4(1, 1, 1, 0);
+   33 | 	}
+   34 | 
+   35 | }
+    1 | shader_type canvas_item;
+    2 | 
+    3 | uniform sampler2D noise;
+    4 | uniform vec4 colour1 : hint_color;
+    5 | uniform vec4 colour2 : hint_color;
+    6 | 
+    7 | 
+    8 | void fragment() {
+    9 | 	
+   10 | 	if (texture(TEXTURE, UV).a > 0.0) {
+   11 | 	
+   12 | 		vec4 new;
+   13 | 		
+E  14-> 		vec2 uv = vec2(*TIME-UV.x, UV.y);
+   15 | 		
+   16 | 		float grey = (texture(noise, uv).r+texture(noise, uv).g+texture(noise, uv).b)/3.0;
+   17 | 		
+   18 | 		if (grey < 0.4) {
+   19 | 			new = colour1;
+   20 | 			new.a = grey;
+   21 | 		} else if (grey > 0.5) {
+   22 | 			new = colour1;
+   23 | 		} else if (grey > 0.6) {
+   24 | 			new = colour2;
+   25 | 			new.a = grey;
+   26 | 		} else {
+   27 | 			new = colour2;
+   28 | 		}
+   29 | 		COLOR = new;
+   30 | 		
+   31 | 	} else {
+   32 | 		COLOR = vec4(1, 1, 1, 0);
+   33 | 	}
+   34 | 
+   35 | }
+    1 | shader_type canvas_item;
+    2 | 
+    3 | uniform sampler2D noise;
+    4 | uniform vec4 colour1 : hint_color;
+    5 | uniform vec4 colour2 : hint_color;
+    6 | 
+    7 | 
+    8 | void fragment() {
+    9 | 	
+   10 | 	if (texture(TEXTURE, UV).a > 0.0) {
+   11 | 	
+   12 | 		vec4 new;
+   13 | 		
+E  14-> 		vec2 uv = vec2(1*TIME-UV.x, UV.y);
+   15 | 		
+   16 | 		float grey = (texture(noise, uv).r+texture(noise, uv).g+texture(noise, uv).b)/3.0;
+   17 | 		
+   18 | 		if (grey < 0.4) {
+   19 | 			new = colour1;
+   20 | 			new.a = grey;
+   21 | 		} else if (grey > 0.5) {
+   22 | 			new = colour1;
+   23 | 		} else if (grey > 0.6) {
+   24 | 			new = colour2;
+   25 | 			new.a = grey;
+   26 | 		} else {
+   27 | 			new = colour2;
+   28 | 		}
+   29 | 		COLOR = new;
+   30 | 		
+   31 | 	} else {
+   32 | 		COLOR = vec4(1, 1, 1, 0);
+   33 | 	}
+   34 | 
+   35 | }
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Target 'x-special/gnome-copied-files' not supported.
+Running: /usr/local/bin/godot --path /home/iddmeister/Projects/gator --remote-debug 127.0.0.1:6007 --allow_focus_steal_pid 337091 --position 128,60 res://Test.tscn
+Target 'x-special/gnomeOpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+     at: cleanup (core/object.cpp:2070)
+ERROR: Resources still in use at exit (run with --verbose for details).
+   at: clear (core/resource.cpp:417)
+ERROR: There are still MemoryPool allocs in use at exit!
+   at: cleanup (core/pool_vector.cpp:63)
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa DRI Intel(R) HD Graphics 4400 (HSW GT2)
+Async. shader compilation: OFF
+/lib/x86_64-linux-gnu/libasound.so.2: undefined symbol: snd_dlpath
+ 
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)
+ERROR: Condition "_first != nullptr" is true.
+   at: ~List (./core/self_list.h:108)

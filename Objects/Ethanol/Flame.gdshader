@@ -11,7 +11,7 @@ void fragment() {
 	
 		vec4 new;
 		
-		vec2 uv = vec2(0.5*TIME-UV.x, UV.y);
+		vec2 uv = vec2(5.0*TIME-UV.x, UV.y);
 		
 		float grey = (texture(noise, uv).r+texture(noise, uv).g+texture(noise, uv).b)/3.0;
 		

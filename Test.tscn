@@ -248,3 +248,9 @@ rotation = -0.105767
 
 [node name="Ethanol" parent="." instance=ExtResource( 5 )]
 position = Vector2( -105, 209 )
+
+[node name="Ethanol2" parent="." instance=ExtResource( 5 )]
+position = Vector2( -112, 304 )
+
+[node name="Ethanol3" parent="." instance=ExtResource( 5 )]
+position = Vector2( -194, 261 )

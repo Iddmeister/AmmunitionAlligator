@@ -1,17 +1,18 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Misc/Square.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Ethanol/Flamethrower.gd" type="Script" id=2]
 [ext_resource path="res://Objects/Ethanol/Flame.gdshader" type="Shader" id=3]
 [ext_resource path="res://Objects/Ethanol/Flame.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Ethanol/FlameIgnition.wav" type="AudioStream" id=5]
+[ext_resource path="res://Misc/Circle.png" type="Texture" id=6]
 
-[sub_resource type="OpenSimplexNoise" id=3]
+[sub_resource type="OpenSimplexNoise" id=13]
 octaves = 5
-period = 54.1
+period = 87.4
 
 [sub_resource type="NoiseTexture" id=4]
-width = 2048
-noise = SubResource( 3 )
+noise = SubResource( 13 )
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 3 )
@@ -43,6 +44,19 @@ animations = [ {
 "speed": 15.0
 } ]
 
+[sub_resource type="Curve" id=10]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.2, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.9, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=11]
+offsets = PoolRealArray( 0, 0.290541, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 0.796875, 0, 1, 0.988281, 0.0810699, 0.0810699, 1 )
+
+[sub_resource type="ShaderMaterial" id=12]
+shader = ExtResource( 3 )
+shader_param/colour1 = Color( 0.917647, 0.0901961, 0.0901961, 1 )
+shader_param/colour2 = Color( 0.992157, 0.737255, 0.129412, 1 )
+shader_param/noise = SubResource( 4 )
+
 [node name="Flamethrower" type="Area2D"]
 collision_layer = 32
 collision_mask = 70
@@ -63,7 +77,7 @@ position = Vector2( 20, 0 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 9 )
 animation = "flame"
-frame = 3
+frame = 2
 playing = true
 offset = Vector2( 32, 0 )
 
@@ -72,8 +86,36 @@ wait_time = 0.05
 autostart = true
 
 [node name="Time" type="Timer" parent="."]
+wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="Ignite" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = 10.0
+bus = "Fire"
+
+[node name="Line" type="CPUParticles2D" parent="."]
+visible = false
+amount = 200
+speed_scale = 4.0
+local_coords = false
+texture = ExtResource( 6 )
+spread = 1.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 200.0
+scale_amount = 0.2
+scale_amount_random = 0.05
+scale_amount_curve = SubResource( 10 )
+color_ramp = SubResource( 11 )
+
+[node name="Line2D" type="Line2D" parent="."]
+material = SubResource( 12 )
+points = PoolVector2Array( 0, 0, 64, 0, 128, -16, 192, 0 )
+width = 30.0
+default_color = Color( 0.4, 0.501961, 1, 1 )
+texture = ExtResource( 1 )
+texture_mode = 1
 
 [connection signal="body_entered" from="." to="." method="_on_Flamethrower_body_entered"]
 [connection signal="timeout" from="Firerate" to="." method="_on_Firerate_timeout"]
