@@ -71,13 +71,12 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_Firerate_timeout() -> void:
-	return
-	for n in range(5):
+	for n in range(1):
 		var f = Flame.instance()
 		get_parent().get_parent().add_child(f)
 		f.global_position = global_position
 		f.speed *= rand_range(1, 1.5)
-		f.global_rotation = global_rotation+rand_range(-PI/8, PI/8)
+		f.global_rotation = global_rotation
 
 
 func _on_Time_timeout() -> void:
