@@ -4,7 +4,7 @@
 [ext_resource path="res://Objects/Ethanol/Flame2.png" type="Texture" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 15.1327
+radius = 8.0
 
 [node name="Flame" type="Area2D"]
 collision_layer = 8
@@ -15,12 +15,12 @@ script = ExtResource( 4 )
 shape = SubResource( 1 )
 
 [node name="Time" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.5
 one_shot = true
 autostart = true
 
 [node name="Graphics" type="Node2D" parent="."]
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.4, 0.4 )
 
 [node name="Sprite" type="Sprite" parent="Graphics"]
 modulate = Color( 1.5, 1.5, 0, 1 )

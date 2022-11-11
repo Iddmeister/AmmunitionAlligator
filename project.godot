@@ -41,6 +41,10 @@ _global_script_class_icons={
 config/name="Ammunition Alligator"
 config/icon="res://icon.png"
 
+[audio]
+
+default_bus_layout="res://Alligator/AudioBus.tres"
+
 [autoload]
 
 Manager="*res://Singletons/Manager/Manager.tscn"

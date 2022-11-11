@@ -9,7 +9,19 @@ export var bulletSpeed:float = 600
 
 func _ready() -> void:
 	$Firerate.wait_time = 1.6+rand_range(0, 0.2)
-
+	
+func ignite(dir:float=0):
+	
+	$Body.global_rotation = dir+(PI/2)
+	$Body.frame = 2
+	$Body.show()
+	$Body/Fire.emitting = true
+	$Body/Fire.global_rotation = 0
+	$Pistol.hide()
+	die()
+	yield(get_tree().create_timer(5), "timeout")
+	$Body/Fire.emitting = false
+	
 func shot(dir:float=0):
 	.shot(dir)
 	spawnBlood()

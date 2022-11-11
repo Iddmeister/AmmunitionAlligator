@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=2]
+[gd_scene load_steps=73 format=2]
 
 [ext_resource path="res://Misc/Legs.png" type="Texture" id=1]
 [ext_resource path="res://Alligator/HeadRecolour.png" type="Texture" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Alligator/AlligatorDead.png" type="Texture" id=16]
 [ext_resource path="res://Misc/Fonts/coolvetica rg.otf" type="DynamicFontData" id=17]
 [ext_resource path="res://Alligator/Weapons/Revolver/RevolverShoot.wav" type="AudioStream" id=18]
+[ext_resource path="res://Alligator/Lighter.wav" type="AudioStream" id=19]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
@@ -384,8 +385,9 @@ radius = 15.0
 radius = 26.0
 height = 38.0
 
-[sub_resource type="CircleShape2D" id=24]
-radius = 73.2462
+[sub_resource type="CapsuleShape2D" id=54]
+radius = 28.0003
+height = 47.9995
 
 [sub_resource type="Shader" id=50]
 code = "shader_type canvas_item;
@@ -507,7 +509,7 @@ position = Vector2( 0, 2 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 16 )
 animation = "walk"
-frame = 3
+frame = 6
 playing = true
 
 [node name="Torso" type="Node2D" parent="Graphics"]
@@ -586,9 +588,9 @@ collision_layer = 32
 collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SwallowArea"]
-position = Vector2( 36, 0 )
+position = Vector2( 29, 0 )
 rotation = 1.57079
-shape = SubResource( 24 )
+shape = SubResource( 54 )
 
 [node name="Grey" type="CanvasLayer" parent="."]
 
@@ -641,7 +643,16 @@ scroll_active = false
 
 [node name="Lighter" type="Node2D" parent="."]
 visible = false
-position = Vector2( 14, -13 )
+position = Vector2( 29, -10 )
+z_index = 5
+
+[node name="Arm" type="Sprite" parent="Lighter"]
+modulate = Color( 0.290196, 0.0392157, 0.380392, 1 )
+position = Vector2( -16.3413, -1.30438 )
+rotation = 0.140077
+scale = Vector2( 0.615581, 0.178369 )
+z_index = -5
+texture = ExtResource( 10 )
 
 [node name="Hand" type="Sprite" parent="Lighter"]
 modulate = Color( 0.290196, 0.6, 0.305882, 1 )
@@ -655,9 +666,12 @@ rotation = 1.57079
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 20 )
 animation = "flicker"
-frame = 2
 playing = true
 offset = Vector2( -2.517, -15.0149 )
+
+[node name="Lighter" type="AudioStreamPlayer" parent="Lighter"]
+stream = ExtResource( 19 )
+volume_db = 10.0
 
 [node name="Weapon" type="Node2D" parent="."]
 position = Vector2( 14, 8 )
@@ -684,16 +698,19 @@ position = Vector2( 1, 4 )
 [node name="Revolver" parent="Weapon/Pivot" instance=ExtResource( 11 )]
 position = Vector2( 0, 4 )
 
+[node name="Body" type="Sprite" parent="."]
+visible = false
+rotation = -1.57079
+texture = ExtResource( 16 )
+
+[node name="Flames" type="Node2D" parent="."]
+position = Vector2( 29, 0 )
+
 [node name="Swallow" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
 
 [node name="Spit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
-
-[node name="Body" type="Sprite" parent="."]
-visible = false
-rotation = -1.57079
-texture = ExtResource( 16 )
 
 [node name="SpitBullets" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 18 )

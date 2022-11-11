@@ -17,7 +17,7 @@ var alligator:Node2D
 func _ready() -> void:
 	navAgent.connect("velocity_computed", self, "move")
 
-func think(delta:float):
+func think(_delta:float):
 	pass
 
 func _physics_process(delta: float) -> void:
@@ -58,7 +58,7 @@ func hit(damage:int=1, dir:float=0):
 func shot(_dir:float=0):
 	die()
 	
-func ignite():
+func ignite(_dir:float=0):
 	die()
 	
 func bite(_alligator):

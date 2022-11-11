@@ -1,107 +1,28 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Misc/Square.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Ethanol/Flamethrower.gd" type="Script" id=2]
-[ext_resource path="res://Objects/Ethanol/Flame.gdshader" type="Shader" id=3]
-[ext_resource path="res://Objects/Ethanol/Flame.png" type="Texture" id=4]
 [ext_resource path="res://Objects/Ethanol/FlameIgnition.wav" type="AudioStream" id=5]
-[ext_resource path="res://Misc/Circle.png" type="Texture" id=6]
-
-[sub_resource type="OpenSimplexNoise" id=13]
-octaves = 5
-period = 87.4
-
-[sub_resource type="NoiseTexture" id=4]
-noise = SubResource( 13 )
-
-[sub_resource type="ShaderMaterial" id=2]
-shader = ExtResource( 3 )
-shader_param/colour1 = Color( 0.917647, 0.0901961, 0.0901961, 1 )
-shader_param/colour2 = Color( 0.992157, 0.737255, 0.129412, 1 )
-shader_param/noise = SubResource( 4 )
-
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 64, 32 )
-
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 4 )
-region = Rect2( 64, 0, 64, 32 )
-
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 4 )
-region = Rect2( 128, 0, 64, 32 )
-
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 4 )
-region = Rect2( 192, 0, 64, 32 )
-
-[sub_resource type="SpriteFrames" id=9]
-animations = [ {
-"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
-"loop": true,
-"name": "flame",
-"speed": 15.0
-} ]
-
-[sub_resource type="Curve" id=10]
-_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.2, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.9, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="Gradient" id=11]
-offsets = PoolRealArray( 0, 0.290541, 1 )
-colors = PoolColorArray( 1, 1, 1, 1, 1, 0.796875, 0, 1, 0.988281, 0.0810699, 0.0810699, 1 )
+[ext_resource path="res://Objects/Ethanol/Flamethrower.wav" type="AudioStream" id=7]
 
 [node name="Flamethrower" type="Area2D"]
 collision_layer = 32
 collision_mask = 70
 script = ExtResource( 2 )
 
-[node name="Fire" type="Polygon2D" parent="."]
-visible = false
-material = SubResource( 2 )
-texture = ExtResource( 1 )
-texture_scale = Vector2( 0.1, 0.1 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-
-[node name="Sprite" type="AnimatedSprite" parent="."]
-visible = false
-material = SubResource( 2 )
-position = Vector2( 20, 0 )
-scale = Vector2( 3, 3 )
-frames = SubResource( 9 )
-animation = "flame"
-frame = 2
-playing = true
-offset = Vector2( 32, 0 )
-
-[node name="Firerate" type="Timer" parent="."]
-wait_time = 0.01
-autostart = true
-
 [node name="Time" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 1.5
 one_shot = true
 autostart = true
 
 [node name="Ignite" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 volume_db = 10.0
+bus = "Ignite"
 
-[node name="Line" type="CPUParticles2D" parent="."]
-visible = false
-amount = 200
-speed_scale = 4.0
-local_coords = false
-texture = ExtResource( 6 )
-spread = 1.0
-gravity = Vector2( 0, 0 )
-initial_velocity = 200.0
-scale_amount = 0.2
-scale_amount_random = 0.05
-scale_amount_curve = SubResource( 10 )
-color_ramp = SubResource( 11 )
+[node name="Flames" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+pitch_scale = 0.5
+bus = "Flames"
 
 [connection signal="body_entered" from="." to="." method="_on_Flamethrower_body_entered"]
-[connection signal="timeout" from="Firerate" to="." method="_on_Firerate_timeout"]
 [connection signal="timeout" from="Time" to="." method="_on_Time_timeout"]

@@ -56,6 +56,11 @@ func movement(delta:float):
 	
 func actions(delta:float):
 	
+	if Input.is_action_pressed("look"):
+		camera.position = Vector2(200, 0)
+	else:
+		camera.position = Vector2(0, 0)
+	
 	weaponPivot.global_rotation = lerp_angle(weaponPivot.global_rotation, (get_global_mouse_position()-weaponPivot.global_position).angle(), 0.5*delta*60)
 	$Lighter/AnimatedSprite.global_rotation = 0
 	
@@ -76,9 +81,11 @@ onready var spitSpread = deg2rad(spitSpreadDegrees)
 		
 func spit():
 	
+	$Lighter/Lighter.stop()
+	
 	var meat:bool = false
 	var bullets:int = 0
-	var objectTypes:Dictionary
+	var objectTypes:Dictionary = {}
 	for body in swallowedObjects:
 		if not objectTypes.has(body.filename):
 			objectTypes[body.filename] = [body]
@@ -109,12 +116,13 @@ func spit():
 		$SpitBullets.volume_db = 0+((bullets-1)*1.2)
 		$SpitBullets.play()
 	
-	var s = Spit.instance()
-	get_parent().add_child(s)
-	s.global_position = global_position
-	s.global_rotation = global_rotation
-	s.color = Color(1, 0.219608, 0.219608) if meat else Color(0.284991, 0.612786, 0.828125, 0.388235)
-		
+	if meat:
+		var s = Spit.instance()
+		get_parent().add_child(s)
+		s.global_position = global_position
+		s.global_rotation = global_rotation
+		s.color = Color(1, 0.219608, 0.219608) if meat else Color(0.284991, 0.612786, 0.828125, 0.388235)
+			
 func bite():
 	$Bite.pitch_scale = 0.8+rand_range(-0.2, 0)
 	$Bite.play()
@@ -157,6 +165,9 @@ func swallow(object):
 		$Swallow.play()
 	if object.has_method("swallow"):
 		object.swallow()
+	if object.is_in_group("Ethanol") and not $Lighter.visible:
+		$Lighter.show()
+		$Lighter/Lighter.play()
 	swallowedObjects.append(object)
 	if object in swallowAreaBodies:
 		swallowAreaBodies.erase(object)
@@ -218,3 +229,7 @@ func spawnBlood():
 	t.global_position = global_position
 	t.z_index = 10
 	t.scale = Vector2(0.5, 0.5)
+	
+func flamesFinished():
+	if $Flames.get_child_count() <= 1:
+		$Lighter.hide()

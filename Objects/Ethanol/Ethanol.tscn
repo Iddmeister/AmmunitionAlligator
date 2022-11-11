@@ -1,12 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Misc/Square.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Ethanol/Alcohol.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Ethanol/Ethanol.gd" type="Script" id=2]
+[ext_resource path="res://Objects/Ethanol/Glass.png" type="Texture" id=3]
+[ext_resource path="res://Alligator/GlassBreak.wav" type="AudioStream" id=4]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 19.0
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 12, 23 )
 
-[node name="Ethanol" type="Area2D" groups=["Flammable", "Swallowable"]]
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.472973, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="Ethanol" type="Area2D" groups=["Ethanol", "Swallowable"]]
 collision_layer = 128
 collision_mask = 0
 script = ExtResource( 2 )
@@ -15,4 +21,32 @@ script = ExtResource( 2 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 1 )
+
+[node name="Glass" type="CPUParticles2D" parent="."]
+emitting = false
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+texture = ExtResource( 3 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0
+damping = 150.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 0.5
+color = Color( 0.552941, 0.980392, 1, 0.352941 )
+color_ramp = SubResource( 2 )
+
+[node name="Break" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = 8.0
+pitch_scale = 1.6
+
+[node name="FreeTime" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="FreeTime" to="." method="_on_FreeTime_timeout"]

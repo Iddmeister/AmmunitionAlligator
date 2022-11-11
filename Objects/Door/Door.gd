@@ -54,11 +54,11 @@ func _physics_process(delta: float) -> void:
 			stopped = true
 			$DamageArea/CollisionShape2D.disabled = true
 		
-func rotateDoor(spin:Vector2):
-	spin *= 0.1
-	spin = spin.limit_length(1000)
+func rotateDoor(_spin:Vector2):
+	_spin *= 0.1
+	_spin = _spin.limit_length(1000)
 	pivot.get_child(0).rotate_y(sin(OS.get_system_time_msecs()*0.01)*0.1)
-	pivot.get_child(0).rotate_x(spin.x)
+	pivot.get_child(0).rotate_x(_spin.x)
 	pivot.orthonormalize()
 
 
