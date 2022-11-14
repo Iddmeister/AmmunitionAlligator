@@ -1,6 +1,10 @@
 extends KinematicBody2D
 
 var velocity:Vector2
+
+export var blood:bool = true
+export var explode:bool = true
+
 export var deceleration:float = 0.043
 export var collisionDamp:float = 0.8
 export var spin:bool = true
@@ -17,6 +21,10 @@ onready var startScale = $Sprite.scale
 var still:bool = false
 var exploded:bool = false
 
+func _ready() -> void:
+	if blood:
+		$Blood.emitting = true
+
 func movement(delta:float):
 	
 	velocity = velocity.linear_interpolate(Vector2(0, 0), deceleration*delta*60)
@@ -32,13 +40,15 @@ func movement(delta:float):
 	if bounce and timeToZero > 0:
 		bounceHead(delta)
 		
-	if velocity.length() <= 10 and not still:
-		still = true
-		spawnBlood()
-		$Blood.emitting = false
-	elif velocity.length() > 10:
-		still = false
-		$Blood.emitting = true
+	if blood:
+			
+		if velocity.length() <= 10 and not still:
+			still = true
+			spawnBlood()
+			$Blood.emitting = false
+		elif velocity.length() > 10:
+			still = false
+			$Blood.emitting = true
 		
 var Blood = preload("res://Blood/Blood.tscn")
 		
@@ -75,9 +85,12 @@ func spit(alligator, dir:float=0):
 	sphere.rotate_y(rand_range(0, 1))
 	global_position = alligator.global_position
 	
-func hit(_damage:int, _dir:float=0):
-	exploded = true
-	$Sprite.hide()
-	$Blood.emitting = false
-	$Explode.emitting  = true
-	$CollisionShape2D.set_deferred("disabled", true)
+func hit(_damage:int, dir:float=0):
+	if explode:
+		exploded = true
+		$Sprite.hide()
+		$Blood.emitting = false
+		$Explode.emitting  = true
+		$CollisionShape2D.set_deferred("disabled", true)
+	else:
+		velocity += Vector2(300, 0).rotated(dir)

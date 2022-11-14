@@ -3,7 +3,7 @@ extends KinematicBody2D
 class_name Enemy
 
 var Blood = preload("res://Blood/Blood.tscn")
-var Head = preload("res://Misc/SeveredHead/Head.tscn")
+export var Head:PackedScene
 var EatParticles = preload("res://Enemies/Parent/EatParticles.tscn")
 
 export var health:int = 3
@@ -114,3 +114,11 @@ func _on_NavUpdate_timeout() -> void:
 		
 func navUpdate():
 	pass
+	
+func castToAlligator():
+	if not alligator:
+		return true
+	if get_world_2d().direct_space_state.intersect_ray(global_position, alligator.global_position, [self], 0b10):
+		return true
+	else:
+		return false

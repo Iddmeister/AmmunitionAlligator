@@ -11,7 +11,6 @@ func _ready() -> void:
 	$Firerate.wait_time = 1.6+rand_range(0, 0.2)
 	
 func ignite(dir:float=0):
-	
 	$Body.global_rotation = dir+(PI/2)
 	$Body.frame = 2
 	$Body.show()
@@ -49,9 +48,9 @@ func die():
 func think(delta:float):
 	if canSeeAlligator:
 		global_rotation = lerp_angle(global_rotation, (alligator.global_position-global_position).angle(), 0.5*delta*60)
-		$Pistol.global_rotation = lerp_angle($Pistol.global_rotation, (alligator.global_position-$Pistol.global_position).angle(), 0.7*delta*60)
+		$Pistol.global_rotation = (alligator.global_position-$Pistol.global_position).angle()
 	else:
-		global_rotation = lerp_angle(global_rotation, velocity.angle(), 0.5*delta*60)
+		global_rotation = lerp_angle(global_rotation, velocity.angle(), 0.2*delta*60)
 	
 func navUpdate():
 	canSeeAlligator = not castToAlligator()
@@ -65,14 +64,6 @@ func navUpdate():
 	elif seenAlligator:
 		navAgent.set_target_location(alligator.global_position)
 		moving = true
-		
-func castToAlligator():
-	if not alligator:
-		return true
-	if get_world_2d().direct_space_state.intersect_ray(global_position, alligator.global_position, [self], 0b10):
-		return true
-	else:
-		return false
 		
 func shoot():
 	

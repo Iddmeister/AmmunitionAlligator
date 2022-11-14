@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Misc/SeveredHead/Head.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Enemies/Tortoise/ShellMesh.tscn" type="PackedScene" id=2]
+
+[sub_resource type="ViewportTexture" id=1]
+viewport_path = NodePath("Viewport")
+
+[node name="Shell" instance=ExtResource( 1 )]
+blood = false
+explode = false
+
+[node name="Shell" parent="Viewport/Head/Sphere" index="0" instance=ExtResource( 2 )]
+
+[node name="Sprite" parent="." index="2"]
+texture = SubResource( 1 )

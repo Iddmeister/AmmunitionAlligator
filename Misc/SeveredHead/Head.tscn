@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Misc/SeveredHead/Head.gd" type="Script" id=2]
-[ext_resource path="res://Enemies/Pig/PigHead.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Blood/BloodSplats.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -51,14 +50,13 @@ size = 2.0
 
 [node name="Sphere" type="Spatial" parent="Viewport/Head"]
 
-[node name="PigHead" parent="Viewport/Head/Sphere" instance=ExtResource( 3 )]
-
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.8, 0.8 )
 texture = SubResource( 5 )
 
 [node name="Blood" type="CPUParticles2D" parent="."]
 z_index = -1
+emitting = false
 amount = 250
 lifetime = 5.0
 local_coords = false

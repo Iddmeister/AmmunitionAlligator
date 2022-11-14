@@ -206,6 +206,8 @@ func hit(_damage:int, dir:float=0):
 		
 		dead = true
 		
+		$Graphics/Torso/Head/Animation.stop(true)
+		stopSwallow()
 		$CollisionShape2D.set_deferred("disabled", true)
 		$Graphics.hide()
 		$Body.show()
