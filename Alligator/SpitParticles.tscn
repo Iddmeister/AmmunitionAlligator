@@ -7,7 +7,7 @@
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.725807, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
 [node name="Spit" instance=ExtResource( 1 )]
-z_index = -2
+z_index = -3
 z_as_relative = false
 emitting = false
 amount = 10

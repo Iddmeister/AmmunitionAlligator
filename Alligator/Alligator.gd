@@ -22,6 +22,17 @@ var dead:bool = false
 
 signal restart()
 
+export var hasGun:bool = true setget setHasGun
+export var canMove:bool = true
+
+func setHasGun(val):
+	hasGun = val
+	$Weapon.visible = hasGun
+	if hasGun:
+		$Weapon/Pivot/Revolver.show()
+	else:
+		$Weapon/Pivot/Revolver.hide()
+
 func _ready() -> void:
 	weapon.alligator = self
 	get_tree().set_group("Enemy", "alligator", self)
@@ -64,17 +75,19 @@ func actions(delta:float):
 	weaponPivot.global_rotation = lerp_angle(weaponPivot.global_rotation, (get_global_mouse_position()-weaponPivot.global_position).angle(), 0.5*delta*60)
 	$Lighter/AnimatedSprite.global_rotation = 0
 	
-	if Input.is_action_just_pressed("reload"):
-		weapon.reload()
+	if hasGun:
+	
+		if Input.is_action_just_pressed("reload"):
+			weapon.reload()
+			
+		if Input.is_action_just_pressed("attack"):
+			weapon.attack(get_global_mouse_position())
 	
 	if Input.is_action_just_pressed("bite"):
 		if swallowedObjects.empty() and not $Graphics/Torso/Head/Animation.is_playing():
 			bite()
 		elif not swallowedObjects.empty():
 			spit()
-		
-	if Input.is_action_just_pressed("attack"):
-		weapon.attack(get_global_mouse_position())
 		
 export var spitSpreadDegrees:float = 20
 onready var spitSpread = deg2rad(spitSpreadDegrees)
@@ -136,7 +149,10 @@ func biteDamage():
 
 func _physics_process(delta: float) -> void:
 	if not dead:
-		movement(delta)
+		if canMove:
+			movement(delta)
+		else:
+			$Graphics/Legs.play("default")
 		actions(delta)
 	else:
 		if Input.is_action_just_pressed("restart"):

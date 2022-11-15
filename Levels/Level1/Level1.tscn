@@ -1,0 +1,321 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Levels/Parent/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Level1/Eyelid.png" type="Texture" id=2]
+[ext_resource path="res://Alligator/Alligator.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/Level1/RopeSideways.png" type="Texture" id=4]
+[ext_resource path="res://Levels/Level1/Rope.png" type="Texture" id=5]
+[ext_resource path="res://Levels/Level1/Level1.gd" type="Script" id=6]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "Open"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Transition/Top:margin_bottom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 1, 1.3, 1.6, 2, 2.6, 3, 3.3, 3.8, 4.6, 5.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 250, 250, 182.0, 250, 250, 150, 150, 250, 250, 102, 102, 70 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Transition/Bottom:margin_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7, 1, 1.3, 1.6, 2, 2.6, 3, 3.3, 3.8, 4.6, 5.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -250, -250, -150.0, -250, -250, -150.0, -150.0, -250, -250, -102, -102, -70 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Transition:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 5.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Transition/Top:margin_bottom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 246.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Transition/Bottom:margin_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -214.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Transition:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Break"
+tracks/0/type = "value"
+tracks/0/path = NodePath("RopeLoose:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RopeLoose2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("RopeTied:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("RopeLoose:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RopeLoose2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("RopeTied:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[node name="Level1" instance=ExtResource( 1 )]
+script = ExtResource( 6 )
+
+[node name="Eyes" type="CanvasLayer" parent="." index="0"]
+
+[node name="Transition" type="Control" parent="Eyes" index="0"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -64.0
+margin_bottom = 64.0
+
+[node name="Top" type="VBoxContainer" parent="Eyes/Transition" index="0"]
+anchor_right = 1.0
+margin_bottom = 246.0
+custom_constants/separation = 0
+
+[node name="Panel" type="Panel" parent="Eyes/Transition/Top" index="0"]
+margin_right = 512.0
+margin_bottom = 167.0
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 2 )
+
+[node name="Lid" type="TextureRect" parent="Eyes/Transition/Top" index="1"]
+margin_top = 167.0
+margin_right = 512.0
+margin_bottom = 199.0
+rect_min_size = Vector2( 0, 32 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="Bottom" type="VBoxContainer" parent="Eyes/Transition" index="1"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -214.0
+custom_constants/separation = 0
+
+[node name="Lid" type="TextureRect" parent="Eyes/Transition/Bottom" index="0"]
+margin_right = 512.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+flip_v = true
+
+[node name="Panel" type="Panel" parent="Eyes/Transition/Bottom" index="1"]
+margin_top = 32.0
+margin_right = 512.0
+margin_bottom = 199.0
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 3 )
+
+[node name="OpenEyes" type="AnimationPlayer" parent="Eyes" index="1"]
+autoplay = "Open"
+playback_speed = 0.6
+anims/Open = SubResource( 4 )
+anims/RESET = SubResource( 5 )
+
+[node name="Alligator" parent="." index="1" instance=ExtResource( 3 )]
+position = Vector2( -1, 0 )
+rotation = -3.14159
+hasGun = false
+canMove = false
+
+[node name="StartRoom" type="Node2D" parent="." index="2"]
+
+[node name="RopeTied" type="Node2D" parent="StartRoom" index="0"]
+scale = Vector2( 1.1, 1.1 )
+z_index = 10
+
+[node name="Rope3" type="Sprite" parent="StartRoom/RopeTied" index="0"]
+position = Vector2( 0, -10.7692 )
+rotation = -1.70408
+scale = Vector2( 0.439699, 0.4265 )
+texture = ExtResource( 5 )
+flip_v = true
+
+[node name="Rope4" type="Sprite" parent="StartRoom/RopeTied" index="1"]
+position = Vector2( 0, 10.7692 )
+rotation = -1.71935
+scale = Vector2( 0.439699, 0.4265 )
+texture = ExtResource( 5 )
+flip_v = true
+
+[node name="Rope5" type="Sprite" parent="StartRoom/RopeTied" index="2"]
+position = Vector2( 0.769231, 8.46154 )
+rotation = -1.88487
+scale = Vector2( 0.439699, 0.4265 )
+texture = ExtResource( 5 )
+flip_v = true
+
+[node name="Rope6" type="Sprite" parent="StartRoom/RopeTied" index="3"]
+position = Vector2( 0, -6.92308 )
+rotation = -1.37261
+scale = Vector2( 0.439699, 0.4265 )
+texture = ExtResource( 5 )
+flip_v = true
+
+[node name="Rope7" type="Sprite" parent="StartRoom/RopeTied" index="4"]
+position = Vector2( -12.3077, 0 )
+scale = Vector2( 0.6, 0.240385 )
+z_index = 20
+texture = ExtResource( 5 )
+flip_v = true
+
+[node name="Rope8" type="Sprite" parent="StartRoom/RopeTied" index="5"]
+position = Vector2( -17.6923, 0 )
+scale = Vector2( -0.711571, 0.140942 )
+z_index = 20
+texture = ExtResource( 5 )
+flip_v = true
+
+[node name="Rope" type="Sprite" parent="StartRoom/RopeTied" index="6"]
+position = Vector2( -6.15385, 0.769231 )
+scale = Vector2( 0.5, 0.721154 )
+texture = ExtResource( 5 )
+
+[node name="Rope2" type="Sprite" parent="StartRoom/RopeTied" index="7"]
+position = Vector2( 6.15385, -0.769232 )
+scale = Vector2( 0.5, 0.721154 )
+texture = ExtResource( 5 )
+
+[node name="RopeLoose" type="Line2D" parent="StartRoom" index="1"]
+position = Vector2( -10, -7 )
+scale = Vector2( 1e-05, 1e-05 )
+points = PoolVector2Array( 43, 5, 24, 11, 12, 33, -13, 42, -13, 21, -23, 10, -45, 4, -31.5751, -19.691, -8, -22, 16, -37, 25.9164, -24.2503, 43, -11, 63, -26 )
+width = 20.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 4 )
+texture_mode = 1
+round_precision = 5
+
+[node name="RopeLoose2" type="Line2D" parent="StartRoom" index="2"]
+position = Vector2( -10, 19 )
+scale = Vector2( 1e-05, 1e-05 )
+points = PoolVector2Array( 22, -22, 29, -1, 33, 21, 12, 33, -15, 29, -2, 20, -4, 2, -31, 2, -33, -30, -8, -22, 16, -37, 30, -28, 42, -58, 68, -36, 56, -11 )
+width = 20.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 4 )
+texture_mode = 1
+round_precision = 5
+
+[node name="Animation" type="AnimationPlayer" parent="StartRoom" index="3"]
+playback_speed = 5.0
+anims/Break = SubResource( 6 )
+anims/RESET = SubResource( 7 )

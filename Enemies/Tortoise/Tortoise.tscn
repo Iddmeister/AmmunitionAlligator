@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Enemies/Parent/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Enemies/Tortoise/Tortoise.png" type="Texture" id=2]
@@ -6,27 +6,133 @@
 [ext_resource path="res://Enemies/Parent/Hit.gdshader" type="Shader" id=4]
 [ext_resource path="res://Enemies/Tortoise/Shell.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Enemies/Tortoise/Ricochet.wav" type="AudioStream" id=6]
+[ext_resource path="res://Enemies/Tortoise/Crunch.wav" type="AudioStream" id=7]
+[ext_resource path="res://Enemies/Tortoise/Swing.wav" type="AudioStream" id=8]
+[ext_resource path="res://Enemies/Tortoise/Bat.png" type="Texture" id=9]
+[ext_resource path="res://Misc/Square.png" type="Texture" id=10]
+[ext_resource path="res://Misc/Circle.png" type="Texture" id=11]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 21.0
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -6.86646e-05, -19 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 161.443 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Swing"
+length = 0.55
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.15, 0.35, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -6.86646e-05, -19 ), Vector2( -6.86646e-05, -19 ), Vector2( -6.86646e-05, -19 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.15, 0.35, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 161.0, 388.685, 161.0 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "doDamage"
+}, {
+"args": [  ],
+"method": "doDamage"
+} ]
+}
 
 [sub_resource type="ShaderMaterial" id=2]
 resource_local_to_scene = true
 shader = ExtResource( 4 )
 shader_param/hit = false
 
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 23.5, 20 )
+
+[sub_resource type="Curve" id=6]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.7, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.7, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
 [node name="Tortoise" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 Head = ExtResource( 5 )
+moveSpeed = 200.0
+swingDistance = 50.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )
 
+[node name="Squelch" parent="." index="1"]
+stream = ExtResource( 7 )
+volume_db = 5.0
+pitch_scale = 1.5
+
 [node name="Legs" parent="Graphics" index="0"]
 self_modulate = Color( 0.411765, 0.505882, 0.129412, 1 )
-frame = 4
+frame = 13
 
-[node name="Torso" parent="Graphics" index="1"]
+[node name="Bat" type="Node2D" parent="Graphics" index="1"]
+position = Vector2( -6.86646e-05, -19 )
+rotation = 2.81772
+
+[node name="Sprite" type="Sprite" parent="Graphics/Bat" index="0"]
+position = Vector2( 17, 0 )
+texture = ExtResource( 9 )
+
+[node name="Animation" type="AnimationPlayer" parent="Graphics/Bat" index="1"]
+anims/RESET = SubResource( 4 )
+anims/Swing = SubResource( 3 )
+
+[node name="Torso" parent="Graphics" index="2"]
 material = SubResource( 2 )
 scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 2 )
@@ -35,3 +141,66 @@ texture = ExtResource( 2 )
 stream = ExtResource( 6 )
 volume_db = 10.0
 bus = "Flames"
+
+[node name="Swing" type="AudioStreamPlayer" parent="." index="6"]
+stream = ExtResource( 8 )
+volume_db = 10.0
+
+[node name="Damage" type="Area2D" parent="." index="7"]
+position = Vector2( 24, 0 )
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage" index="0"]
+position = Vector2( -0.5, 0 )
+shape = SubResource( 5 )
+
+[node name="Debris" type="CPUParticles2D" parent="." index="8"]
+emitting = false
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+texture = ExtResource( 10 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0
+initial_velocity_random = 0.5
+angle = 720.0
+angle_random = 1.0
+scale_amount = 0.1
+scale_amount_random = 0.1
+scale_amount_curve = SubResource( 6 )
+color = Color( 0.564706, 0.666667, 0.266667, 1 )
+
+[node name="Debris2" type="CPUParticles2D" parent="." index="9"]
+emitting = false
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+texture = ExtResource( 11 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0
+initial_velocity_random = 0.5
+angle = 720.0
+angle_random = 1.0
+scale_amount = 0.05
+scale_amount_random = 0.1
+scale_amount_curve = SubResource( 8 )
+color = Color( 0.117647, 0.333333, 0.129412, 1 )
+
+[node name="Debris3" type="CPUParticles2D" parent="." index="10"]
+emitting = false
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+texture = ExtResource( 11 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 80.0
+initial_velocity_random = 0.5
+angle = 720.0
+angle_random = 1.0
+scale_amount = 0.01
+scale_amount_random = 0.1
+scale_amount_curve = SubResource( 8 )
+color = Color( 0.380392, 0.364706, 0.0862745, 1 )

@@ -509,7 +509,7 @@ position = Vector2( 0, 2 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 16 )
 animation = "walk"
-frame = 10
+frame = 1
 playing = true
 
 [node name="Torso" type="Node2D" parent="Graphics"]

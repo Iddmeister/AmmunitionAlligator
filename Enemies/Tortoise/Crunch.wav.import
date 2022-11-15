@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Crunch.wav-83a43db9f41591b6f4f99a45d5158928.sample"
+
+[deps]
+
+source_file="res://Enemies/Tortoise/Crunch.wav"
+dest_files=[ "res://.import/Crunch.wav-83a43db9f41591b6f4f99a45d5158928.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -82,11 +82,11 @@ func die():
 	z_index = -4
 	dead = true
 	
-func spawnBlood(pos:Vector2=global_position):
-	for n in range(5):
+func spawnBlood(pos:Vector2=global_position, amount:int=5, offset:float=17, random:bool=false):
+	for n in range(amount):
 		var b = Blood.instance()
 		get_parent().add_child(b)
-		b.global_position = pos+(Vector2(10, 0).rotated(2*PI*(float(n)/5)))
+		b.global_position = pos+(Vector2(offset, 0).rotated(rand_range(0, 2*PI) if random else 2*PI*(float(n)/5)))
 		
 func spawnShotBlood():
 	var t = Blood.instance()

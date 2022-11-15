@@ -34,10 +34,11 @@ func eaten(_alligator):
 	$Body.frame = 1
 	$Body.global_rotation = (global_position-alligator.global_position).angle()+(PI/2)
 	$Body.show()
-	spawnBlood($Body.to_global(Vector2(0, -17)))
+	spawnBlood($Body.to_global(Vector2(0, -17)), 5, 10)
 	spawnEatParticles($Body.to_global(Vector2(0, -10)), $Body.global_rotation)
 	_alligator.swallow(Head.instance())
 	$Squelch.play()
+	_alligator.camera.shake(20, 0.2, 5)
 	$Pistol.hide()
 	
 func die():
@@ -81,6 +82,9 @@ func shoot():
 	b.speed = bulletSpeed
 	b.global_position = $Pistol/Muzzle.global_position
 	b.global_rotation = $Pistol.global_rotation
+	
+	$Shoot.pitch_scale = 1+rand_range(0, 0.2)
+	$Shoot.play()
 
 
 func _on_Firerate_timeout() -> void:

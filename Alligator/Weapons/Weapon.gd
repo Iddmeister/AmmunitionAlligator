@@ -43,3 +43,11 @@ func finishReload():
 	reloadAmmo = 0
 	$UI/HBoxContainer/Ammo.text = "%s" % currentClip
 	reloading = false
+	
+func hide():
+	$UI/HBoxContainer.hide()
+	.hide()
+	
+func show():
+	$UI/HBoxContainer.show()
+	.show()
