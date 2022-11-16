@@ -6,6 +6,7 @@ var canShoot:bool = false
 
 export var Bullet:PackedScene = preload("res://Bullets/NormalBullet/NormalBullet.tscn")
 export var bulletSpeed:float = 600
+export var aggressive:bool = true
 
 func _ready() -> void:
 	$Firerate.wait_time = 1.6+rand_range(0, 0.2)
@@ -47,6 +48,8 @@ func die():
 	canShoot = false
 	
 func think(delta:float):
+	if not aggressive:
+		return
 	if canSeeAlligator:
 		global_rotation = lerp_angle(global_rotation, (alligator.global_position-global_position).angle(), 0.5*delta*60)
 		$Pistol.global_rotation = (alligator.global_position-$Pistol.global_position).angle()
@@ -54,6 +57,8 @@ func think(delta:float):
 		global_rotation = lerp_angle(global_rotation, velocity.angle(), 0.2*delta*60)
 	
 func navUpdate():
+	if not aggressive:
+		return
 	canSeeAlligator = not castToAlligator()
 	if not seenAlligator and canSeeAlligator:
 		seenAlligator = canSeeAlligator

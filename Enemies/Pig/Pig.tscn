@@ -32,6 +32,7 @@ script = ExtResource( 3 )
 Head = ExtResource( 10 )
 Bullet = ExtResource( 8 )
 bulletSpeed = 600.0
+aggressive = true
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )
@@ -42,7 +43,7 @@ volume_db = 10.0
 [node name="Legs" parent="Graphics" index="0"]
 modulate = Color( 0.341176, 0.203922, 0.0627451, 1 )
 scale = Vector2( 1.4, 1.4 )
-frame = 13
+frame = 8
 
 [node name="Torso" parent="Graphics" index="1"]
 material = SubResource( 2 )

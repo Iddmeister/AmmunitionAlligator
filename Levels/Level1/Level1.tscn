@@ -1,11 +1,14 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Levels/Parent/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Level1/Eyelid.png" type="Texture" id=2]
-[ext_resource path="res://Alligator/Alligator.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/Level1/RopesBreak.wav" type="AudioStream" id=3]
 [ext_resource path="res://Levels/Level1/RopeSideways.png" type="Texture" id=4]
 [ext_resource path="res://Levels/Level1/Rope.png" type="Texture" id=5]
 [ext_resource path="res://Levels/Level1/Level1.gd" type="Script" id=6]
+[ext_resource path="res://Enemies/Pig/Pig.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Enemies/Parent/Speech.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Levels/Level1/concreteFloor.png" type="Texture" id=9]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0, 0, 0, 1 )
@@ -23,7 +26,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7, 1, 1.3, 1.6, 2, 2.6, 3, 3.3, 3.8, 4.6, 5.1 ),
+"times": PoolRealArray( 0, 0.7, 0.9, 1.1, 1.6, 2, 2.6, 3, 3.325, 3.6, 4.6, 5.1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ 250, 250, 182.0, 250, 250, 150, 150, 250, 250, 102, 102, 70 ]
@@ -35,7 +38,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.7, 1, 1.3, 1.6, 2, 2.6, 3, 3.3, 3.8, 4.6, 5.1 ),
+"times": PoolRealArray( 0, 0.7, 0.9, 1.1, 1.6, 2, 2.6, 3, 3.325, 3.6, 4.6, 5.1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ -250, -250, -150.0, -250, -250, -150.0, -150.0, -250, -250, -102, -102, -70 ]
@@ -173,7 +176,12 @@ tracks/2/keys = {
 [node name="Level1" instance=ExtResource( 1 )]
 script = ExtResource( 6 )
 
-[node name="Eyes" type="CanvasLayer" parent="." index="0"]
+[node name="Alligator" parent="Alligator" index="0"]
+rotation = -3.14159
+hasGun = false
+canMove = false
+
+[node name="Eyes" type="CanvasLayer" parent="." index="1"]
 
 [node name="Transition" type="Control" parent="Eyes" index="0"]
 visible = false
@@ -189,14 +197,14 @@ custom_constants/separation = 0
 
 [node name="Panel" type="Panel" parent="Eyes/Transition/Top" index="0"]
 margin_right = 512.0
-margin_bottom = 167.0
+margin_bottom = 218.0
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 2 )
 
 [node name="Lid" type="TextureRect" parent="Eyes/Transition/Top" index="1"]
-margin_top = 167.0
+margin_top = 218.0
 margin_right = 512.0
-margin_bottom = 199.0
+margin_bottom = 250.0
 rect_min_size = Vector2( 0, 32 )
 texture = ExtResource( 2 )
 expand = true
@@ -221,27 +229,32 @@ flip_v = true
 [node name="Panel" type="Panel" parent="Eyes/Transition/Bottom" index="1"]
 margin_top = 32.0
 margin_right = 512.0
-margin_bottom = 199.0
+margin_bottom = 250.0
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 3 )
 
 [node name="OpenEyes" type="AnimationPlayer" parent="Eyes" index="1"]
 autoplay = "Open"
-playback_speed = 0.6
+playback_speed = 0.8
 anims/Open = SubResource( 4 )
 anims/RESET = SubResource( 5 )
 
-[node name="Alligator" parent="." index="1" instance=ExtResource( 3 )]
-position = Vector2( -1, 0 )
-rotation = -3.14159
-hasGun = false
-canMove = false
-
 [node name="StartRoom" type="Node2D" parent="." index="2"]
 
-[node name="RopeTied" type="Node2D" parent="StartRoom" index="0"]
+[node name="Floor" type="Polygon2D" parent="StartRoom" index="0"]
+self_modulate = Color( 0.596078, 0.635294, 0.580392, 1 )
+position = Vector2( -2, 20 )
+z_index = -20
+z_as_relative = false
+offset = Vector2( -106, -128 )
+texture = ExtResource( 9 )
+texture_scale = Vector2( 0.5, 0.5 )
+polygon = PoolVector2Array( 44, 44, 44, 172, 172, 172, 172, 44 )
+
+[node name="RopeTied" type="Node2D" parent="StartRoom" index="1"]
 scale = Vector2( 1.1, 1.1 )
-z_index = 10
+z_index = 11
+z_as_relative = false
 
 [node name="Rope3" type="Sprite" parent="StartRoom/RopeTied" index="0"]
 position = Vector2( 0, -10.7692 )
@@ -295,7 +308,11 @@ position = Vector2( 6.15385, -0.769232 )
 scale = Vector2( 0.5, 0.721154 )
 texture = ExtResource( 5 )
 
-[node name="RopeLoose" type="Line2D" parent="StartRoom" index="1"]
+[node name="RopesBreak" type="AudioStreamPlayer" parent="StartRoom/RopeTied" index="8"]
+stream = ExtResource( 3 )
+volume_db = -5.0
+
+[node name="RopeLoose" type="Line2D" parent="StartRoom" index="2"]
 position = Vector2( -10, -7 )
 scale = Vector2( 1e-05, 1e-05 )
 points = PoolVector2Array( 43, 5, 24, 11, 12, 33, -13, 42, -13, 21, -23, 10, -45, 4, -31.5751, -19.691, -8, -22, 16, -37, 25.9164, -24.2503, 43, -11, 63, -26 )
@@ -305,7 +322,7 @@ texture = ExtResource( 4 )
 texture_mode = 1
 round_precision = 5
 
-[node name="RopeLoose2" type="Line2D" parent="StartRoom" index="2"]
+[node name="RopeLoose2" type="Line2D" parent="StartRoom" index="3"]
 position = Vector2( -10, 19 )
 scale = Vector2( 1e-05, 1e-05 )
 points = PoolVector2Array( 22, -22, 29, -1, 33, 21, 12, 33, -15, 29, -2, 20, -4, 2, -31, 2, -33, -30, -8, -22, 16, -37, 30, -28, 42, -58, 68, -36, 56, -11 )
@@ -315,7 +332,51 @@ texture = ExtResource( 4 )
 texture_mode = 1
 round_precision = 5
 
-[node name="Animation" type="AnimationPlayer" parent="StartRoom" index="3"]
+[node name="Animation" type="AnimationPlayer" parent="StartRoom" index="4"]
 playback_speed = 5.0
 anims/Break = SubResource( 6 )
 anims/RESET = SubResource( 7 )
+
+[node name="Pig" parent="StartRoom" index="5" instance=ExtResource( 7 )]
+position = Vector2( -192, 0 )
+aggressive = false
+
+[node name="StartSpeech" parent="StartRoom/Pig" index="9" instance=ExtResource( 8 )]
+position = Vector2( 0, -38 )
+speech = [ {
+"speed": 0.3,
+"text": "Of course"
+}, {
+"persist": 1.5,
+"speed": 0.3,
+"text": "Got it"
+}, {
+"persist": 1.5,
+"speed": 0.1,
+"text": "Yeah it's tied up"
+}, {
+"persist": 0.2,
+"speed": 0.1,
+"text": "No way",
+"trigger": "breakout"
+}, {
+"persist": 2.0,
+"speed": 0.1,
+"text": "It's getting out"
+}, {
+"persist": 1.0,
+"speed": 0.1,
+"text": "Okay Okay!"
+}, {
+"persist": 0.15,
+"speed": 0.1,
+"text": "Don't bite my"
+}, {
+"hide": true,
+"persist": 4.0,
+"speed": 0.1,
+"text": "head off",
+"trigger": "bite"
+} ]
+
+[connection signal="trigger" from="StartRoom/Pig/StartSpeech" to="." method="_on_StartSpeech_trigger"]
