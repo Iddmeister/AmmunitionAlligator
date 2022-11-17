@@ -12,14 +12,15 @@ func _ready() -> void:
 		queue = speech
 		speak(queue.front())
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	global_rotation = 0
 	
-func speak(speech:Dictionary):
+func speak(_speech:Dictionary):
 	
+	$Spoke.stop()
 	$Back/Text.visible_characters = 0
-	$Back/Text.bbcode_text = "[center]"+speech.text+"[/center]"
-	$Speed.start(speech.speed)
+	$Back/Text.bbcode_text = "[center]"+_speech.text+"[/center]"
+	$Speed.start(_speech.speed)
 	
 func _on_Speed_timeout() -> void:
 	$Back/Text.visible_characters = int(min($Back/Text.visible_characters+1, $Back/Text.text.length()))

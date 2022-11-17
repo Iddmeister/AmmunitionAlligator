@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Levels/Parent/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Level1/Eyelid.png" type="Texture" id=2]
@@ -9,6 +9,21 @@
 [ext_resource path="res://Enemies/Pig/Pig.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Enemies/Parent/Speech.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Levels/Level1/concreteFloor.png" type="Texture" id=9]
+[ext_resource path="res://Misc/Fonts/coolvetica rg.otf" type="DynamicFontData" id=11]
+[ext_resource path="res://Objects/WallPolygon/WallPolygon.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Levels/Level1/Concrete2.png" type="Texture" id=13]
+[ext_resource path="res://Blood/BloodSplats.png" type="Texture" id=14]
+[ext_resource path="res://Misc/Background/Background.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Misc/Square.png" type="Texture" id=16]
+[ext_resource path="res://Misc/Circle.png" type="Texture" id=17]
+[ext_resource path="res://Objects/Door/Door.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Alligator/Weapons/Revolver/Revolver.png" type="Texture" id=19]
+[ext_resource path="res://Levels/Level1/GunPickup.wav" type="AudioStream" id=20]
+[ext_resource path="res://Objects/Ammo/Ammo.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Levels/Level1/Ladder.png" type="Texture" id=22]
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0, 0, 0, 1 )
@@ -19,6 +34,7 @@ bg_color = Color( 0, 0, 0, 1 )
 [sub_resource type="Animation" id=4]
 resource_name = "Open"
 length = 6.0
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Transition/Top:margin_bottom")
 tracks/0/interp = 1
@@ -54,6 +70,30 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Cover:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 5.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Cover:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.7, 0.9, 1.7, 2.25, 2.6, 3, 3.3, 3.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.792157 ), Color( 1, 1, 1, 0.792157 ), Color( 1, 1, 1, 0.45098 ), Color( 1, 1, 1, 0.792157 ), Color( 1, 1, 1, 0.45098 ), Color( 1, 1, 1, 0.45098 ), Color( 1, 1, 1, 0.792157 ), Color( 1, 1, 1, 0.792157 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -93,6 +133,30 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Cover:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Cover:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -173,8 +237,36 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
+[sub_resource type="DynamicFont" id=9]
+size = 24
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 11 )
+
+[sub_resource type="StreamTexture" id=10]
+flags = 34
+load_path = "res://.import/concreteFloor.png-39236d6b94a71b04359193e3e1c08351.stex"
+
+[sub_resource type="StreamTexture" id=11]
+flags = 34
+load_path = "res://.import/Concrete2.png-b96498e717c7dc4ef49e5bf7d2e9d846.stex"
+
+[sub_resource type="GDScript" id=12]
+script/source = "extends Polygon2D
+
+func _ready() -> void:
+	$StaticBody2D/CollisionPolygon2D.polygon = polygon
+"
+
+[sub_resource type="CircleShape2D" id=13]
+radius = 16.0
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 15.5, 80 )
+
 [node name="Level1" instance=ExtResource( 1 )]
 script = ExtResource( 6 )
+tracks = PoolStringArray( "ambience" )
 
 [node name="Alligator" parent="Alligator" index="0"]
 rotation = -3.14159
@@ -183,7 +275,14 @@ canMove = false
 
 [node name="Eyes" type="CanvasLayer" parent="." index="1"]
 
-[node name="Transition" type="Control" parent="Eyes" index="0"]
+[node name="Cover" type="Panel" parent="Eyes" index="0"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 8 )
+
+[node name="Transition" type="Control" parent="Eyes" index="1"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -197,14 +296,14 @@ custom_constants/separation = 0
 
 [node name="Panel" type="Panel" parent="Eyes/Transition/Top" index="0"]
 margin_right = 512.0
-margin_bottom = 218.0
+margin_bottom = 118.0
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 2 )
 
 [node name="Lid" type="TextureRect" parent="Eyes/Transition/Top" index="1"]
-margin_top = 218.0
+margin_top = 118.0
 margin_right = 512.0
-margin_bottom = 250.0
+margin_bottom = 150.0
 rect_min_size = Vector2( 0, 32 )
 texture = ExtResource( 2 )
 expand = true
@@ -229,11 +328,11 @@ flip_v = true
 [node name="Panel" type="Panel" parent="Eyes/Transition/Bottom" index="1"]
 margin_top = 32.0
 margin_right = 512.0
-margin_bottom = 250.0
+margin_bottom = 150.0
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 3 )
 
-[node name="OpenEyes" type="AnimationPlayer" parent="Eyes" index="1"]
+[node name="OpenEyes" type="AnimationPlayer" parent="Eyes" index="2"]
 autoplay = "Open"
 playback_speed = 0.8
 anims/Open = SubResource( 4 )
@@ -241,7 +340,21 @@ anims/RESET = SubResource( 5 )
 
 [node name="StartRoom" type="Node2D" parent="." index="2"]
 
-[node name="Floor" type="Polygon2D" parent="StartRoom" index="0"]
+[node name="Door2" parent="StartRoom" index="0" instance=ExtResource( 18 )]
+position = Vector2( -112, -32 )
+
+[node name="Door" parent="StartRoom" index="1" instance=ExtResource( 18 )]
+position = Vector2( -192, 736 )
+rotation = -1.57079
+
+[node name="WallPolygon" parent="StartRoom" index="2" instance=ExtResource( 12 )]
+z_index = -6
+color = Color( 0.25098, 0.258824, 0.345098, 1 )
+texture = ExtResource( 13 )
+texture_scale = Vector2( 0.5, 0.5 )
+polygon = PoolVector2Array( 64, -64, -64, -60, -128, -64, -256, -64, -260, -4, -256, 10, -251, 68, -252, 179, -257, 234, -257, 360, -260, 419, -253, 549, -259, 629, -258, 709, -255, 726, -242, 726, -224, 728, -224, 744, -256, 744, -256, 784, -264, 896, -272, 976, -120, 984, 40, 992, 152, 984, 224, 992, 320, 976, 368, 896, 368, 696, 360, 488, 376, 464, 408, 448, 424, 432, 496, 440, 592, 432, 632, 432, 664, 456, 696, 472, 640, 488, 584, 488, 536, 480, 464, 488, 432, 496, 440, 512, 440, 1024, 368, 1048, 240, 1056, 80, 1048, -88, 1056, -315, 1052, -341, 1046, -335, 954, -333, 771, -325, 581, -333, 472, -329, 346, -319, 227, -326, 97, -322, -92, -318, -123, -307, -127, -256, -128, -104, -127, 58, -130, 124, -123, 133, -74, 129, -12, 133, 88, 129, 121, 102, 129, 64, 128, -64, 128, -56, 335, -57, 509, -64, 660, -60, 794, -64, 848, 104, 856, 192, 856, 192, 488, 256, 488, 264, 592, 256, 672, 264, 744, 256, 896, 208, 904, 128, 896, 48, 904, -64, 896, -128, 888, -136, 784, -128, 744, -160, 744, -160, 728, -135, 722, -130, 706, -128, 672, -131, 643, -131, 592, -127, 547, -134, 484, -128, 352, -127, 315, -132, 239, -128, 129, -128, 32, -129, 11, -125, 4, -119, 0, -72, 5, -62, 24, -64, 64, 0, 64, 32, 63, 52, 61, 64, 64, 64, -32, 67, -53 )
+
+[node name="Floor" type="Polygon2D" parent="StartRoom" index="3"]
 self_modulate = Color( 0.596078, 0.635294, 0.580392, 1 )
 position = Vector2( -2, 20 )
 z_index = -20
@@ -249,9 +362,12 @@ z_as_relative = false
 offset = Vector2( -106, -128 )
 texture = ExtResource( 9 )
 texture_scale = Vector2( 0.5, 0.5 )
-polygon = PoolVector2Array( 44, 44, 44, 172, 172, 172, 172, 44 )
+polygon = PoolVector2Array( 44, 44, -20, 44, -180, 44, -180, 108, -180, 236, -180, 844, 12, 844, 12, 236, 44, 236, 44, 172, 172, 172, 172, 44 )
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="RopeTied" type="Node2D" parent="StartRoom" index="1"]
+[node name="RopeTied" type="Node2D" parent="StartRoom" index="4"]
 scale = Vector2( 1.1, 1.1 )
 z_index = 11
 z_as_relative = false
@@ -312,9 +428,11 @@ texture = ExtResource( 5 )
 stream = ExtResource( 3 )
 volume_db = -5.0
 
-[node name="RopeLoose" type="Line2D" parent="StartRoom" index="2"]
+[node name="RopeLoose" type="Line2D" parent="StartRoom" index="5"]
 position = Vector2( -10, -7 )
 scale = Vector2( 1e-05, 1e-05 )
+z_index = -6
+z_as_relative = false
 points = PoolVector2Array( 43, 5, 24, 11, 12, 33, -13, 42, -13, 21, -23, 10, -45, 4, -31.5751, -19.691, -8, -22, 16, -37, 25.9164, -24.2503, 43, -11, 63, -26 )
 width = 20.0
 default_color = Color( 1, 1, 1, 1 )
@@ -322,9 +440,11 @@ texture = ExtResource( 4 )
 texture_mode = 1
 round_precision = 5
 
-[node name="RopeLoose2" type="Line2D" parent="StartRoom" index="3"]
+[node name="RopeLoose2" type="Line2D" parent="StartRoom" index="6"]
 position = Vector2( -10, 19 )
 scale = Vector2( 1e-05, 1e-05 )
+z_index = -6
+z_as_relative = false
 points = PoolVector2Array( 22, -22, 29, -1, 33, 21, 12, 33, -15, 29, -2, 20, -4, 2, -31, 2, -33, -30, -8, -22, 16, -37, 30, -28, 42, -58, 68, -36, 56, -11 )
 width = 20.0
 default_color = Color( 1, 1, 1, 1 )
@@ -332,17 +452,39 @@ texture = ExtResource( 4 )
 texture_mode = 1
 round_precision = 5
 
-[node name="Animation" type="AnimationPlayer" parent="StartRoom" index="4"]
+[node name="Animation" type="AnimationPlayer" parent="StartRoom" index="7"]
 playback_speed = 5.0
 anims/Break = SubResource( 6 )
 anims/RESET = SubResource( 7 )
 
-[node name="Pig" parent="StartRoom" index="5" instance=ExtResource( 7 )]
-position = Vector2( -192, 0 )
+[node name="PhonePig" parent="StartRoom" index="8" instance=ExtResource( 7 )]
+position = Vector2( -192, 96 )
+rotation = 1.57079
 aggressive = false
+showGun = false
 
-[node name="StartSpeech" parent="StartRoom/Pig" index="9" instance=ExtResource( 8 )]
-position = Vector2( 0, -38 )
+[node name="Phone" type="Node2D" parent="StartRoom/PhonePig" index="9"]
+
+[node name="Sprite" type="Sprite" parent="StartRoom/PhonePig/Phone" index="0"]
+self_modulate = Color( 0.2, 0.2, 0.2, 1 )
+position = Vector2( 1.56177, -14.0625 )
+scale = Vector2( 0.5, 0.2 )
+texture = ExtResource( 16 )
+
+[node name="Sprite2" type="Sprite" parent="StartRoom/PhonePig/Phone" index="1"]
+modulate = Color( 0.454902, 0.454902, 0.454902, 1 )
+position = Vector2( -4.42969, -15.1113 )
+scale = Vector2( 0.02, 0.03 )
+texture = ExtResource( 17 )
+
+[node name="Sprite3" type="Sprite" parent="StartRoom/PhonePig/Phone" index="2"]
+modulate = Color( 0.454902, 0.454902, 0.454902, 1 )
+position = Vector2( -6.5, -16.285 )
+scale = Vector2( 0.01, 0.01 )
+texture = ExtResource( 17 )
+
+[node name="StartSpeech" parent="StartRoom" index="9" instance=ExtResource( 8 )]
+position = Vector2( -192, 32 )
 speech = [ {
 "speed": 0.3,
 "text": "Of course"
@@ -355,28 +497,342 @@ speech = [ {
 "speed": 0.1,
 "text": "Yeah it's tied up"
 }, {
-"persist": 0.2,
-"speed": 0.1,
-"text": "No way",
-"trigger": "breakout"
-}, {
-"persist": 2.0,
-"speed": 0.1,
-"text": "It's getting out"
-}, {
 "persist": 1.0,
 "speed": 0.1,
+"text": "Tight",
+"trigger": "breakout"
+}, {
+"persist": 0.5,
+"speed": 0.05,
 "text": "Okay Okay!"
 }, {
-"persist": 0.15,
-"speed": 0.1,
+"persist": 0.1,
+"speed": 0.05,
 "text": "Don't bite my"
 }, {
 "hide": true,
-"persist": 4.0,
-"speed": 0.1,
+"persist": 1.5,
+"speed": 0.05,
 "text": "head off",
 "trigger": "bite"
 } ]
 
-[connection signal="trigger" from="StartRoom/Pig/StartSpeech" to="." method="_on_StartSpeech_trigger"]
+[node name="InstructionsBite" type="Node2D" parent="StartRoom" index="10"]
+visible = false
+position = Vector2( -96, -96 )
+z_index = 100
+
+[node name="Label" type="Label" parent="StartRoom/InstructionsBite" index="0"]
+modulate = Color( 1, 0.337255, 0.337255, 0.443137 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -94.5
+margin_top = -15.0
+margin_right = 94.5
+margin_bottom = 15.0
+custom_fonts/font = SubResource( 9 )
+text = "Right Click To Bite"
+align = 1
+valign = 1
+
+[node name="InstructionsMove" type="Node2D" parent="StartRoom" index="11"]
+visible = false
+position = Vector2( 0, 96 )
+z_index = 100
+
+[node name="Label" type="Label" parent="StartRoom/InstructionsMove" index="0"]
+modulate = Color( 1, 1, 1, 0.345098 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -94.5
+margin_top = -15.0
+margin_right = 94.5
+margin_bottom = 15.0
+custom_fonts/font = SubResource( 9 )
+text = "WASD to Move"
+align = 1
+valign = 1
+
+[node name="InstructionsSpit" type="Node2D" parent="StartRoom" index="12"]
+visible = false
+position = Vector2( -93, -38 )
+z_index = -4
+
+[node name="Label" type="Label" parent="StartRoom/InstructionsSpit" index="0"]
+modulate = Color( 0.631373, 0.917647, 0.992157, 0.447059 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -146.0
+margin_top = -18.0
+margin_right = 32.0
+margin_bottom = 45.0
+custom_fonts/font = SubResource( 9 )
+text = "Right Click Again to Spit"
+valign = 1
+autowrap = true
+
+[node name="InstructionsLook" type="Node2D" parent="StartRoom" index="13"]
+position = Vector2( 0, 416 )
+
+[node name="Label" type="Label" parent="StartRoom/InstructionsLook" index="0"]
+modulate = Color( 1, 1, 1, 0.552941 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -256.0
+margin_top = -64.0
+margin_right = -128.0
+margin_bottom = -1.0
+custom_fonts/font = SubResource( 9 )
+text = "Hold Shift To Look"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Decor" type="Node2D" parent="StartRoom" index="14"]
+z_index = -10
+
+[node name="Sprite" type="Sprite" parent="StartRoom/Decor" index="0"]
+modulate = Color( 0.482353, 0.0392157, 0.0392157, 1 )
+position = Vector2( 56, 56 )
+scale = Vector2( 1.5, 1.5 )
+z_index = -2
+texture = ExtResource( 14 )
+hframes = 4
+
+[node name="Sprite7" type="Sprite" parent="StartRoom/Decor" index="1"]
+modulate = Color( 0.482353, 0.0392157, 0.0392157, 1 )
+position = Vector2( -121, 251 )
+scale = Vector2( 1.5, 1.5 )
+z_index = -2
+texture = ExtResource( 14 )
+hframes = 4
+
+[node name="Sprite8" type="Sprite" parent="StartRoom/Decor" index="2"]
+modulate = Color( 0.482353, 0.0392157, 0.0392157, 1 )
+position = Vector2( -270, 321 )
+scale = Vector2( 1.5, 1.5 )
+z_index = -2
+texture = ExtResource( 14 )
+hframes = 4
+
+[node name="Sprite2" type="Sprite" parent="StartRoom/Decor" index="3"]
+modulate = Color( 0.482353, 0.0392157, 0.0392157, 1 )
+position = Vector2( 25, 75 )
+scale = Vector2( 1.5, 1.5 )
+z_index = -2
+texture = ExtResource( 14 )
+hframes = 4
+
+[node name="Sprite3" type="Sprite" parent="StartRoom/Decor" index="4"]
+modulate = Color( 0.482353, 0.0392157, 0.0392157, 1 )
+position = Vector2( 68, -52 )
+scale = Vector2( 1.5, 1.5 )
+z_index = -2
+texture = ExtResource( 14 )
+hframes = 4
+frame = 3
+
+[node name="Sprite4" type="Sprite" parent="StartRoom/Decor" index="5"]
+modulate = Color( 0.482353, 0.0392157, 0.0392157, 1 )
+position = Vector2( -31.0644, 46.9356 )
+rotation = 0.26877
+scale = Vector2( 0.22, 0.22 )
+z_index = -2
+texture = ExtResource( 14 )
+hframes = 4
+frame = 2
+
+[node name="Sprite5" type="Sprite" parent="StartRoom/Decor" index="6"]
+modulate = Color( 0.482353, 0.0392157, 0.0392157, 1 )
+position = Vector2( -47.0644, 52.9356 )
+rotation = -1.309
+scale = Vector2( 0.22, 0.22 )
+z_index = -2
+texture = ExtResource( 14 )
+hframes = 4
+
+[node name="Sprite6" type="Sprite" parent="StartRoom/Decor" index="7"]
+modulate = Color( 0.482353, 0.0392157, 0.0392157, 1 )
+position = Vector2( -53.0644, 43.9356 )
+rotation = -0.916091
+scale = Vector2( 0.22, 0.22 )
+z_index = -2
+texture = ExtResource( 14 )
+hframes = 4
+frame = 1
+
+[node name="Background" parent="." index="3" instance=ExtResource( 15 )]
+
+[node name="SecondRoom" type="Node2D" parent="." index="4"]
+position = Vector2( -200, 864 )
+
+[node name="Floor" type="Polygon2D" parent="SecondRoom" index="0"]
+self_modulate = Color( 0.596078, 0.635294, 0.580392, 1 )
+z_index = -20
+z_as_relative = false
+texture = SubResource( 10 )
+texture_scale = Vector2( 0.5, 0.5 )
+polygon = PoolVector2Array( 96, -160, 104, 8, 392, 24, 432, -16, 432, -344, 352, -448, 352, -592, 632, -600, 664, -528, 808, -528, 856, -576, 928, -552, 952, -424, 864, -384, 648, -400, 608, -344, 600, 128, 392, 144, 120, 152, -88, 160, -96, -160 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Pig" parent="SecondRoom" index="1" instance=ExtResource( 7 )]
+position = Vector2( 0, -8 )
+rotation = 0.987511
+aggressive = false
+
+[node name="WallPolygon" parent="SecondRoom" index="2" instance=ExtResource( 12 )]
+position = Vector2( 48, -8 )
+z_index = -6
+color = Color( 0.25098, 0.258824, 0.345098, 1 )
+texture = SubResource( 11 )
+texture_scale = Vector2( 0.5, 0.5 )
+polygon = PoolVector2Array( 408, -368, 344, -368, 304, -376, 272, -432, 272, -568, 280, -592, 312, -608, 376, -621, 448, -616, 525, -611, 607, -609, 620, -592, 624, -536, 704, -544, 760, -536, 776, -568, 808, -584, 880, -568, 912, -504, 920, -408, 840, -360, 776, -368, 840, -400, 880, -440, 872, -488, 848, -544, 816, -552, 792, -544, 776, -496, 640, -496, 584, -504, 560, -576, 336, -576, 328, -552, 336, -424, 392, -400 )
+script = SubResource( 12 )
+__meta__ = {
+"_edit_group_": true,
+"_editor_description_": ""
+}
+
+[node name="Revolver" type="Area2D" parent="SecondRoom" index="3"]
+position = Vector2( 512, -496 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SecondRoom/Revolver" index="0"]
+shape = SubResource( 13 )
+
+[node name="Pivot" type="Node2D" parent="SecondRoom/Revolver" index="1"]
+modulate = Color( 1, 0.964706, 0.129412, 0.294118 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="Polygon2D" type="Polygon2D" parent="SecondRoom/Revolver/Pivot" index="0"]
+polygon = PoolVector2Array( 0, 0, 32, -8, 32, 8 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="SecondRoom/Revolver/Pivot" index="1"]
+rotation = 1.5708
+polygon = PoolVector2Array( 0, 0, 32, -8, 32, 8 )
+
+[node name="Polygon2D3" type="Polygon2D" parent="SecondRoom/Revolver/Pivot" index="2"]
+rotation = 3.14159
+polygon = PoolVector2Array( 0, 0, 32, -8, 32, 8 )
+
+[node name="Polygon2D4" type="Polygon2D" parent="SecondRoom/Revolver/Pivot" index="3"]
+rotation = 4.71239
+polygon = PoolVector2Array( 0, 0, 32, -8, 32, 8 )
+
+[node name="Polygon2D5" type="Polygon2D" parent="SecondRoom/Revolver/Pivot" index="4"]
+rotation = 5.49779
+polygon = PoolVector2Array( 0, 0, 32, -8, 32, 8 )
+
+[node name="Polygon2D6" type="Polygon2D" parent="SecondRoom/Revolver/Pivot" index="5"]
+rotation = 7.06858
+polygon = PoolVector2Array( 0, 0, 32, -8, 32, 8 )
+
+[node name="Polygon2D7" type="Polygon2D" parent="SecondRoom/Revolver/Pivot" index="6"]
+rotation = 8.63938
+polygon = PoolVector2Array( 0, 0, 32, -8, 32, 8 )
+
+[node name="Polygon2D8" type="Polygon2D" parent="SecondRoom/Revolver/Pivot" index="7"]
+rotation = 10.2102
+polygon = PoolVector2Array( 0, 0, 32, -8, 32, 8 )
+
+[node name="Sprite" type="Sprite" parent="SecondRoom/Revolver" index="2"]
+light_mask = 2
+position = Vector2( 4, 4 )
+rotation = -0.353618
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 19 )
+
+[node name="Pickup" type="AudioStreamPlayer" parent="SecondRoom/Revolver" index="3"]
+stream = ExtResource( 20 )
+volume_db = -5.0
+
+[node name="Ammo" parent="SecondRoom" index="4" instance=ExtResource( 21 )]
+position = Vector2( 575, -522 )
+
+[node name="Ammo2" parent="SecondRoom" index="5" instance=ExtResource( 21 )]
+position = Vector2( 497, -557 )
+
+[node name="Ammo3" parent="SecondRoom" index="6" instance=ExtResource( 21 )]
+position = Vector2( 475, -541 )
+
+[node name="Ammo4" parent="SecondRoom" index="7" instance=ExtResource( 21 )]
+position = Vector2( 568, -546 )
+
+[node name="Ammo5" parent="SecondRoom" index="8" instance=ExtResource( 21 )]
+position = Vector2( 593, -542 )
+
+[node name="InstructionsShoot" type="Node2D" parent="SecondRoom" index="9"]
+visible = false
+position = Vector2( 694, -638 )
+
+[node name="Label" type="Label" parent="SecondRoom/InstructionsShoot" index="0"]
+modulate = Color( 1, 1, 1, 0.552941 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -311.0
+margin_top = 3.0
+margin_right = -88.0
+margin_bottom = 66.0
+custom_fonts/font = SubResource( 9 )
+text = "Left Click to Shoot"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="InstructionsReload" type="Node2D" parent="SecondRoom" index="10"]
+visible = false
+position = Vector2( 727, -467 )
+
+[node name="Label" type="Label" parent="SecondRoom/InstructionsReload" index="0"]
+modulate = Color( 1, 1, 1, 0.552941 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -311.0
+margin_top = 3.0
+margin_right = -88.0
+margin_bottom = 66.0
+custom_fonts/font = SubResource( 9 )
+text = "Press R to Reload"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Ladder" type="Area2D" parent="SecondRoom" index="11"]
+position = Vector2( 872, -472 )
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SecondRoom/Ladder" index="0"]
+position = Vector2( 2.5, -9 )
+shape = SubResource( 14 )
+
+[node name="Sprite" type="Sprite" parent="SecondRoom/Ladder" index="1"]
+modulate = Color( 0.176471, 0.188235, 0.188235, 1 )
+position = Vector2( 0.200012, -36.8 )
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 22 )
+
+[node name="Sprite2" type="Sprite" parent="SecondRoom/Ladder" index="2"]
+modulate = Color( 0.176471, 0.188235, 0.188235, 1 )
+position = Vector2( 0.200012, 1.20001 )
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 22 )
+
+[connection signal="smashed" from="StartRoom/Door2" to="." method="_on_Door2_smashed"]
+[connection signal="died" from="StartRoom/PhonePig" to="." method="_on_PhonePig_died"]
+[connection signal="died" from="StartRoom/PhonePig" to="StartRoom/StartSpeech" method="hide"]
+[connection signal="trigger" from="StartRoom/StartSpeech" to="." method="_on_StartSpeech_trigger"]
+[connection signal="body_entered" from="SecondRoom/Revolver" to="." method="_on_Revolver_body_entered"]
+[connection signal="body_entered" from="SecondRoom/Ladder" to="." method="_on_Ladder_body_entered"]

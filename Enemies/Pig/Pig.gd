@@ -7,9 +7,12 @@ var canShoot:bool = false
 export var Bullet:PackedScene = preload("res://Bullets/NormalBullet/NormalBullet.tscn")
 export var bulletSpeed:float = 600
 export var aggressive:bool = true
+export var showGun:bool = true
 
 func _ready() -> void:
 	$Firerate.wait_time = 1.6+rand_range(0, 0.2)
+	if not showGun:
+		$Pistol.hide()
 	
 func ignite(dir:float=0):
 	$Body.global_rotation = dir+(PI/2)

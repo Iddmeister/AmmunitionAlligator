@@ -251,4 +251,6 @@ anims/Close = SubResource( 2 )
 anims/Open = SubResource( 5 )
 anims/RESET = SubResource( 3 )
 
+[node name="Scene" type="Node" parent="."]
+
 [connection signal="timeout" from="CursorBite" to="." method="_on_CursorBite_timeout"]

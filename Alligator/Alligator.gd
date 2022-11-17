@@ -65,12 +65,15 @@ func movement(delta:float):
 		
 	legs.global_rotation = velocity.angle()+(PI/2)
 	
+export var lookDistance:float = 220
+export var lookSpeed:float = 0.5
+	
 func actions(delta:float):
 	
 	if Input.is_action_pressed("look"):
-		camera.position = Vector2(200, 0)
+		camera.position = camera.position.linear_interpolate(Vector2(lookDistance, 0), lookSpeed*delta*60)
 	else:
-		camera.position = Vector2(0, 0)
+		camera.position = camera.position.linear_interpolate(Vector2(0, 0), lookSpeed*delta*60)
 	
 	weaponPivot.global_rotation = lerp_angle(weaponPivot.global_rotation, (get_global_mouse_position()-weaponPivot.global_position).angle(), 0.5*delta*60)
 	$Lighter/AnimatedSprite.global_rotation = 0

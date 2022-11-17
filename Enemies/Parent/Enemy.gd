@@ -14,6 +14,8 @@ var velocity:Vector2
 var moving:bool = false
 var alligator:Node2D
 
+signal died()
+
 func _ready() -> void:
 	navAgent.connect("velocity_computed", self, "move")
 
@@ -81,6 +83,7 @@ func die():
 	navAgent.queue_free()
 	z_index = -4
 	dead = true
+	emit_signal("died")
 	
 func spawnBlood(pos:Vector2=global_position, amount:int=5, offset:float=17, random:bool=false):
 	for n in range(amount):

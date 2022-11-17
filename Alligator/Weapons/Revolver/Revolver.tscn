@@ -155,7 +155,7 @@ tracks/3/keys = {
 
 [node name="Revolver" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
-ammo = 60
+ammo = 0
 Bullet = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]

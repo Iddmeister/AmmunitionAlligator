@@ -20,6 +20,8 @@ func attack(_pos:Vector2):
 func addAmmo(amount:int=clipSize):
 	ammo += amount
 	$UI/HBoxContainer/MaxAmmo.text = " |%s" % ammo
+	$PickupAmmo.pitch_scale = 1+rand_range(0, 0.2)
+	$PickupAmmo.play()
 
 func useAmmo(amount:int=1):
 	currentClip -= amount

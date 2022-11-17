@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/GunPickup.wav-d65b7ae7c14ebad32c654074593e09bc.sample"
+
+[deps]
+
+source_file="res://Levels/Level1/GunPickup.wav"
+dest_files=[ "res://.import/GunPickup.wav-d65b7ae7c14ebad32c654074593e09bc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

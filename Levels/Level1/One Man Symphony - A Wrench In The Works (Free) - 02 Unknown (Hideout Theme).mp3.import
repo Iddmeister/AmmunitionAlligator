@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/One Man Symphony - A Wrench In The Works (Free) - 02 Unknown (Hideout Theme).mp3-845f31e5dd534109d9a1eab858e301b3.mp3str"
+
+[deps]
+
+source_file="res://Levels/Level1/One Man Symphony - A Wrench In The Works (Free) - 02 Unknown (Hideout Theme).mp3"
+dest_files=[ "res://.import/One Man Symphony - A Wrench In The Works (Free) - 02 Unknown (Hideout Theme).mp3-845f31e5dd534109d9a1eab858e301b3.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

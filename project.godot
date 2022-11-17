@@ -45,6 +45,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Ammunition Alligator"
+run/main_scene="res://Screens/Splashscreen/Splashscreen.tscn"
 config/icon="res://icon.png"
 
 [audio]
@@ -54,6 +55,7 @@ default_bus_layout="res://Alligator/AudioBus.tres"
 [autoload]
 
 Manager="*res://Singletons/Manager/Manager.tscn"
+Music="*res://Singletons/Music/Music.tscn"
 
 [display]
 

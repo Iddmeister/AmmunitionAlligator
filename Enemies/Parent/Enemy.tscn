@@ -130,6 +130,7 @@ rotation = 1.5708
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 16 )
 animation = "walk"
+frame = 8
 playing = true
 
 [node name="Torso" type="Sprite" parent="Graphics"]

@@ -8,6 +8,8 @@ var stopped:bool = false
 var velocity := Vector2(0, 0)
 var spin := Vector2(0, 0)
 
+signal smashed()
+
 onready var pivot = $Viewport/Model/Pivot
 
 func _ready() -> void:
@@ -19,6 +21,8 @@ func _on_KnockArea_body_entered(body: Node) -> void:
 		return
 	if not knocked:
 		
+		
+		emit_signal("smashed")
 		$Debris.emitting = true
 		$Break.play()
 		body.camera.shake(20, 0.4, 5)
