@@ -9,6 +9,8 @@ signal changedSceneVisible()
 
 onready var animation: AnimationPlayer = $Layer/Animation
 
+var playerData:Dictionary
+
 var inTransition:bool = false
 
 func _on_CursorBite_timeout() -> void:

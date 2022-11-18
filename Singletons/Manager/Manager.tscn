@@ -168,6 +168,7 @@ tracks/3/keys = {
 }
 
 [node name="Manager" type="Node"]
+pause_mode = 2
 script = ExtResource( 1 )
 cursorOpen = ExtResource( 2 )
 cursorClosed = ExtResource( 3 )
@@ -252,5 +253,6 @@ anims/Open = SubResource( 5 )
 anims/RESET = SubResource( 3 )
 
 [node name="Scene" type="Node" parent="."]
+pause_mode = 1
 
 [connection signal="timeout" from="CursorBite" to="." method="_on_CursorBite_timeout"]

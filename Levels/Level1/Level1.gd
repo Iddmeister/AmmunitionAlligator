@@ -1,7 +1,5 @@
 extends Level
 
-onready var alligator = $Alligator/Alligator
-
 func levelStart():
 	.levelStart()
 	Music.playTrack("ambience")
@@ -51,4 +49,4 @@ func _on_Ladder_body_entered(body: Node) -> void:
 	if Manager.inTransition:
 		return
 	if alligator.hasGun:
-		Manager.changeScene("res://Levels/Level2/Level2.tscn")
+		moveToLevel("res://Levels/Level2/Level2.tscn")

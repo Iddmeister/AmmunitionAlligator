@@ -115,7 +115,7 @@ tracks/0/keys = {
 z_index = 2
 z_as_relative = false
 collision_layer = 132
-collision_mask = 2
+collision_mask = 258
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -130,7 +130,7 @@ rotation = 1.5708
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 16 )
 animation = "walk"
-frame = 8
+frame = 4
 playing = true
 
 [node name="Torso" type="Sprite" parent="Graphics"]

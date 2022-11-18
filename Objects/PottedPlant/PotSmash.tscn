@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Misc/TempParticles/TempParticles.tscn" type="PackedScene" id=1]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/Circle.png-1fc7cb306c048127f1d184d3ea0a9c87.stex"
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.7, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends CPUParticles2D
+
+func _ready() -> void:
+	emitting = true
+	$Timer.wait_time = (lifetime/speed_scale)+1
+	$Timer.start()
+	
+func _on_Timer_timeout() -> void:
+	queue_free()
+"
+
+[node name="PotSmash" instance=ExtResource( 1 )]
+amount = 15
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+texture = SubResource( 1 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 150.0
+initial_velocity_random = 0.5
+damping = 100.0
+scale_amount = 0.1
+scale_amount_random = 0.05
+scale_amount_curve = SubResource( 2 )
+color = Color( 0.482353, 0.223529, 0, 1 )
+hue_variation = 0.1
+hue_variation_random = 1.0
+script = SubResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}

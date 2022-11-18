@@ -17,6 +17,12 @@ func _ready() -> void:
 func attack(_pos:Vector2):
 	pass
 	
+func updateTo(clip:int, _ammo:int):
+	currentClip = clip
+	ammo = _ammo
+	$UI/HBoxContainer/MaxAmmo.text = " |%s" % ammo
+	$UI/HBoxContainer/Ammo.text = "%s" % currentClip
+	
 func addAmmo(amount:int=clipSize):
 	ammo += amount
 	$UI/HBoxContainer/MaxAmmo.text = " |%s" % ammo

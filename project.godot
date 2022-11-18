@@ -154,6 +154,7 @@ look={
 2d_physics/layer_6="Monitors"
 2d_physics/layer_7="Loose"
 2d_physics/layer_8="Swallowable"
+2d_physics/layer_9="LowTerrain"
 
 [physics]
 

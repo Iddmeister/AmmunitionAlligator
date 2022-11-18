@@ -163,11 +163,6 @@ func _physics_process(delta: float) -> void:
 			
 func restart():
 	emit_signal("restart")
-	Manager.animation.play("Close")
-	yield(Manager.animation, "animation_finished")
-	get_tree().reload_current_scene()
-	Manager.animation.play("Open")
-
 
 func startSwallow():
 	swallowing = true

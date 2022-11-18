@@ -497,7 +497,7 @@ animations = [ {
 [node name="Alligator" type="KinematicBody2D" groups=["Alligator", "Hittable"]]
 z_index = 10
 z_as_relative = false
-collision_mask = 2
+collision_mask = 258
 script = ExtResource( 6 )
 
 [node name="Graphics" type="Node2D" parent="."]
@@ -509,7 +509,7 @@ position = Vector2( 0, 2 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 16 )
 animation = "walk"
-frame = 1
+frame = 12
 playing = true
 
 [node name="Torso" type="Node2D" parent="Graphics"]
@@ -666,7 +666,6 @@ rotation = 1.57079
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 20 )
 animation = "flicker"
-frame = 2
 playing = true
 offset = Vector2( -2.517, -15.0149 )
 
