@@ -28,6 +28,8 @@ func addAmmo(amount:int=clipSize):
 	$UI/HBoxContainer/MaxAmmo.text = " |%s" % ammo
 	$PickupAmmo.pitch_scale = 1+rand_range(0, 0.2)
 	$PickupAmmo.play()
+	if currentClip <= 0 and ammo > 0:
+		reload()
 
 func useAmmo(amount:int=1):
 	currentClip -= amount

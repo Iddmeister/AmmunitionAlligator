@@ -506,7 +506,7 @@ speech = [ {
 "speed": 0.05,
 "text": "Okay Okay!"
 }, {
-"persist": 0.1,
+"persist": 1.0,
 "speed": 0.05,
 "text": "Don't bite my"
 }, {

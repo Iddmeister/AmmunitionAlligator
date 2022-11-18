@@ -36,7 +36,7 @@ func shot(dir:float=0):
 func eaten(_alligator):
 	.eaten(_alligator)
 	$Body.frame = 1
-	$Body.global_rotation = (global_position-alligator.global_position).angle()+(PI/2)
+	$Body.global_rotation = (global_position-_alligator.global_position).angle()+(PI/2)
 	$Body.show()
 	spawnBlood($Body.to_global(Vector2(0, -17)), 5, 10)
 	spawnEatParticles($Body.to_global(Vector2(0, -10)), $Body.global_rotation)
@@ -67,7 +67,7 @@ func navUpdate():
 		seenAlligator = canSeeAlligator
 	if canSeeAlligator:
 		moving = true
-		navAgent.set_target_location(alligator.global_position+Vector2(140, 0).rotated((global_position-alligator.global_position).angle()))#+rand_range(-PI, PI)))
+		navAgent.set_target_location(alligator.global_position+Vector2(140, 0).rotated((global_position-alligator.global_position).angle()+(deg2rad(45)*randOffset-0.5)*2))
 		if canShoot:
 			shoot()
 	elif seenAlligator:

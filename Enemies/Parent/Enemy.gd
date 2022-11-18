@@ -16,7 +16,11 @@ var alligator:Node2D
 
 signal died()
 
+var randOffset:float
+
 func _ready() -> void:
+	randomize()
+	randOffset = rand_range(0, 1)
 	navAgent.connect("velocity_computed", self, "move")
 
 func think(_delta:float):
@@ -125,3 +129,8 @@ func castToAlligator():
 		return true
 	else:
 		return false
+
+
+func _on_OffsetTimer_timeout() -> void:
+	randomize()
+	randOffset = rand_range(0, 1)

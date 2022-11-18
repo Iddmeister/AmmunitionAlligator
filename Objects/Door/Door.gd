@@ -38,7 +38,7 @@ func _on_KnockArea_body_entered(body: Node) -> void:
 		var dir = -1 if to_local(body.global_position).x == abs(to_local(body.global_position).x) else 1
 		
 		velocity = Vector2(dir*speed, 0).rotated(global_rotation)
-		spin = Vector2(-300, 100)
+		spin = Vector2(-300+rand_range(-20, 20), 100+rand_range(-20, 20))
 		knocked = true
 		yield(get_tree(), "physics_frame")
 		yield(get_tree(), "physics_frame")

@@ -22,6 +22,7 @@ func hit(_damage:int, _dir:float=0):
 func swallow():
 	set_collision_mask_bit(2, true)
 	set_collision_layer_bit(6, false)
+	set_collision_layer_bit(7, false)
 	get_parent().remove_child(self)
 
 func spit(_alligator, dir:float):
@@ -53,7 +54,7 @@ func destroy():
 	s.global_position = global_position
 	$Smash.pitch_scale  =1+rand_range(-0.2, 0.2)
 	$Smash.play()
-	$CollisionShape2D.disabled = true
+	$CollisionShape2D.set_deferred("disabled", true)
 
 
 

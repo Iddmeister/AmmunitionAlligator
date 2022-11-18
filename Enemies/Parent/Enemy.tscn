@@ -130,7 +130,7 @@ rotation = 1.5708
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 16 )
 animation = "walk"
-frame = 4
+frame = 11
 playing = true
 
 [node name="Torso" type="Sprite" parent="Graphics"]
@@ -150,4 +150,9 @@ avoidance_enabled = true
 wait_time = 0.1
 autostart = true
 
+[node name="OffsetTimer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
 [connection signal="timeout" from="NavUpdate" to="." method="_on_NavUpdate_timeout"]
+[connection signal="timeout" from="OffsetTimer" to="." method="_on_OffsetTimer_timeout"]
