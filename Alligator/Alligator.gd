@@ -154,9 +154,9 @@ func _physics_process(delta: float) -> void:
 	if not dead:
 		if canMove:
 			movement(delta)
+			actions(delta)
 		else:
 			$Graphics/Legs.play("default")
-		actions(delta)
 	else:
 		if Input.is_action_just_pressed("restart"):
 			restart()

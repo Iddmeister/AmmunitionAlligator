@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Levels/Parent/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Misc/Background/Background.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Enemies/Parent/Speech.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Levels/Level2/Keys.png" type="Texture" id=16]
 [ext_resource path="res://Levels/Level2/Keys.wav" type="AudioStream" id=17]
+[ext_resource path="res://Objects/Car/Car.tscn" type="PackedScene" id=18]
 
 [sub_resource type="StreamTexture" id=1]
 flags = 34
@@ -62,6 +63,24 @@ extents = Vector2( 15.5, 7 )
 
 [sub_resource type="CircleShape2D" id=10]
 radius = 48.6621
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 72, 9 )
+
+[sub_resource type="NavigationPolygon" id=12]
+vertices = PoolVector2Array( -560, -88, -216, -88, -216, 120, -560, 88, -792, 120, -792, 88 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 3, 2, 4, 5 ) ]
+outlines = [ PoolVector2Array( -560, -88, -560, 88, -792, 88, -792, 120, -216, 120, -216, -88 ) ]
+
+[sub_resource type="NavigationPolygon" id=13]
+vertices = PoolVector2Array( -664, 88, -680, 88, -680, -8, -664, -88, -704, -88, -704, -8 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 3, 2, 5 ) ]
+outlines = [ PoolVector2Array( -664, 88, -664, -88, -704, -88, -704, -8, -680, -8, -680, 88 ) ]
+
+[sub_resource type="NavigationPolygon" id=14]
+vertices = PoolVector2Array( 8, 104, 8, 120, -216, 120, -88, 104, -216, 104, -120, 104, -120, -88, -88, -88 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 2, 4, 5 ), PoolIntArray( 3, 2, 5 ), PoolIntArray( 3, 5, 6, 7 ) ]
+outlines = [ PoolVector2Array( 8, 104, -88, 104, -88, -88, -120, -88, -120, 104, -216, 104, -216, 120, 8, 120 ) ]
 
 [node name="Level2" instance=ExtResource( 1 )]
 script = ExtResource( 6 )
@@ -391,7 +410,7 @@ z_as_relative = false
 color = Color( 0.294118, 0.203922, 0.0666667, 1 )
 texture = SubResource( 6 )
 texture_scale = Vector2( 0.05, 0.05 )
-polygon = PoolVector2Array( 232, 192, 232, 240, 448, 240, 448, 192 )
+polygon = PoolVector2Array( 232, 192, 232, 240, 280, 240, 280, 192 )
 script = SubResource( 7 )
 
 [node name="WallPolygon7" parent="Room3" index="2" instance=ExtResource( 4 )]
@@ -524,15 +543,78 @@ position = Vector2( 256, 160 )
 [node name="Room4" type="Node2D" parent="." index="7"]
 position = Vector2( 1600, -272 )
 
-[node name="Label" type="Label" parent="Room4" index="0"]
-margin_left = -56.0
-margin_right = 157.0
-margin_bottom = 48.0
-text = "GARAGE
+[node name="WallPolygon2" parent="Room4" index="0" instance=ExtResource( 4 )]
+z_index = -6
+color = Color( 0.25098, 0.258824, 0.345098, 1 )
+texture = SubResource( 2 )
+texture_scale = Vector2( 0.5, 0.5 )
+polygon = PoolVector2Array( -144, 192, -128, 195, -63, 193, -12, 198, 73, 193, 85, 189, 87, 180, 91, 128, 94, 57, 98, 3, 96, -8, 93, -39, 95, -49, 94, -97, 92, -137, 91, -146, 87, -155, 80, -160, 55, -161, 40, -160, 40, -112, 44, -26, 43, 46, 41, 63, 43, 128, 40, 144, 17, 147, -8, 141, -34, 143, -86, 145, -101, 144, -144, 144 )
+script = SubResource( 3 )
+__meta__ = {
+"_edit_group_": true,
+"_editor_description_": ""
+}
 
-USE SAME TEXTURE AS BASEMENT"
+[node name="WallPolygon3" parent="Room4" index="1" instance=ExtResource( 4 )]
+z_index = -6
+color = Color( 0.25098, 0.258824, 0.345098, 1 )
+texture = SubResource( 2 )
+texture_scale = Vector2( 0.5, 0.5 )
+polygon = PoolVector2Array( -144, -160, -144, -112, -130, -114, -111, -111, -88, -112, -88, -160, -107, -164, -127, -164 )
+script = SubResource( 3 )
+__meta__ = {
+"_edit_group_": true,
+"_editor_description_": ""
+}
+
+[node name="Car" parent="Room4" index="2" instance=ExtResource( 18 )]
+position = Vector2( -16, -16 )
+
+[node name="Floor" type="Polygon2D" parent="Room4" index="3"]
+self_modulate = Color( 0.596078, 0.635294, 0.580392, 1 )
+z_index = -20
+z_as_relative = false
+texture = SubResource( 1 )
+texture_scale = Vector2( 0.5, 0.5 )
+polygon = PoolVector2Array( -168, 184, 72, 184, 72, -152, 40, -152, 28, -150, 10, -161, -1, -157, -15, -148, -42, -154, -57, -149, -77, -155, -88, -152, -168, -152 )
+__meta__ = {
+"_edit_lock_": true,
+"_editor_description_": ""
+}
+
+[node name="InvisibleWall" type="StaticBody2D" parent="Room4" index="4"]
+position = Vector2( -24, -144 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room4/InvisibleWall" index="0"]
+position = Vector2( 0, -1 )
+shape = SubResource( 11 )
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Room4" index="5"]
+navpoly = SubResource( 12 )
+
+[node name="NavigationPolygonInstance2" type="NavigationPolygonInstance" parent="Room4" index="6"]
+navpoly = SubResource( 13 )
+
+[node name="NavigationPolygonInstance3" type="NavigationPolygonInstance" parent="Room4" index="7"]
+navpoly = SubResource( 14 )
+
+[node name="PottedPlant" parent="Room4" index="8" instance=ExtResource( 14 )]
+position = Vector2( -480, 128 )
+frame = 4
+
+[node name="PottedPlant2" parent="Room4" index="9" instance=ExtResource( 14 )]
+position = Vector2( -224, -80 )
+frame = 1
+
+[node name="PottedPlant3" parent="Room4" index="10" instance=ExtResource( 14 )]
+position = Vector2( -264, -88 )
+frame = 1
 
 [connection signal="smashed" from="Hallway/Door" to="." method="_on_Door_smashed"]
 [connection signal="smashed" from="Room3/OfficeDoor" to="." method="_on_OfficeDoor_smashed"]
 [connection signal="died" from="Room3/Enemies/Pig2" to="." method="_on_Pig2_died"]
 [connection signal="body_entered" from="Room3/Keys" to="." method="_on_Keys_body_entered"]
+[connection signal="carEntered" from="Room4/Car" to="." method="_on_Car_carEntered"]
+[connection signal="left" from="Room4/Car" to="." method="_on_Car_left"]

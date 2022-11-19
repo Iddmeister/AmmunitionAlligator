@@ -29,3 +29,12 @@ func _on_Keys_body_entered(body: Node) -> void:
 	if $Room3/Keys.visible:
 		$Room3/Keys.hide()
 		$Room3/Keys/Pickup.play()
+
+
+func _on_Car_carEntered() -> void:
+	if not $Room3/Keys.visible:
+		$Room4/Car.start(alligator)
+
+
+func _on_Car_left() -> void:
+	Manager.changeScene("res://Levels/Level3/Level3.tscn")
