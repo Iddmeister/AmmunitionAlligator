@@ -1,0 +1,22 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+
+uniform sampler2D noise;
+uniform vec4 colour1 : hint_color;
+uniform vec4 colour2 : hint_color;
+uniform float speed = 0.07;
+
+void fragment() {
+	
+	vec2 uv = vec2(UV.x+TIME*speed, UV.y);
+	float avg = (texture(noise, uv).r+texture(noise, uv).g+texture(noise, uv).b)/3.0;
+	
+	if (avg >= 0.5) {
+		COLOR = colour1
+	} else {
+		COLOR = colour2
+	}
+	
+}"

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/CloseDoor.mp3-c7650ed375ce329ada6fc5a12b5eba04.mp3str"
+
+[deps]
+
+source_file="res://Objects/Car/CloseDoor.mp3"
+dest_files=[ "res://.import/CloseDoor.mp3-c7650ed375ce329ada6fc5a12b5eba04.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

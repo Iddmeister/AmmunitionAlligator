@@ -27,3 +27,28 @@ func moveToLevel(path:String, carryAmmo:bool=true):
 		Manager.playerData["ammo"] = alligator.weapon.ammo
 		Manager.playerData["clip"] = alligator.weapon.currentClip
 	Manager.changeScene(path)
+	
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("escape"):
+		if not $Pause/Pause.visible:
+			$Pause/Pause.show()
+			get_tree().paused = true
+		else:
+			$Pause/Pause.hide()
+			get_tree().paused = false
+
+
+func _on_Resume_pressed() -> void:
+	$Pause/Pause.hide()
+	get_tree().paused = false
+
+func _on_Restart_pressed() -> void:
+	$Pause/Pause.hide()
+	restart()
+
+func _on_Options_pressed() -> void:
+	$Pause/Options.show()
+
+func _on_Menu_pressed() -> void:
+	$Pause/Pause.hide()
+	Manager.changeScene("res://Screens/Main/Main.tscn")

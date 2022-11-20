@@ -25,7 +25,7 @@ func _on_Pig2_died() -> void:
 	$Room3/OfficeSpeech.hide()
 
 
-func _on_Keys_body_entered(body: Node) -> void:
+func _on_Keys_body_entered(_body: Node) -> void:
 	if $Room3/Keys.visible:
 		$Room3/Keys.hide()
 		$Room3/Keys/Pickup.play()

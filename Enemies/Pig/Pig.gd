@@ -8,11 +8,14 @@ export var Bullet:PackedScene = preload("res://Bullets/NormalBullet/NormalBullet
 export var bulletSpeed:float = 600
 export var aggressive:bool = true
 export var showGun:bool = true
+export var kill:bool = false
 
 func _ready() -> void:
 	$Firerate.wait_time = 1.6+rand_range(0, 0.2)
 	if not showGun:
 		$Pistol.hide()
+	if kill:
+		call_deferred("shot", global_rotation)
 	
 func ignite(dir:float=0):
 	$Body.global_rotation = dir+(PI/2)
@@ -56,7 +59,9 @@ func think(delta:float):
 	if canSeeAlligator:
 		global_rotation = lerp_angle(global_rotation, (alligator.global_position-global_position).angle(), 0.5*delta*60)
 		$Pistol.global_rotation = (alligator.global_position-$Pistol.global_position).angle()
-	else:
+		if canShoot:
+			shoot()
+	elif seenAlligator:
 		global_rotation = lerp_angle(global_rotation, velocity.angle(), 0.2*delta*60)
 	
 func navUpdate():
@@ -68,8 +73,6 @@ func navUpdate():
 	if canSeeAlligator:
 		moving = true
 		navAgent.set_target_location(alligator.global_position+Vector2(140, 0).rotated((global_position-alligator.global_position).angle()+(deg2rad(45)*randOffset-0.5)*2))
-		if canShoot:
-			shoot()
 	elif seenAlligator:
 		navAgent.set_target_location(alligator.global_position)
 		moving = true

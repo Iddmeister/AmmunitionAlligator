@@ -1,25 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[sub_resource type="Shader" id=2]
-code = "shader_type canvas_item;
-
-uniform sampler2D noise;
-uniform vec4 colour1 : hint_color;
-uniform vec4 colour2 : hint_color;
-uniform float speed = 0.07;
-
-void fragment() {
-	
-	vec2 uv = vec2(UV.x+TIME*speed, UV.y);
-	float avg = (texture(noise, uv).r+texture(noise, uv).g+texture(noise, uv).b)/3.0;
-	
-	if (avg >= 0.5) {
-		COLOR = colour1
-	} else {
-		COLOR = colour2
-	}
-	
-}"
+[ext_resource path="res://Misc/Background/Background.tres" type="Shader" id=1]
 
 [sub_resource type="OpenSimplexNoise" id=4]
 octaves = 1
@@ -30,7 +11,8 @@ seamless = true
 noise = SubResource( 4 )
 
 [sub_resource type="ShaderMaterial" id=3]
-shader = SubResource( 2 )
+resource_local_to_scene = true
+shader = ExtResource( 1 )
 shader_param/colour1 = Color( 0.0509804, 0.0509804, 0.0509804, 1 )
 shader_param/colour2 = Color( 0.0392157, 0.0392157, 0.0392157, 1 )
 shader_param/speed = 0.07

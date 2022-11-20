@@ -37,7 +37,7 @@ func think(delta:float):
 		global_rotation = lerp_angle(global_rotation, (alligator.global_position-global_position).angle(), 0.5*delta*60)
 		if not $Graphics/Bat/Animation.is_playing() and global_position.distance_to(alligator.global_position) <= swingDistance:
 			$Graphics/Bat/Animation.play("Swing")
-	else:
+	elif seenAlligator:
 		global_rotation = lerp_angle(global_rotation, velocity.angle(), 0.2*delta*60)
 	
 func navUpdate():

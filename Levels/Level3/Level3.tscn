@@ -1,5 +1,476 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Levels/Parent/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Car/Car.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/Level3/Level3.gd" type="Script" id=3]
+[ext_resource path="res://Misc/Background/Background.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Misc/Background/Background.tres" type="Shader" id=5]
+[ext_resource path="res://Levels/Level3/Dirt1.png" type="Texture" id=6]
+[ext_resource path="res://Levels/Level3/Bush.png" type="Texture" id=7]
+[ext_resource path="res://Objects/WallPolygon/WallPolygon.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Enemies/Pig/Pig.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Enemies/Parent/Speech.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Objects/Ammo/Ammo.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Levels/Level3/Floor2.png" type="Texture" id=12]
+[ext_resource path="res://Levels/Level2/Bricks1.png" type="Texture" id=13]
+[ext_resource path="res://Objects/Door/Door.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Levels/Level3/PoolTable.png" type="Texture" id=15]
+[ext_resource path="res://Objects/PottedPlant/PottedPlant.tscn" type="PackedScene" id=16]
+
+[sub_resource type="OpenSimplexNoise" id=4]
+octaves = 1
+period = 103.9
+
+[sub_resource type="NoiseTexture" id=5]
+seamless = true
+noise = SubResource( 4 )
+
+[sub_resource type="ShaderMaterial" id=6]
+resource_local_to_scene = true
+shader = ExtResource( 5 )
+shader_param/colour1 = Color( 0.137255, 0, 0.113725, 1 )
+shader_param/colour2 = Color( 0.121569, 0.00784314, 0.0745098, 1 )
+shader_param/speed = 0.07
+shader_param/noise = SubResource( 5 )
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.7, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="NavigationPolygon" id=9]
+vertices = PoolVector2Array( -16, -224, 16, -224.963, 16, -96, -48, -112, 144, -72, 240, -72, 240, -56, 144, -56, 64, -64, 144, 96, 64, 96, -48, -64, -112, -112, -112, -624, 16, -624, -16, -320, 16, -320, 144, -96 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7, 8 ), PoolIntArray( 7, 9, 10, 8 ), PoolIntArray( 8, 11, 3, 2 ), PoolIntArray( 3, 12, 13, 14, 15 ), PoolIntArray( 14, 16, 15 ), PoolIntArray( 3, 15, 0 ), PoolIntArray( 8, 2, 17, 4 ) ]
+outlines = [ PoolVector2Array( 144, -96, 16, -96, 16, -224.963, -16, -224, -16, -320, 16, -320, 16, -624, -112, -624, -112, -112, -48, -112, -48, -64, 64, -64, 64, 96, 144, 96, 144, -56, 240, -56, 240, -72, 144, -72 ) ]
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 28, 13.5 )
+
+[sub_resource type="NavigationPolygon" id=10]
+vertices = PoolVector2Array( 528, 92, 560, 106, 272, 106, 308, 92, 560, -176, 528, -32, 272, -56, 308, -32, 272, -176, 272, -72, 240, -56, 240, -72 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 1, 0, 5 ), PoolIntArray( 3, 2, 6, 7 ), PoolIntArray( 8, 4, 5, 7, 9 ), PoolIntArray( 9, 7, 6 ), PoolIntArray( 9, 6, 10, 11 ) ]
+outlines = [ PoolVector2Array( 272, -56, 240, -56, 240, -72, 272, -72, 272, -176, 560, -176, 560, 106, 272, 106 ), PoolVector2Array( 528, 92, 528, -32, 308, -32, 308, 92 ) ]
+
+[sub_resource type="NavigationPolygon" id=11]
+vertices = PoolVector2Array( 672, -168, 672, -200, 808, -200, 808, 8, 888, 8, 888, -200, 968, -200, 968, 104, 904, 104, 888, 80, 808, 80, 792, 104, 672, 104, 672, -56, 688, -64, 688, -128, 672, -128, 672, -152, 560, -152, 560, -168 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7, 8 ), PoolIntArray( 4, 8, 9 ), PoolIntArray( 3, 4, 9, 10 ), PoolIntArray( 3, 10, 11, 12, 13, 14 ), PoolIntArray( 15, 16, 17 ), PoolIntArray( 17, 18, 19, 0 ), PoolIntArray( 17, 0, 3, 15 ), PoolIntArray( 15, 3, 14 ) ]
+outlines = [ PoolVector2Array( 672, -200, 808, -200, 808, 8, 888, 8, 888, -200, 968, -200, 968, 104, 904, 104, 888, 80, 808, 80, 792, 104, 672, 104, 672, -56, 688, -64, 688, -128, 672, -128, 672, -152, 560, -152, 560, -168, 672, -168 ) ]
 
 [node name="Level3" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+tracks = PoolStringArray( "shatter" )
+
+[node name="Navigation" type="Navigation2D" parent="." index="0"]
+edge_connection_margin = 10.0
+
+[node name="Background" parent="." index="1" instance=ExtResource( 4 )]
+
+[node name="Panel" parent="Background" index="0"]
+material = SubResource( 6 )
+
+[node name="Alligator" parent="Alligator" index="0"]
+position = Vector2( -1, -46 )
+
+[node name="Start" type="Node2D" parent="." index="4"]
+
+[node name="Dirt" type="Polygon2D" parent="Start" index="0"]
+modulate = Color( 0.705882, 0.627451, 0.501961, 1 )
+z_index = -20
+z_as_relative = false
+texture = ExtResource( 6 )
+texture_scale = Vector2( 0.2, 0.2 )
+polygon = PoolVector2Array( -320, -224, -320, 256, 320, 288, 320, 128, 256, -32, 256, -224, 68, -255, 219, -702, 174, -724, 147, -752, 109, -722, 80, -743, 48, -734, 28, -761, -9, -740, -23, -758, -42, -759, -58, -768, -92, -741, -127, -762, -169, -762, -200, -777, -230, -766 )
+
+[node name="Car" parent="Start" index="1" instance=ExtResource( 2 )]
+position = Vector2( -70, 21 )
+rotation = 2.24737
+
+[node name="Bushes" type="Node2D" parent="Start" index="2"]
+z_index = 20
+
+[node name="Sprite" type="Sprite" parent="Start/Bushes" index="0"]
+position = Vector2( -256, -224 )
+rotation = -0.523599
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+
+[node name="Sprite18" type="Sprite" parent="Start/Bushes" index="1"]
+position = Vector2( -307, -367 )
+rotation = -0.224345
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+
+[node name="Sprite19" type="Sprite" parent="Start/Bushes" index="2"]
+position = Vector2( -294, -503 )
+rotation = -0.927577
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+
+[node name="Sprite20" type="Sprite" parent="Start/Bushes" index="3"]
+position = Vector2( -393, -427 )
+rotation = -0.927577
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+
+[node name="Sprite21" type="Sprite" parent="Start/Bushes" index="4"]
+position = Vector2( -241, -665 )
+rotation = -0.927577
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+
+[node name="Sprite2" type="Sprite" parent="Start/Bushes" index="5"]
+position = Vector2( -295, -82 )
+rotation = -1.93456
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+
+[node name="Sprite3" type="Sprite" parent="Start/Bushes" index="6"]
+position = Vector2( -297, 62 )
+rotation = -1.05898
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+
+[node name="Sprite4" type="Sprite" parent="Start/Bushes" index="7"]
+position = Vector2( -283, 198 )
+rotation = -2.16604
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+
+[node name="Sprite5" type="Sprite" parent="Start/Bushes" index="8"]
+position = Vector2( -149, 253 )
+rotation = -3.52613
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+
+[node name="Sprite16" type="Sprite" parent="Start/Bushes" index="9"]
+position = Vector2( -246, 344 )
+rotation = -3.52613
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+
+[node name="Sprite6" type="Sprite" parent="Start/Bushes" index="10"]
+position = Vector2( -9.35301, 235.938 )
+rotation = -3.27174
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+
+[node name="Sprite9" type="Sprite" parent="Start/Bushes" index="11"]
+position = Vector2( -19, 355 )
+rotation = -3.27174
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+
+[node name="Sprite10" type="Sprite" parent="Start/Bushes" index="12"]
+position = Vector2( -381, -33 )
+rotation = -2.55178
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+
+[node name="Sprite11" type="Sprite" parent="Start/Bushes" index="13"]
+position = Vector2( 132, -266 )
+rotation = -2.55178
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+
+[node name="Sprite22" type="Sprite" parent="Start/Bushes" index="14"]
+position = Vector2( 162, -429 )
+rotation = -1.23142
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+
+[node name="Sprite23" type="Sprite" parent="Start/Bushes" index="15"]
+position = Vector2( 195, -565 )
+rotation = -2.25778
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+
+[node name="Sprite24" type="Sprite" parent="Start/Bushes" index="16"]
+position = Vector2( 220, -683 )
+rotation = -2.25778
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+
+[node name="Sprite12" type="Sprite" parent="Start/Bushes" index="17"]
+position = Vector2( -15, 567 )
+rotation = -3.30896
+scale = Vector2( 10, 10 )
+z_index = -5
+texture = ExtResource( 7 )
+
+[node name="Sprite13" type="Sprite" parent="Start/Bushes" index="18"]
+position = Vector2( -480, 390 )
+rotation = -3.57814
+scale = Vector2( 10, 10 )
+z_index = -5
+texture = ExtResource( 7 )
+
+[node name="Sprite14" type="Sprite" parent="Start/Bushes" index="19"]
+position = Vector2( -581, -43 )
+rotation = -3.08867
+scale = Vector2( 10, 10 )
+z_index = -5
+texture = ExtResource( 7 )
+
+[node name="Sprite15" type="Sprite" parent="Start/Bushes" index="20"]
+position = Vector2( -611, -477 )
+rotation = -2.81545
+scale = Vector2( 10, 10 )
+z_index = -5
+texture = ExtResource( 7 )
+
+[node name="Sprite17" type="Sprite" parent="Start/Bushes" index="21"]
+position = Vector2( -550, -922 )
+rotation = -3.19238
+scale = Vector2( 10, 10 )
+z_index = -5
+texture = ExtResource( 7 )
+
+[node name="Sprite7" type="Sprite" parent="Start/Bushes" index="22"]
+position = Vector2( 141.647, 285.938 )
+rotation = -3.05505
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+
+[node name="Sprite8" type="Sprite" parent="Start/Bushes" index="23"]
+position = Vector2( 278.647, 224.938 )
+rotation = -3.05505
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+
+[node name="Skidmark" type="Line2D" parent="Start" index="3"]
+position = Vector2( -2, 11 )
+z_index = -19
+z_as_relative = false
+points = PoolVector2Array( -87, -58, -74, -140, -31, -222, 13, -278 )
+width_curve = SubResource( 7 )
+default_color = Color( 0, 0, 0, 0.431373 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Skidmark2" type="Line2D" parent="Start" index="4"]
+position = Vector2( -67, 41 )
+z_index = -19
+z_as_relative = false
+points = PoolVector2Array( -87, -58, -74, -140, -31, -222, 13, -278 )
+width_curve = SubResource( 7 )
+default_color = Color( 0, 0, 0, 0.431373 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="WallPolygon" parent="Start" index="5" instance=ExtResource( 8 )]
+color = Color( 1, 1, 1, 0 )
+polygon = PoolVector2Array( 289, 150, 229, 164, 190, 213, 135, 212, 67, 222, 42, 176, -181, 189, -238, 167, -239, 57, -234, -62, -240, -155, -194, -204, -239, -335, -251, -428, -230, -494, -234, -589, -192, -653, -179, -708, 183, -658, 132, -571, 141, -516, 123, -491, 87, -425, 83, -371, 86, -322, 51, -260, 112, -189, 158, -179, 208, -264, 361, -790, -161, -883, -480, -672, -480, 384, 288, 384 )
+
+[node name="Pig" parent="Start" index="6" instance=ExtResource( 9 )]
+position = Vector2( 37, -525 )
+rotation = 1.17135
+kill = true
+
+[node name="Speech" parent="Start" index="7" instance=ExtResource( 10 )]
+position = Vector2( 32, -608 )
+speech = [ {
+"persist": 1.0,
+"speed": 0.8,
+"text": "You will"
+}, {
+"persist": 1.0,
+"speed": 0.5,
+"text": "never"
+}, {
+"persist": 1.0,
+"speed": 0.8,
+"text": "make it"
+}, {
+"persist": 1.0,
+"speed": 0.5,
+"text": "no"
+}, {
+"persist": 1.0,
+"speed": 0.8,
+"text": "chance"
+} ]
+
+[node name="Ammo" parent="Start" index="8" instance=ExtResource( 11 )]
+position = Vector2( -32, -544 )
+rotation = 1.85963
+
+[node name="Ammo3" parent="Start" index="9" instance=ExtResource( 11 )]
+position = Vector2( 17, -465 )
+rotation = 1.19398
+
+[node name="Ammo2" parent="Start" index="10" instance=ExtResource( 11 )]
+position = Vector2( -25, -505 )
+rotation = -0.647677
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Start" index="11"]
+navpoly = SubResource( 9 )
+
+[node name="Room1" type="Node2D" parent="." index="5"]
+
+[node name="Door" parent="Room1" index="0" instance=ExtResource( 14 )]
+position = Vector2( 200, -64 )
+
+[node name="Door2" parent="Room1" index="1" instance=ExtResource( 14 )]
+position = Vector2( 624, -160 )
+
+[node name="Door3" parent="Room1" index="2" instance=ExtResource( 14 )]
+position = Vector2( 512, -240 )
+rotation = -1.5708
+
+[node name="Floor" type="Polygon2D" parent="Room1" index="3"]
+position = Vector2( -64, 0 )
+z_index = -20
+z_as_relative = false
+texture = ExtResource( 12 )
+texture_scale = Vector2( 0.5, 0.5 )
+texture_rotation_degrees = -45.0
+polygon = PoolVector2Array( 288, -224, 288, -96, 272, -96, 272, -32, 288, -32, 288, 160, 704, 160, 704, -224, 608, -224, 608, -256, 544, -256, 544, -224 )
+
+[node name="WallPolygon" parent="Room1" index="4" instance=ExtResource( 8 )]
+position = Vector2( -64, 0 )
+z_index = -10
+z_as_relative = false
+texture = ExtResource( 13 )
+texture_scale = Vector2( 0.5, 0.5 )
+texture_rotation_degrees = 90.0
+polygon = PoolVector2Array( 544, -256, 544, -224, 288, -224, 288, -96, 256, -96, 256, -256 )
+
+[node name="WallPolygon2" parent="Room1" index="5" instance=ExtResource( 8 )]
+position = Vector2( -64, 0 )
+z_index = -10
+z_as_relative = false
+texture = ExtResource( 13 )
+texture_scale = Vector2( 0.5, 0.5 )
+texture_rotation_degrees = 90.0
+polygon = PoolVector2Array( 288, -32, 256, -32, 256, 160, 704, 160, 704, -128, 672, -128, 672, 128, 288, 128 )
+
+[node name="WallPolygon3" parent="Room1" index="6" instance=ExtResource( 8 )]
+position = Vector2( -64, 0 )
+z_index = -10
+z_as_relative = false
+texture = ExtResource( 13 )
+texture_scale = Vector2( 0.5, 0.5 )
+texture_rotation_degrees = 90.0
+polygon = PoolVector2Array( 608, -256, 608, -224, 672, -224, 672, -192, 704, -192, 704, -256 )
+
+[node name="Enemies" type="Node2D" parent="Room1" index="7"]
+
+[node name="Pig" parent="Room1/Enemies" index="0" instance=ExtResource( 9 )]
+position = Vector2( 311, -46 )
+rotation = 7.02603
+
+[node name="Pig2" parent="Room1/Enemies" index="1" instance=ExtResource( 9 )]
+position = Vector2( 473, 96 )
+rotation = 3.80582
+
+[node name="Pig3" parent="Room1/Enemies" index="2" instance=ExtResource( 9 )]
+position = Vector2( 529, -3.99998 )
+rotation = 2.69309
+
+[node name="Pig4" parent="Room1/Enemies" index="3" instance=ExtResource( 9 )]
+position = Vector2( 526, -148 )
+rotation = 2.29637
+
+[node name="Table" type="StaticBody2D" parent="Room1" index="8"]
+position = Vector2( 416, 32 )
+scale = Vector2( 3, 3 )
+z_index = -10
+z_as_relative = false
+collision_layer = 256
+collision_mask = 0
+
+[node name="Sprite" type="Sprite" parent="Room1/Table" index="0"]
+texture = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room1/Table" index="1"]
+position = Vector2( 0, 0.5 )
+shape = SubResource( 8 )
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Room1" index="9"]
+navpoly = SubResource( 10 )
+
+[node name="Room2" type="Node2D" parent="." index="6"]
+
+[node name="WallPolygon4" parent="Room2" index="0" instance=ExtResource( 8 )]
+position = Vector2( -64, 0 )
+z_index = -10
+z_as_relative = false
+texture = ExtResource( 13 )
+texture_scale = Vector2( 0.5, 0.5 )
+texture_rotation_degrees = 90.0
+polygon = PoolVector2Array( 704, 128, 704, 160, 1088, 160, 1088, -256, 1024, -256, 1024, -224, 1056, -224, 1056, 128 )
+
+[node name="WallPolygon5" parent="Room2" index="1" instance=ExtResource( 8 )]
+position = Vector2( -64, 0 )
+z_index = -10
+z_as_relative = false
+texture = ExtResource( 13 )
+texture_scale = Vector2( 0.5, 0.5 )
+texture_rotation_degrees = 90.0
+polygon = PoolVector2Array( 704, -256, 704, -224, 960, -224, 960, -256 )
+
+[node name="WallPolygon6" parent="Room2" index="2" instance=ExtResource( 8 )]
+position = Vector2( -64, 0 )
+z_index = -10
+z_as_relative = false
+texture = ExtResource( 13 )
+texture_scale = Vector2( 0.5, 0.5 )
+polygon = PoolVector2Array( 928, -224, 928, -16, 896, -16, 896, -224 )
+
+[node name="Floor" type="Polygon2D" parent="Room2" index="3"]
+position = Vector2( -64, 0 )
+z_index = -20
+z_as_relative = false
+texture = ExtResource( 12 )
+texture_scale = Vector2( 0.5, 0.5 )
+texture_rotation_degrees = -45.0
+polygon = PoolVector2Array( 704, -256, 704, 160, 1088, 160, 1088, -256 )
+
+[node name="Door" parent="Room2" index="4" instance=ExtResource( 14 )]
+position = Vector2( 928, -240 )
+rotation = 1.5708
+
+[node name="Enemies" type="Node2D" parent="Room2" index="5"]
+
+[node name="Pig" parent="Room2/Enemies" index="0" instance=ExtResource( 9 )]
+position = Vector2( 928, 96 )
+rotation = -2.56737
+
+[node name="Pig2" parent="Room2/Enemies" index="1" instance=ExtResource( 9 )]
+position = Vector2( 912, 32 )
+rotation = 2.50861
+
+[node name="Pig3" parent="Room2/Enemies" index="2" instance=ExtResource( 9 )]
+position = Vector2( 912, -96 )
+rotation = -0.479552
+
+[node name="Pig4" parent="Room2/Enemies" index="3" instance=ExtResource( 9 )]
+position = Vector2( 960, 0 )
+rotation = -2.4664
+
+[node name="Pig5" parent="Room2/Enemies" index="4" instance=ExtResource( 9 )]
+position = Vector2( 800, -48 )
+rotation = -2.4664
+
+[node name="Pig6" parent="Room2/Enemies" index="5" instance=ExtResource( 9 )]
+position = Vector2( 704, 80 )
+rotation = -1.73993
+
+[node name="PottedPlant" parent="Room2" index="6" instance=ExtResource( 16 )]
+position = Vector2( 664, -96 )
+
+[node name="PottedPlant2" parent="Room2" index="7" instance=ExtResource( 16 )]
+position = Vector2( 832, 112 )
+frame = 2
+
+[node name="PottedPlant3" parent="Room2" index="8" instance=ExtResource( 16 )]
+position = Vector2( 864, 112 )
+scale = Vector2( -1, 1 )
+frame = 2
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Room2" index="9"]
+navpoly = SubResource( 11 )
+
+[editable path="Background"]
