@@ -34,7 +34,9 @@ func _on_Keys_body_entered(_body: Node) -> void:
 func _on_Car_carEntered() -> void:
 	if not $Room3/Keys.visible:
 		$Room4/Car.start(alligator)
+		Music.stop()
 
 
 func _on_Car_left() -> void:
+	Music.playTrack("hunt")
 	Manager.changeScene("res://Levels/Level3/Level3.tscn")

@@ -56,7 +56,7 @@ outlines = [ PoolVector2Array( 672, -200, 808, -200, 808, 8, 888, 8, 888, -200, 
 
 [node name="Level3" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
-tracks = PoolStringArray( "shatter" )
+tracks = PoolStringArray( "hunt" )
 
 [node name="Navigation" type="Navigation2D" parent="." index="0"]
 edge_connection_margin = 10.0

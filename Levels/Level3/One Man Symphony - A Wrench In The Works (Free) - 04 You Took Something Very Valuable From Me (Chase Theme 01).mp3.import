@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/One Man Symphony - A Wrench In The Works (Free) - 04 You Took Something Very Valuable From Me (Chase Theme 01).mp3-c3b16dca746b0397e82edc9476c86fa5.mp3str"
+
+[deps]
+
+source_file="res://Levels/Level3/One Man Symphony - A Wrench In The Works (Free) - 04 You Took Something Very Valuable From Me (Chase Theme 01).mp3"
+dest_files=[ "res://.import/One Man Symphony - A Wrench In The Works (Free) - 04 You Took Something Very Valuable From Me (Chase Theme 01).mp3-c3b16dca746b0397e82edc9476c86fa5.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

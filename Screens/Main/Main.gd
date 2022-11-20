@@ -8,7 +8,7 @@ func _on_Quit_pressed() -> void:
 
 
 func _on_Play_pressed() -> void:
-	Manager.changeScene("res://Levels/Level3/Level3.tscn")
+	Manager.changeScene("res://Levels/Level2/Level2.tscn")
 
 
 

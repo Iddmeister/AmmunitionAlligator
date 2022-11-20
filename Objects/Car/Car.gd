@@ -14,6 +14,7 @@ func _physics_process(_delta:float) -> void:
 		$Sprite.offset = Vector2(rand_range(-rumbleAmount, rumbleAmount), rand_range(-rumbleAmount, rumbleAmount))
 
 func start(alligator=null):
+	$CloseDoor.play()
 	$Animation.play("Leave")
 	if alligator:
 		alligator.hide()
