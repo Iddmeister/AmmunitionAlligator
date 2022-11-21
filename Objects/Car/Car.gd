@@ -20,6 +20,14 @@ func start(alligator=null):
 		alligator.hide()
 		alligator.canMove = false
 		alligator.global_position = global_position
+		
+func startCar(alligator=null):
+	$CloseDoor.play()
+	$Animation.play("Start")
+	if alligator:
+		alligator.hide()
+		alligator.canMove = false
+		alligator.global_position = global_position
 
 func rumble():
 	rumbling = true

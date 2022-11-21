@@ -5,6 +5,8 @@ class_name Alligator
 export var moveSpeed:float = 300
 export var acceleration:float = 0.5
 
+export var invincible:bool = false
+
 var velocity:Vector2
 
 onready var legs = $Graphics/Legs
@@ -212,6 +214,9 @@ func _on_SwallowArea_area_exited(area: Area2D) -> void:
 		swallowAreaBodies.erase(area)
 
 func hit(_damage:int, dir:float=0):
+	
+	if invincible:
+		return
 	
 	if dead:
 		return

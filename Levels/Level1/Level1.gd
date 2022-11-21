@@ -45,7 +45,7 @@ func _on_Door2_smashed() -> void:
 	$StartRoom/PhonePig.global_rotation = deg2rad(-90)
 
 
-func _on_Ladder_body_entered(body: Node) -> void:
+func _on_Ladder_body_entered(_body: Node) -> void:
 	if Manager.inTransition:
 		return
 	if alligator.hasGun:

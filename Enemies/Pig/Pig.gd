@@ -14,6 +14,7 @@ func _ready() -> void:
 	$Firerate.wait_time = 1.6+rand_range(0, 0.2)
 	if not showGun:
 		$Pistol.hide()
+		$Graphics/Legs.hide()
 	if kill:
 		call_deferred("shot", global_rotation)
 	

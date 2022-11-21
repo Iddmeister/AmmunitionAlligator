@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BathroomTiles.png-7d20b9bb04dd214e52feb5cb5e96bd94.stex"
+path="res://.import/Bath.png-4d37ccba25d188c19ec3d60004bf2035.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Levels/Level3/BathroomTiles.png"
-dest_files=[ "res://.import/BathroomTiles.png-7d20b9bb04dd214e52feb5cb5e96bd94.stex" ]
+source_file="res://Levels/Level3/Bath.png"
+dest_files=[ "res://.import/Bath.png-4d37ccba25d188c19ec3d60004bf2035.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=2
+flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false

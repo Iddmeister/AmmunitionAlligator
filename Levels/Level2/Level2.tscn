@@ -68,9 +68,9 @@ radius = 48.6621
 extents = Vector2( 72, 9 )
 
 [sub_resource type="NavigationPolygon" id=12]
-vertices = PoolVector2Array( -560, -88, -216, -88, -216, 120, -560, 88, -792, 120, -792, 88 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 3, 2, 4, 5 ) ]
-outlines = [ PoolVector2Array( -560, -88, -560, 88, -792, 88, -792, 120, -216, 120, -216, -88 ) ]
+vertices = PoolVector2Array( -560, -88, -216, -88, -216, 120, -416, 120, -560, 88, -416, 216, -432, 216, -432, 120, -792, 120, -792, 88 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ), PoolIntArray( 3, 5, 6, 7 ), PoolIntArray( 4, 3, 7 ), PoolIntArray( 4, 7, 8, 9 ) ]
+outlines = [ PoolVector2Array( -560, -88, -560, 88, -792, 88, -792, 120, -432, 120, -432, 216, -416, 216, -416, 120, -216, 120, -216, -88 ) ]
 
 [sub_resource type="NavigationPolygon" id=13]
 vertices = PoolVector2Array( -664, 88, -680, 88, -680, -8, -664, -88, -704, -88, -704, -8 )

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BathroomTiles.png-7d20b9bb04dd214e52feb5cb5e96bd94.stex"
+path="res://.import/BathroomWall.png-defe3e013f2e2d3290c9854454685563.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Levels/Level3/BathroomTiles.png"
-dest_files=[ "res://.import/BathroomTiles.png-7d20b9bb04dd214e52feb5cb5e96bd94.stex" ]
+source_file="res://Levels/Level3/BathroomWall.png"
+dest_files=[ "res://.import/BathroomWall.png-defe3e013f2e2d3290c9854454685563.stex" ]
 
 [params]
 
