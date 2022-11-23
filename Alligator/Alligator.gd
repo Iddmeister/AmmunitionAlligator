@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 class_name Alligator
 
+export var health:int = 1
 export var moveSpeed:float = 300
 export var acceleration:float = 0.5
 
@@ -13,6 +14,9 @@ onready var legs = $Graphics/Legs
 onready var weaponPivot = $Weapon/Pivot
 onready var weapon = $Weapon/Pivot.get_child(0)
 onready var camera = $Camera
+onready var lives: MarginContainer = $UI/Lives
+onready var heartContainer: HBoxContainer = $UI/Lives/PanelContainer/HBoxContainer
+var LifeScene = preload("res://Alligator/Life.tscn")
 
 var Spit = preload("res://Alligator/SpitParticles.tscn")
 
@@ -38,6 +42,13 @@ func setHasGun(val):
 func _ready() -> void:
 	weapon.alligator = self
 	get_tree().set_group("Enemy", "alligator", self)
+	
+	if health <= 1:
+		lives.hide()
+	else:
+		for _l in range(health-1):
+			var heart = LifeScene.instance()
+			heartContainer.add_child(heart)
 
 func getMoveDir() -> Vector2:
 	
@@ -213,7 +224,7 @@ func _on_SwallowArea_area_exited(area: Area2D) -> void:
 	if area in swallowAreaBodies:
 		swallowAreaBodies.erase(area)
 
-func hit(_damage:int, dir:float=0):
+func hit(damage:int, dir:float=0):
 	
 	if invincible:
 		return
@@ -221,10 +232,15 @@ func hit(_damage:int, dir:float=0):
 	if dead:
 		return
 		
+	elif health > 1:
+		
+		heartContainer.get_child(health-1).get_node("Animation").play("Break")
+		health = int(max(0, health-damage))
+		
 	else:
 		
 		dead = true
-		
+		heartContainer.get_child(0).get_node("Animation").play("Break")
 		$Graphics/Torso/Head/Animation.stop(true)
 		stopSwallow()
 		#$CollisionShape2D.set_deferred("disabled", true)
@@ -236,6 +252,9 @@ func hit(_damage:int, dir:float=0):
 		spawnBlood()
 		$UI/Restart.show()
 		$Grey/Animation.play("FadeIn")
+		
+	camera.shake(20, 0.2, 20)
+	
 		
 var Blood = preload("res://Blood/Blood.tscn")
 		

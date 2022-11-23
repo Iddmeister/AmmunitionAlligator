@@ -57,7 +57,7 @@ func _on_InterruptDoor_smashed() -> void:
 		askSpeech.speak(askSpeech.queue.front())
 
 
-func _on_Speech2_trigger(code) -> void:
+func _on_Speech2_trigger(_code) -> void:
 	mentionedEnvelope = true
 
 
@@ -77,7 +77,7 @@ func _physics_process(delta: float) -> void:
 onready var envelopeText = $Envelopes/Envelope/MarginContainer/Text
 
 
-func _on_Envelope_body_entered(body: Node) -> void:
+func _on_Envelope_body_entered(_body: Node) -> void:
 	if not $Room4/Envelope.visible:
 		return
 	$Envelopes/Open.play()
@@ -91,7 +91,7 @@ func _on_Envelope_body_entered(body: Node) -> void:
 	
 
 
-func _on_Password_body_entered(body: Node) -> void:
+func _on_Password_body_entered(_body: Node) -> void:
 	if not $Office/Password.visible:
 		return
 	$Envelopes/Open.play()

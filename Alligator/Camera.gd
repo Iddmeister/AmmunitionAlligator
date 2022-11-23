@@ -6,6 +6,7 @@ var moving:bool = false
 
 func move_camera(move:Vector2):
 	if not moving:
+		randomize()
 		offset = Vector2(rand_range(-move.x, move.x), rand_range(-move.y, move.y))
 	pass
 	

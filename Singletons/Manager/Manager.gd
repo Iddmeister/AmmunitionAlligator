@@ -50,6 +50,8 @@ func changeScene(path:String):
 	
 	$Scene.add_child(s)
 	
+	yield(get_tree().create_timer(0.1), "timeout")
+	
 	get_tree().paused = false
 	emit_signal("changedScene")
 	$Layer/Animation.play("Open")

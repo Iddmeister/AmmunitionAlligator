@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=2]
+[gd_scene load_steps=75 format=2]
 
 [ext_resource path="res://Misc/Legs.png" type="Texture" id=1]
 [ext_resource path="res://Alligator/HeadRecolour.png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Misc/Fonts/coolvetica rg.otf" type="DynamicFontData" id=17]
 [ext_resource path="res://Alligator/Weapons/Revolver/RevolverShoot.wav" type="AudioStream" id=18]
 [ext_resource path="res://Alligator/Lighter.wav" type="AudioStream" id=19]
+[ext_resource path="res://Alligator/Life.tscn" type="PackedScene" id=20]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
@@ -474,6 +475,15 @@ outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 17 )
 
+[sub_resource type="StyleBoxFlat" id=55]
+bg_color = Color( 0.0745098, 0.0745098, 0.0745098, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
 [sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 7 )
 region = Rect2( 0, 0, 36, 38 )
@@ -509,7 +519,7 @@ position = Vector2( 0, 2 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 16 )
 animation = "walk"
-frame = 4
+frame = 9
 playing = true
 
 [node name="Torso" type="Node2D" parent="Graphics"]
@@ -641,6 +651,36 @@ bbcode_text = "[center][wave freq=5 amp=50]Press R to Restart[/wave][/center]"
 text = "Press R to Restart"
 scroll_active = false
 
+[node name="Lives" type="MarginContainer" parent="UI"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -47.0
+margin_right = 45.0
+margin_bottom = -17.0
+mouse_filter = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+custom_constants/margin_left = 25
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/Lives"]
+margin_left = 25.0
+margin_right = 45.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 0, 30 )
+mouse_filter = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+custom_styles/panel = SubResource( 55 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Lives/PanelContainer"]
+margin_right = 20.0
+margin_bottom = 30.0
+mouse_filter = 2
+
+[node name="Life" parent="UI/Lives/PanelContainer/HBoxContainer" instance=ExtResource( 20 )]
+margin_top = 5.0
+margin_bottom = 25.0
+
 [node name="Lighter" type="Node2D" parent="."]
 visible = false
 position = Vector2( 29, -10 )
@@ -666,7 +706,6 @@ rotation = 1.57079
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 20 )
 animation = "flicker"
-frame = 1
 playing = true
 offset = Vector2( -2.517, -15.0149 )
 
