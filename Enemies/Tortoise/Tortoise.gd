@@ -6,7 +6,7 @@ var seenAlligator:bool = false
 var canSeeAlligator:bool = false
 export var swingDistance:float = 50
 
-func hit(damage:int=1, dir:float=0):
+func hit(_damage:int=1, dir:float=0):
 	var s = Sparks.instance()
 	get_parent().add_child(s)
 	s.global_position = global_position+(Vector2($CollisionShape2D.shape.radius, 0).rotated(PI+dir))
