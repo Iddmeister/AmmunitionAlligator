@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Levels/Parent/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Car/Car.tscn" type="PackedScene" id=2]
@@ -14,6 +14,10 @@
 [ext_resource path="res://Levels/Level4/Tiles1.png" type="Texture" id=12]
 [ext_resource path="res://Enemies/Tortoise/Tortoise.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Objects/Ammo/Ammo.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Objects/Crate/Crate.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Levels/Level4/Sword.png" type="Texture" id=16]
+[ext_resource path="res://Misc/Circle.png" type="Texture" id=17]
+[ext_resource path="res://Levels/Level4/Explosion.wav" type="AudioStream" id=18]
 
 [sub_resource type="NavigationPolygon" id=2]
 vertices = PoolVector2Array( 864, -176, 864, 16, -240, 16, -240, -176 )
@@ -33,6 +37,120 @@ vertices = PoolVector2Array( 192, 8, 336, 8, 336, 24, 192, 24, 192, 208, -160, 2
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 3, 4, 5, 6 ), PoolIntArray( 0, 3, 6 ), PoolIntArray( 7, 0, 6 ) ]
 outlines = [ PoolVector2Array( 192, -112, -160, -112, -160, 208, 192, 208, 192, 24, 336, 24, 336, 8, 192, 8 ) ]
 
+[sub_resource type="NavigationPolygon" id=5]
+vertices = PoolVector2Array( 376, -40, 504, -104, 568, -104, 504, 88, 376, 24, -320, 96, -264, 152, -392, 152, -392, 88, 248, 24, 248, 152, -80, 152, -24, 88, 184, -40, 504, -232, 376, -224, 448, -232, -520, -40, -520, -232, -352, -232, -456, -40, -352, -360, -336, -360, -336, -232, -136, -232, -136, -104, -224, -96, 432, -232, 432, -376, 448, -376, -8, -232, 120, -224, -8, -104, 120, -104, 184, -104, 568, 152, 504, 152, 376, 88, -328, -8, -272, 48, -456, 88 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ), PoolIntArray( 5, 6, 7, 8 ), PoolIntArray( 9, 10, 11, 12, 13 ), PoolIntArray( 14, 1, 0, 15, 16 ), PoolIntArray( 17, 18, 19, 20 ), PoolIntArray( 19, 21, 22, 23 ), PoolIntArray( 23, 24, 25, 26 ), PoolIntArray( 27, 28, 29, 16 ), PoolIntArray( 27, 16, 15 ), PoolIntArray( 30, 27, 15, 31 ), PoolIntArray( 32, 30, 31, 33 ), PoolIntArray( 33, 34, 13, 12 ), PoolIntArray( 2, 35, 36, 3 ), PoolIntArray( 3, 37, 4 ), PoolIntArray( 13, 0, 4, 9 ), PoolIntArray( 32, 33, 12, 26 ), PoolIntArray( 25, 32, 26 ), PoolIntArray( 38, 39, 5, 8, 20 ), PoolIntArray( 8, 40, 20 ), PoolIntArray( 26, 38, 20, 19, 23 ) ]
+outlines = [ PoolVector2Array( -520, -232, -352, -232, -352, -360, -336, -360, -336, -232, -136, -232, -136, -104, -8, -104, -8, -232, 432, -232, 432, -376, 448, -376, 448, -232, 504, -232, 504, -104, 568, -104, 568, 152, 504, 152, 504, 88, 376, 88, 376, 24, 248, 24, 248, 152, -80, 152, -24, 88, -224, -96, -328, -8, -272, 48, -320, 96, -264, 152, -392, 152, -392, 88, -456, 88, -456, -40, -520, -40 ), PoolVector2Array( 120, -224, 376, -224, 376, -40, 184, -40, 184, -104, 120, -104 ) ]
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 72.0
+
+[sub_resource type="Animation" id=8]
+resource_name = "Explode"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../Black/Black:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Inner:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 5, 5 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Inner:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Explode:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../Black/Black:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Inner:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Inner:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Explode:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0, 0, 0, 1 )
+
 [node name="Level4" instance=ExtResource( 1 )]
 script = ExtResource( 9 )
 __meta__ = {
@@ -41,6 +159,10 @@ __meta__ = {
 
 [node name="Navigation" type="Navigation2D" parent="." index="0"]
 edge_connection_margin = 10.0
+
+[node name="Alligator" parent="Alligator" index="0"]
+position = Vector2( 856, 1136 )
+invincible = true
 
 [node name="Start" type="Node2D" parent="." index="3"]
 
@@ -129,7 +251,7 @@ z_index = -19
 color = Color( 0.231373, 0.419608, 0.192157, 1 )
 texture = ExtResource( 6 )
 texture_scale = Vector2( 0.5, 0.5 )
-polygon = PoolVector2Array( -352, 96, -352, -256, -320, -288, 896, -288, 928, -256, 928, 704, 896, 736, 768, 736, 736, 720, 736, 688, 768, 672, 864, 672, 864, 128, 528, 128, 496, 112, 496, 80, 528, 64, 864, 64, 864, -224, -288, -224, -288, 64, -224, 64, -192, 96, -192, 128, -320, 128 )
+polygon = PoolVector2Array( -352, 96, -352, -256, -320, -288, 896, -288, 928, -256, 928, 736, 768, 736, 736, 720, 736, 688, 768, 672, 864, 672, 864, 128, 528, 128, 496, 112, 496, 80, 528, 64, 864, 64, 864, -224, -288, -224, -288, 64, -224, 64, -192, 96, -192, 128, -320, 128 )
 
 [node name="WallPolygon3" parent="Room1" index="4" instance=ExtResource( 7 )]
 z_index = -19
@@ -222,6 +344,9 @@ z_as_relative = false
 color = Color( 0.584314, 0.72549, 0.529412, 1 )
 texture = ExtResource( 12 )
 polygon = PoolVector2Array( -384, -304, -384, 304, 352, 304, 352, -304 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Door" parent="Room2" index="2" instance=ExtResource( 8 )]
 position = Vector2( -384, 48 )
@@ -264,25 +389,17 @@ rotation = 3.14159
 position = Vector2( 104, 104 )
 rotation = 0.455435
 
-[node name="Tortoise3" parent="Room2/Enemies" index="2" instance=ExtResource( 13 )]
-position = Vector2( -128, 104 )
-rotation = -2.45941
-
-[node name="Pig" parent="Room2/Enemies" index="3" instance=ExtResource( 3 )]
+[node name="Pig" parent="Room2/Enemies" index="2" instance=ExtResource( 3 )]
 position = Vector2( -256, -192 )
 rotation = 1.98575
 
-[node name="Pig2" parent="Room2/Enemies" index="4" instance=ExtResource( 3 )]
+[node name="Pig2" parent="Room2/Enemies" index="3" instance=ExtResource( 3 )]
 position = Vector2( 96, 48 )
 rotation = -0.597807
 
-[node name="Pig3" parent="Room2/Enemies" index="5" instance=ExtResource( 3 )]
-position = Vector2( 48, 208 )
-rotation = -0.597807
-
-[node name="Pig4" parent="Room2/Enemies" index="6" instance=ExtResource( 3 )]
-position = Vector2( -128, 160 )
-rotation = -2.68932
+[node name="Pig3" parent="Room2/Enemies" index="4" instance=ExtResource( 3 )]
+position = Vector2( -104, 216 )
+rotation = -2.30498
 
 [node name="Ammo" parent="Room2" index="8" instance=ExtResource( 14 )]
 position = Vector2( -32, 152 )
@@ -312,7 +429,7 @@ z_index = -19
 color = Color( 0.231373, 0.419608, 0.192157, 1 )
 texture = ExtResource( 6 )
 texture_scale = Vector2( 0.5, 0.5 )
-polygon = PoolVector2Array( -320, 224, 192, 224, 192, 384, 176, 416, 144, 416, 128, 384, 128, 288, -288, 288, -288, 672, -144, 672, -112, 688, -112, 720, -144, 736, -320, 736, -352, 704, -352, 256 )
+polygon = PoolVector2Array( -320, 224, 192, 224, 192, 384, 176, 416, 144, 416, 128, 384, 128, 288, -288, 288, -288, 672, -144, 672, -112, 688, -112, 720, -144, 736, -352, 736, -352, 256 )
 
 [node name="Floor" type="Polygon2D" parent="Room3" index="2"]
 z_index = -20
@@ -324,27 +441,291 @@ polygon = PoolVector2Array( 256, -176, -224, -176, -224, 272, 256, 272 )
 [node name="Enemies" type="Node2D" parent="Room3" index="3"]
 
 [node name="Pig" parent="Room3/Enemies" index="0" instance=ExtResource( 3 )]
-position = Vector2( -144, -112 )
-rotation = 0.47798
+position = Vector2( -104, 192 )
+rotation = -0.68704
 
 [node name="Pig3" parent="Room3/Enemies" index="1" instance=ExtResource( 3 )]
-position = Vector2( 184, 200 )
-rotation = -1.73435
+position = Vector2( -136, 136 )
+rotation = -0.453961
 
 [node name="Pig2" parent="Room3/Enemies" index="2" instance=ExtResource( 3 )]
 position = Vector2( 184, 8 )
 rotation = -2.58819
 
-[node name="Tortoise" parent="Room3/Enemies" index="3" instance=ExtResource( 13 )]
-position = Vector2( 120, -96 )
-rotation = 0.925895
+[node name="Tortoise2" parent="Room3/Enemies" index="3" instance=ExtResource( 13 )]
+position = Vector2( -56, 136 )
+rotation = -0.530334
 
-[node name="Tortoise2" parent="Room3/Enemies" index="4" instance=ExtResource( 13 )]
-position = Vector2( -128, 192 )
-rotation = -0.822531
+[node name="Door" parent="Room3" index="4" instance=ExtResource( 8 )]
+position = Vector2( 16, 272 )
+rotation = 1.57079
+
+[node name="Room4" type="Node2D" parent="." index="7"]
+position = Vector2( 808, 840 )
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Room4" index="0"]
+navpoly = SubResource( 5 )
+
+[node name="Floor" type="Polygon2D" parent="Room4" index="1"]
+z_index = -20
+z_as_relative = false
+color = Color( 0.584314, 0.72549, 0.529412, 1 )
+texture = ExtResource( 12 )
+polygon = PoolVector2Array( -584, -296, 632, -296, 632, 216, -584, 216 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Door" parent="Room4" index="2" instance=ExtResource( 8 )]
+position = Vector2( 56, 216 )
+rotation = -4.71238
+
+[node name="WallPolygon6" parent="Room4" index="3" instance=ExtResource( 7 )]
+z_index = -19
+color = Color( 0.231373, 0.419608, 0.192157, 1 )
+texture = ExtResource( 6 )
+texture_scale = Vector2( 0.5, 0.5 )
+polygon = PoolVector2Array( -616, -264, -616, 216, -584, 248, -8, 248, 24, 232, 24, 200, -8, 184, -552, 184, -552, -264 )
+
+[node name="WallPolygon7" parent="Room4" index="4" instance=ExtResource( 7 )]
+z_index = -19
+color = Color( 0.231373, 0.419608, 0.192157, 1 )
+texture = ExtResource( 6 )
+texture_scale = Vector2( 0.5, 0.5 )
+polygon = PoolVector2Array( 664, -264, 664, 216, 632, 248, 120, 248, 88, 232, 88, 200, 120, 184, 600, 184, 600, -264 )
+
+[node name="Enemies" type="Node2D" parent="Room4" index="5"]
+
+[node name="Pig" parent="Room4/Enemies" index="0" instance=ExtResource( 3 )]
+position = Vector2( -336, -208 )
+rotation = 0.523598
+
+[node name="Pig2" parent="Room4/Enemies" index="1" instance=ExtResource( 3 )]
+position = Vector2( 336, -32 )
+rotation = -1.06301
+
+[node name="Pig4" parent="Room4/Enemies" index="2" instance=ExtResource( 3 )]
+position = Vector2( 224, 104 )
+rotation = -2.20407
+
+[node name="Pig5" parent="Room4/Enemies" index="3" instance=ExtResource( 3 )]
+position = Vector2( -496, -56 )
+rotation = -0.935565
+
+[node name="Pig6" parent="Room4/Enemies" index="4" instance=ExtResource( 3 )]
+position = Vector2( -80, 0 )
+rotation = -0.474662
+
+[node name="Tortoise" parent="Room4/Enemies" index="5" instance=ExtResource( 13 )]
+position = Vector2( 104, -224 )
+
+[node name="Tortoise3" parent="Room4/Enemies" index="6" instance=ExtResource( 13 )]
+position = Vector2( 384, 80 )
+rotation = -1.15027
+
+[node name="Tortoise4" parent="Room4/Enemies" index="7" instance=ExtResource( 13 )]
+position = Vector2( 56, 136 )
+rotation = -1.57079
+
+[node name="Tortoise5" parent="Room4/Enemies" index="8" instance=ExtResource( 13 )]
+position = Vector2( -280, 48 )
+rotation = -2.35619
+
+[node name="Crates" type="Node2D" parent="Room4" index="6"]
+
+[node name="Crate" parent="Room4/Crates" index="0" instance=ExtResource( 15 )]
+position = Vector2( 312, -168 )
+scale = Vector2( 2, 2 )
+
+[node name="Crate2" parent="Room4/Crates" index="1" instance=ExtResource( 15 )]
+position = Vector2( 248, -168 )
+scale = Vector2( 2, 2 )
+
+[node name="Crate3" parent="Room4/Crates" index="2" instance=ExtResource( 15 )]
+position = Vector2( 312, -104 )
+scale = Vector2( 2, 2 )
+
+[node name="Crate6" parent="Room4/Crates" index="3" instance=ExtResource( 15 )]
+position = Vector2( 568, -232 )
+scale = Vector2( 2, 2 )
+
+[node name="Crate7" parent="Room4/Crates" index="4" instance=ExtResource( 15 )]
+position = Vector2( 568, -168 )
+scale = Vector2( 2, 2 )
+
+[node name="Crate8" parent="Room4/Crates" index="5" instance=ExtResource( 15 )]
+position = Vector2( 440, 152 )
+scale = Vector2( 2, 2 )
+
+[node name="Crate9" parent="Room4/Crates" index="6" instance=ExtResource( 15 )]
+position = Vector2( 376, 152 )
+scale = Vector2( 2, 2 )
+
+[node name="Crate10" parent="Room4/Crates" index="7" instance=ExtResource( 15 )]
+position = Vector2( 312, 152 )
+scale = Vector2( 2, 2 )
+
+[node name="Crate11" parent="Room4/Crates" index="8" instance=ExtResource( 15 )]
+position = Vector2( 312, 88 )
+scale = Vector2( 2, 2 )
+
+[node name="Crate12" parent="Room4/Crates" index="9" instance=ExtResource( 15 )]
+position = Vector2( -72, -232 )
+scale = Vector2( 2, 2 )
+
+[node name="Crate13" parent="Room4/Crates" index="10" instance=ExtResource( 15 )]
+position = Vector2( -72, -168 )
+scale = Vector2( 2, 2 )
+
+[node name="Crate14" parent="Room4/Crates" index="11" instance=ExtResource( 15 )]
+position = Vector2( -232, 0 )
+rotation = -0.785397
+scale = Vector2( 2, 2 )
+
+[node name="Crate15" parent="Room4/Crates" index="12" instance=ExtResource( 15 )]
+position = Vector2( -187, 45 )
+rotation = -0.785397
+scale = Vector2( 2, 2 )
+
+[node name="Crate16" parent="Room4/Crates" index="13" instance=ExtResource( 15 )]
+position = Vector2( -142, 90 )
+rotation = -0.785397
+scale = Vector2( 2, 2 )
+
+[node name="Crate17" parent="Room4/Crates" index="14" instance=ExtResource( 15 )]
+position = Vector2( -187, 135 )
+rotation = -0.785397
+scale = Vector2( 2, 2 )
+
+[node name="Crate18" parent="Room4/Crates" index="15" instance=ExtResource( 15 )]
+position = Vector2( -232, 90 )
+rotation = -0.785397
+scale = Vector2( 2, 2 )
+
+[node name="Crate19" parent="Room4/Crates" index="16" instance=ExtResource( 15 )]
+position = Vector2( -520, 152 )
+scale = Vector2( 2, 2 )
+
+[node name="Crate20" parent="Room4/Crates" index="17" instance=ExtResource( 15 )]
+position = Vector2( -456, 152 )
+scale = Vector2( 2, 2 )
+
+[node name="Crate21" parent="Room4/Crates" index="18" instance=ExtResource( 15 )]
+position = Vector2( -520, 88 )
+scale = Vector2( 2, 2 )
+
+[node name="Crate22" parent="Room4/Crates" index="19" instance=ExtResource( 15 )]
+position = Vector2( -520, 24 )
+scale = Vector2( 2, 2 )
+
+[node name="Crate4" parent="Room4/Crates" index="20" instance=ExtResource( 15 )]
+position = Vector2( 248, -104 )
+scale = Vector2( 2, 2 )
+
+[node name="Crate5" parent="Room4/Crates" index="21" instance=ExtResource( 15 )]
+position = Vector2( 184, -168 )
+scale = Vector2( 2, 2 )
+
+[node name="Trap" type="Node2D" parent="." index="8"]
+position = Vector2( 864, 1216 )
+
+[node name="WallPolygon8" parent="Trap" index="0" instance=ExtResource( 7 )]
+z_index = -19
+color = Color( 0.231373, 0.419608, 0.192157, 1 )
+texture = ExtResource( 6 )
+texture_scale = Vector2( 0.5, 0.5 )
+polygon = PoolVector2Array( 64, -128, 128, -128, 128, 288, 96, 320, -96, 320, -128, 288, -128, -128, -64, -128, -64, 256, 64, 256 )
+
+[node name="Floor" type="Polygon2D" parent="Trap" index="1"]
+z_index = -20
+z_as_relative = false
+color = Color( 0.584314, 0.72549, 0.529412, 1 )
+texture = ExtResource( 12 )
+polygon = PoolVector2Array( 96, -160, 96, 288, -104, 288, -104, -160 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TrapTrigger" type="Area2D" parent="Trap" index="2"]
+position = Vector2( 0, 64 )
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trap/TrapTrigger" index="0"]
+shape = SubResource( 6 )
+
+[node name="Sword" type="Node2D" parent="Trap" index="3"]
+position = Vector2( 0, 136 )
+
+[node name="Pivot" type="Node2D" parent="Trap/Sword" index="0"]
+modulate = Color( 1, 1, 1, 0.231373 )
+scale = Vector2( 1.5, 1.5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Trap/Sword/Pivot" index="0"]
+polygon = PoolVector2Array( 0, 0, 32, -8, 32, 8 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="Trap/Sword/Pivot" index="1"]
+rotation = 1.5708
+polygon = PoolVector2Array( 0, 0, 32, -8, 32, 8 )
+
+[node name="Polygon2D3" type="Polygon2D" parent="Trap/Sword/Pivot" index="2"]
+rotation = 3.14159
+polygon = PoolVector2Array( 0, 0, 32, -8, 32, 8 )
+
+[node name="Polygon2D4" type="Polygon2D" parent="Trap/Sword/Pivot" index="3"]
+rotation = 4.71239
+polygon = PoolVector2Array( 0, 0, 32, -8, 32, 8 )
+
+[node name="Polygon2D5" type="Polygon2D" parent="Trap/Sword/Pivot" index="4"]
+rotation = 5.49779
+polygon = PoolVector2Array( 0, 0, 32, -8, 32, 8 )
+
+[node name="Polygon2D6" type="Polygon2D" parent="Trap/Sword/Pivot" index="5"]
+rotation = 7.06858
+polygon = PoolVector2Array( 0, 0, 32, -8, 32, 8 )
+
+[node name="Polygon2D7" type="Polygon2D" parent="Trap/Sword/Pivot" index="6"]
+rotation = 8.63938
+polygon = PoolVector2Array( 0, 0, 32, -8, 32, 8 )
+
+[node name="Polygon2D8" type="Polygon2D" parent="Trap/Sword/Pivot" index="7"]
+rotation = 10.2102
+polygon = PoolVector2Array( 0, 0, 32, -8, 32, 8 )
+
+[node name="Sprite" type="Sprite" parent="Trap/Sword" index="1"]
+rotation = -0.73591
+scale = Vector2( 2.5, 2 )
+texture = ExtResource( 16 )
+
+[node name="Explosion" type="Node2D" parent="Trap" index="4"]
+position = Vector2( 0, 64 )
+z_index = 20
+z_as_relative = false
+
+[node name="Animation" type="AnimationPlayer" parent="Trap/Explosion" index="0"]
+anims/Explode = SubResource( 8 )
+anims/RESET = SubResource( 9 )
+
+[node name="Inner" type="Sprite" parent="Trap/Explosion" index="1"]
+visible = false
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 17 )
+
+[node name="Explode" type="AudioStreamPlayer" parent="Trap/Explosion" index="2"]
+stream = ExtResource( 18 )
+volume_db = -10.0
+
+[node name="Black" type="CanvasLayer" parent="." index="9"]
+layer = 20
+
+[node name="Black" type="Panel" parent="Black" index="0"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 7 )
 
 [connection signal="smashed" from="Room1/Entrance" to="." method="_on_Entrance_smashed"]
 [connection signal="died" from="Room1/Enemies/AngryPig" to="." method="_on_AngryPig_died"]
 [connection signal="body_entered" from="Room1/PasswordTrigger" to="." method="_on_PasswordTrigger_body_entered"]
+[connection signal="body_entered" from="Trap/TrapTrigger" to="." method="_on_TrapTrigger_body_entered"]
 
 [editable path="Start/Car"]

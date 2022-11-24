@@ -30,6 +30,7 @@ signal restart()
 
 export var hasGun:bool = true setget setHasGun
 export var canMove:bool = true
+export var canAct:bool = true
 
 func setHasGun(val):
 	hasGun = val
@@ -167,9 +168,10 @@ func _physics_process(delta: float) -> void:
 	if not dead:
 		if canMove:
 			movement(delta)
-			actions(delta)
 		else:
 			$Graphics/Legs.play("default")
+		if canAct:
+			actions(delta)
 	else:
 		if Input.is_action_just_pressed("restart"):
 			restart()

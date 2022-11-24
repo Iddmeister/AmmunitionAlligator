@@ -1,7 +1,7 @@
 extends Area2D
 
 var Flamethrower = preload("res://Objects/Ethanol/Flamethrower.tscn")
-
+export var time:float = -1
 	
 func swallow():
 	$Break.play()
@@ -12,6 +12,7 @@ func swallow():
 	
 func spit(alligator, _dir:float):
 	var f = Flamethrower.instance()
+	f.get_node("Time").wait_time = time if time > 0 else f.get_node("Time").wait_time
 	alligator.get_node("Flames").add_child(f)
 	queue_free()
 

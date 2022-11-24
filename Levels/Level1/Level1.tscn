@@ -272,6 +272,7 @@ tracks = PoolStringArray( "ambience" )
 rotation = -3.14159
 hasGun = false
 canMove = false
+canAct = false
 
 [node name="Eyes" type="CanvasLayer" parent="." index="1"]
 
