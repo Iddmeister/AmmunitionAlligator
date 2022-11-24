@@ -4,6 +4,10 @@ var passwordTriggered:bool = false
 onready var passwordSpeech: Node2D = $Room1/PasswordSpeech
 onready var angrySpeech: Node2D = $Room1/AngrySpeech
 
+func levelStart():
+	.levelStart()
+	Music.playTrack("iamhere")
+
 func _on_PasswordTrigger_body_entered(_body: Node) -> void:
 	if passwordTriggered:
 		return

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/One Man Symphony - A Wrench In The Works (Free) - 07 I Want Them To Know That... I Am Here (Action 02).mp3-4cee13becd1ed3ae37527501808b5321.mp3str"
+
+[deps]
+
+source_file="res://Levels/Level4/One Man Symphony - A Wrench In The Works (Free) - 07 I Want Them To Know That... I Am Here (Action 02).mp3"
+dest_files=[ "res://.import/One Man Symphony - A Wrench In The Works (Free) - 07 I Want Them To Know That... I Am Here (Action 02).mp3-4cee13becd1ed3ae37527501808b5321.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

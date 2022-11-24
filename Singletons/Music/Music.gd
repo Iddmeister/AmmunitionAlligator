@@ -4,6 +4,7 @@ var allTracks:Dictionary = {
 	"ambience":"res://Levels/Level1/Ambience.wav",
 	"shatter":"res://Levels/Level2/One Man Symphony - A Wrench In The Works (Free) - 06 Shattering The Illusion (Action 01).mp3",
 	"hunt":"res://Levels/Level3/One Man Symphony - A Wrench In The Works (Free) - 04 You Took Something Very Valuable From Me (Chase Theme 01).mp3",
+	"iamhere":"res://Levels/Level4/One Man Symphony - A Wrench In The Works (Free) - 07 I Want Them To Know That... I Am Here (Action 02).mp3",
 	}
 
 var loadedTracks:Dictionary = {}

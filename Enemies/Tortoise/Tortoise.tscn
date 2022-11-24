@@ -41,6 +41,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ 161.443 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("../../Swing:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "Swing"
@@ -87,6 +99,18 @@ tracks/2/keys = {
 "method": "doDamage"
 } ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("../../Swing:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="ShaderMaterial" id=2]
 resource_local_to_scene = true
@@ -118,11 +142,11 @@ pitch_scale = 1.5
 
 [node name="Legs" parent="Graphics" index="0"]
 self_modulate = Color( 0.411765, 0.505882, 0.129412, 1 )
-frame = 13
+frame = 5
 
 [node name="Bat" type="Node2D" parent="Graphics" index="1"]
 position = Vector2( -6.86646e-05, -19 )
-rotation = 2.81772
+rotation = 2.81771
 
 [node name="Sprite" type="Sprite" parent="Graphics/Bat" index="0"]
 position = Vector2( 17, 0 )

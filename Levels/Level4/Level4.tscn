@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Levels/Parent/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Car/Car.tscn" type="PackedScene" id=2]
@@ -22,6 +22,16 @@ outlines = [ PoolVector2Array( -240, -176, -240, 16, 864, 16, 864, -176 ) ]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 64.0
+
+[sub_resource type="NavigationPolygon" id=3]
+vertices = PoolVector2Array( 256, -32, 256, -128, 272, -224, 272, 224, 80, 80, 176, 0, 80, 128, 64, 32, 176, -160, -72, -224, -208, -160, 64, 176, -88, -224, -88, -384, -72, -384, -304, -224, -288, -128, -304, 224, -288, -32, -208, 0, -112, 80, -112, 128, 32, 16, -64, 16, -96, 32, -96, 176, -64, 192, 32, 192 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 0, 3, 6 ), PoolIntArray( 5, 4, 7 ), PoolIntArray( 2, 1, 8 ), PoolIntArray( 9, 2, 8, 10 ), PoolIntArray( 11, 6, 3 ), PoolIntArray( 12, 13, 14, 9 ), PoolIntArray( 12, 9, 10 ), PoolIntArray( 15, 12, 10, 16 ), PoolIntArray( 17, 15, 16, 18 ), PoolIntArray( 17, 18, 19, 20, 21 ), PoolIntArray( 5, 7, 22 ), PoolIntArray( 19, 5, 22, 23 ), PoolIntArray( 19, 23, 24 ), PoolIntArray( 19, 24, 20 ), PoolIntArray( 17, 21, 25 ), PoolIntArray( 17, 25, 26 ), PoolIntArray( 3, 17, 26, 27 ), PoolIntArray( 3, 27, 11 ) ]
+outlines = [ PoolVector2Array( -304, -224, -304, 224, 272, 224, 272, -224, -72, -224, -72, -384, -88, -384, -88, -224 ), PoolVector2Array( 80, 80, 64, 32, 32, 16, -64, 16, -96, 32, -112, 80, -112, 128, -96, 176, -64, 192, 32, 192, 64, 176, 80, 128 ), PoolVector2Array( 176, 0, -208, 0, -288, -32, -288, -128, -208, -160, 176, -160, 256, -128, 256, -32 ) ]
+
+[sub_resource type="NavigationPolygon" id=4]
+vertices = PoolVector2Array( 192, 8, 336, 8, 336, 24, 192, 24, 192, 208, -160, 208, -160, -112, 192, -112 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 3, 4, 5, 6 ), PoolIntArray( 0, 3, 6 ), PoolIntArray( 7, 0, 6 ) ]
+outlines = [ PoolVector2Array( 192, -112, -160, -112, -160, 208, 192, 208, 192, 24, 336, 24, 336, 8, 192, 8 ) ]
 
 [node name="Level4" instance=ExtResource( 1 )]
 script = ExtResource( 9 )
@@ -47,7 +57,6 @@ scale = Vector2( 0.285714, 0.285714 )
 modulate = Color( 1, 0.168627, 0.168627, 1 )
 position = Vector2( -40, -201 )
 rotation = -1.10025
-scale = Vector2( 1, 1 )
 texture = ExtResource( 4 )
 hframes = 4
 
@@ -55,7 +64,6 @@ hframes = 4
 modulate = Color( 0.760784, 0.223529, 0.223529, 1 )
 position = Vector2( -51, -188 )
 rotation = 2.44274
-scale = Vector2( 1, 1 )
 texture = ExtResource( 4 )
 hframes = 4
 frame = 2
@@ -64,7 +72,6 @@ frame = 2
 modulate = Color( 1, 0.168627, 0.168627, 1 )
 position = Vector2( -37, -189 )
 rotation = 1.21587
-scale = Vector2( 1, 1 )
 texture = ExtResource( 4 )
 hframes = 4
 frame = 2
@@ -206,38 +213,135 @@ rotation = 4.71239
 [node name="Room2" type="Node2D" parent="." index="5"]
 position = Vector2( 1088, 240 )
 
-[node name="Floor" type="Polygon2D" parent="Room2" index="0"]
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Room2" index="0"]
+navpoly = SubResource( 3 )
+
+[node name="Floor" type="Polygon2D" parent="Room2" index="1"]
 z_index = -20
 z_as_relative = false
 color = Color( 0.584314, 0.72549, 0.529412, 1 )
 texture = ExtResource( 12 )
 polygon = PoolVector2Array( -384, -304, -384, 304, 352, 304, 352, -304 )
 
-[node name="Door" parent="Room2" index="1" instance=ExtResource( 8 )]
+[node name="Door" parent="Room2" index="2" instance=ExtResource( 8 )]
 position = Vector2( -384, 48 )
 rotation = -3.14159
 
-[node name="WallPolygon3" parent="Room2" index="2" instance=ExtResource( 7 )]
+[node name="WallPolygon3" parent="Room2" index="3" instance=ExtResource( 7 )]
 z_index = -19
 color = Color( 0.231373, 0.419608, 0.192157, 1 )
 texture = ExtResource( 6 )
 texture_scale = Vector2( 0.5, 0.5 )
 polygon = PoolVector2Array( 128, 288, 96, 272, -352, 272, -352, 112, -368, 80, -400, 80, -416, 112, -416, 272, -560, 272, -592, 288, -592, 320, -560, 336, 96, 336, 128, 320 )
 
-[node name="Door2" parent="Room2" index="3" instance=ExtResource( 8 )]
+[node name="WallPolygon4" parent="Room2" index="4" instance=ExtResource( 7 )]
+position = Vector2( 0, 32 )
+z_index = -19
+color = Color( 0.231373, 0.419608, 0.192157, 1 )
+texture = ExtResource( 6 )
+texture_scale = Vector2( 0.5, 0.5 )
+polygon = PoolVector2Array( -208, -144, -240, -128, -240, -96, -208, -80, 176, -80, 208, -96, 208, -128, 176, -144 )
+
+[node name="WallPolygon5" parent="Room2" index="5" instance=ExtResource( 7 )]
+position = Vector2( 0, 32 )
+z_index = -19
+color = Color( 0.231373, 0.419608, 0.192157, 1 )
+texture = ExtResource( 6 )
+texture_scale = Vector2( 0.5, 0.5 )
+polygon = PoolVector2Array( -32, 32, -64, 48, -64, 96, -32, 112, 0, 112, 32, 96, 32, 48, 0, 32 )
+
+[node name="Door2" parent="Room2" index="6" instance=ExtResource( 8 )]
 position = Vector2( 160, 304 )
 rotation = 1.5708
+
+[node name="Enemies" type="Node2D" parent="Room2" index="7"]
+
+[node name="Tortoise" parent="Room2/Enemies" index="0" instance=ExtResource( 13 )]
+position = Vector2( 48, -192 )
+rotation = 3.14159
+
+[node name="Tortoise2" parent="Room2/Enemies" index="1" instance=ExtResource( 13 )]
+position = Vector2( 104, 104 )
+rotation = 0.455435
+
+[node name="Tortoise3" parent="Room2/Enemies" index="2" instance=ExtResource( 13 )]
+position = Vector2( -128, 104 )
+rotation = -2.45941
+
+[node name="Pig" parent="Room2/Enemies" index="3" instance=ExtResource( 3 )]
+position = Vector2( -256, -192 )
+rotation = 1.98575
+
+[node name="Pig2" parent="Room2/Enemies" index="4" instance=ExtResource( 3 )]
+position = Vector2( 96, 48 )
+rotation = -0.597807
+
+[node name="Pig3" parent="Room2/Enemies" index="5" instance=ExtResource( 3 )]
+position = Vector2( 48, 208 )
+rotation = -0.597807
+
+[node name="Pig4" parent="Room2/Enemies" index="6" instance=ExtResource( 3 )]
+position = Vector2( -128, 160 )
+rotation = -2.68932
+
+[node name="Ammo" parent="Room2" index="8" instance=ExtResource( 14 )]
+position = Vector2( -32, 152 )
+rotation = 0.578878
+
+[node name="Ammo2" parent="Room2" index="9" instance=ExtResource( 14 )]
+position = Vector2( -24, 152 )
+rotation = -0.803833
+
+[node name="Ammo3" parent="Room2" index="10" instance=ExtResource( 14 )]
+position = Vector2( -40, 144 )
+rotation = 0.939932
+
+[node name="Ammo4" parent="Room2" index="11" instance=ExtResource( 14 )]
+position = Vector2( -40, 144 )
+rotation = 0.939932
 
 [node name="Room3" type="Node2D" parent="." index="6"]
 position = Vector2( 448, 272 )
 
-[node name="WallPolygon2" parent="Room3" index="0" instance=ExtResource( 7 )]
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Room3" index="0"]
+navpoly = SubResource( 4 )
+
+[node name="WallPolygon2" parent="Room3" index="1" instance=ExtResource( 7 )]
 position = Vector2( 96, -432 )
 z_index = -19
 color = Color( 0.231373, 0.419608, 0.192157, 1 )
 texture = ExtResource( 6 )
 texture_scale = Vector2( 0.5, 0.5 )
 polygon = PoolVector2Array( -320, 224, 192, 224, 192, 384, 176, 416, 144, 416, 128, 384, 128, 288, -288, 288, -288, 672, -144, 672, -112, 688, -112, 720, -144, 736, -320, 736, -352, 704, -352, 256 )
+
+[node name="Floor" type="Polygon2D" parent="Room3" index="2"]
+z_index = -20
+z_as_relative = false
+color = Color( 0.584314, 0.72549, 0.529412, 1 )
+texture = ExtResource( 12 )
+polygon = PoolVector2Array( 256, -176, -224, -176, -224, 272, 256, 272 )
+
+[node name="Enemies" type="Node2D" parent="Room3" index="3"]
+
+[node name="Pig" parent="Room3/Enemies" index="0" instance=ExtResource( 3 )]
+position = Vector2( -144, -112 )
+rotation = 0.47798
+
+[node name="Pig3" parent="Room3/Enemies" index="1" instance=ExtResource( 3 )]
+position = Vector2( 184, 200 )
+rotation = -1.73435
+
+[node name="Pig2" parent="Room3/Enemies" index="2" instance=ExtResource( 3 )]
+position = Vector2( 184, 8 )
+rotation = -2.58819
+
+[node name="Tortoise" parent="Room3/Enemies" index="3" instance=ExtResource( 13 )]
+position = Vector2( 120, -96 )
+rotation = 0.925895
+
+[node name="Tortoise2" parent="Room3/Enemies" index="4" instance=ExtResource( 13 )]
+position = Vector2( -128, 192 )
+rotation = -0.822531
 
 [connection signal="smashed" from="Room1/Entrance" to="." method="_on_Entrance_smashed"]
 [connection signal="died" from="Room1/Enemies/AngryPig" to="." method="_on_AngryPig_died"]
