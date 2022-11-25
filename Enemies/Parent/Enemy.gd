@@ -15,6 +15,7 @@ var moving:bool = false
 var alligator:Node2D
 
 signal died()
+signal reachedDestination()
 
 var randOffset:float
 
@@ -34,14 +35,15 @@ func _physics_process(delta: float) -> void:
 	think(delta)
 		
 	if not navAgent.is_navigation_finished() and moving:
-		if not $Graphics/Legs.playing:
+		if not $Graphics/Legs.animation == "walk":
 			$Graphics/Legs.play("walk")
 		var pos = navAgent.get_next_location()
 		velocity = (pos-global_position).normalized()*moveSpeed
 		navAgent.set_velocity(velocity)
-	else:
+	elif moving:
+		emit_signal("reachedDestination")
 		moving = false
-		$Graphics/Legs.stop()
+		$Graphics/Legs.play("default")
 	
 func move(_velocity:Vector2):
 	velocity = move_and_slide(_velocity)

@@ -55,7 +55,10 @@ func die():
 	canShoot = false
 	
 func think(delta:float):
-	if not aggressive:
+	if not aggressive and moving:
+		global_rotation = lerp_angle(global_rotation, velocity.angle(), 0.2*delta*60)
+		return
+	elif not aggressive:
 		return
 	if canSeeAlligator:
 		global_rotation = lerp_angle(global_rotation, (alligator.global_position-global_position).angle(), 0.5*delta*60)

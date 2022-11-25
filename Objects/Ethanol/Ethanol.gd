@@ -3,7 +3,10 @@ extends Area2D
 var Flamethrower = preload("res://Objects/Ethanol/Flamethrower.tscn")
 export var time:float = -1
 	
+signal destroyed()
+	
 func swallow():
+	emit_signal("destroyed")
 	$Break.play()
 	$Glass.emitting = true
 	$Sprite.hide()

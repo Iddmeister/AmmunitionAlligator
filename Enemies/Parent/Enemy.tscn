@@ -129,8 +129,6 @@ rotation = 1.5708
 [node name="Legs" type="AnimatedSprite" parent="Graphics"]
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 16 )
-animation = "walk"
-frame = 11
 playing = true
 
 [node name="Torso" type="Sprite" parent="Graphics"]

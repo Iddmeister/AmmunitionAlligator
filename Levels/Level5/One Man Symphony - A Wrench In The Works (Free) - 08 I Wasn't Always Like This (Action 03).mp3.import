@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/One Man Symphony - A Wrench In The Works (Free) - 08 I Wasn't Always Like This (Action 03).mp3-11210c7374b384aa9b44f078ce793eed.mp3str"
+
+[deps]
+
+source_file="res://Levels/Level5/One Man Symphony - A Wrench In The Works (Free) - 08 I Wasn't Always Like This (Action 03).mp3"
+dest_files=[ "res://.import/One Man Symphony - A Wrench In The Works (Free) - 08 I Wasn't Always Like This (Action 03).mp3-11210c7374b384aa9b44f078ce793eed.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
