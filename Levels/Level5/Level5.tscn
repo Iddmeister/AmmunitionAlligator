@@ -342,13 +342,13 @@ hasGun = false
 canMove = false
 
 [node name="Legs" parent="Alligator/Alligator/Graphics" index="0"]
-frame = 5
+frame = 2
 
 [node name="Camera" parent="Alligator/Alligator" index="3"]
 current = false
 
 [node name="AnimatedSprite" parent="Alligator/Alligator/Lighter" index="2"]
-frame = 2
+frame = 0
 
 [node name="Blood" type="Sprite" parent="Alligator/Alligator" index="15"]
 self_modulate = Color( 0.996078, 0.215686, 0.215686, 1 )
