@@ -432,6 +432,18 @@ collision_layer = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Start/Trigger" index="0"]
 shape = SubResource( 23 )
 
+[node name="Ammo4" parent="Start" index="13" instance=ExtResource( 11 )]
+position = Vector2( 40, 64 )
+rotation = -0.762367
+
+[node name="Ammo5" parent="Start" index="14" instance=ExtResource( 11 )]
+position = Vector2( 56, 56 )
+rotation = 0.772113
+
+[node name="Ammo6" parent="Start" index="15" instance=ExtResource( 11 )]
+position = Vector2( 56, 72 )
+rotation = -0.952612
+
 [node name="Room1" type="Node2D" parent="." index="5"]
 
 [node name="Door" parent="Room1" index="0" instance=ExtResource( 14 )]
@@ -782,7 +794,6 @@ position = Vector2( -184, -56 )
 [node name="Asker" parent="Room4" index="6" instance=ExtResource( 10 )]
 visible = false
 position = Vector2( -128, 232 )
-scale = Vector2( 1, 1 )
 
 [node name="Carpet" type="Sprite" parent="Room4" index="7"]
 modulate = Color( 0.819608, 0.819608, 0.819608, 1 )
@@ -870,9 +881,6 @@ position = Vector2( -16, 80 )
 rotation = -2.02612
 aggressive = false
 showGun = false
-
-[node name="Legs" parent="Bathroom/Pig/Graphics" index="0"]
-frame = 4
 
 [node name="Torso" parent="Bathroom/Pig/Graphics" index="1"]
 material = SubResource( 13 )

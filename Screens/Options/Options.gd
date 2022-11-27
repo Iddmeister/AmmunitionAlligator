@@ -6,6 +6,8 @@ func _ready() -> void:
 	$CenterContainer/PanelContainer/VBoxContainer/Sound/MasterSlider.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
 	$CenterContainer/PanelContainer/VBoxContainer/Music/MusicSlider.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))
 	$CenterContainer/PanelContainer/VBoxContainer/Fullscreen/FullscreenCheckbox.pressed = OS.window_fullscreen
+	$CenterContainer/PanelContainer/VBoxContainer/Lives/OneHitKill.pressed = not Manager.lives
+
 func _unhandled_key_input(event: InputEventKey) -> void:
 	if event.is_action_pressed("escape"):
 		hide()
@@ -27,3 +29,7 @@ func _on_Done_pressed() -> void:
 
 func _on_FullscreenCheckbox_toggled(button_pressed: bool) -> void:
 	OS.window_fullscreen =  button_pressed
+
+
+func _on_OneHitKill_toggled(button_pressed: bool) -> void:
+	Manager.lives = not button_pressed

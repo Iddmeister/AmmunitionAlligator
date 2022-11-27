@@ -42,9 +42,9 @@ margin_bottom = 300.0
 
 [node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
 margin_left = 152.0
-margin_top = 89.0
+margin_top = 74.0
 margin_right = 359.0
-margin_bottom = 211.0
+margin_bottom = 226.0
 rect_min_size = Vector2( 0, 120 )
 custom_styles/panel = SubResource( 12 )
 
@@ -52,7 +52,7 @@ custom_styles/panel = SubResource( 12 )
 margin_left = 3.0
 margin_top = 3.0
 margin_right = 204.0
-margin_bottom = 119.0
+margin_bottom = 149.0
 size_flags_vertical = 3
 custom_constants/separation = 10
 alignment = 1
@@ -134,13 +134,41 @@ custom_styles/normal = SubResource( 14 )
 enabled_focus_mode = 0
 icon_align = 1
 
-[node name="Done" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer"]
+[node name="Lives" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
 margin_top = 90.0
 margin_right = 201.0
-margin_bottom = 116.0
+margin_bottom = 110.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/Lives"]
+margin_left = 46.0
+margin_right = 119.0
+margin_bottom = 20.0
+text = "One Hit Kill"
+align = 2
+
+[node name="OneHitKill" type="CheckBox" parent="CenterContainer/PanelContainer/VBoxContainer/Lives"]
+margin_left = 139.0
+margin_right = 155.0
+margin_bottom = 20.0
+focus_mode = 0
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 14 )
+custom_styles/hover_pressed = SubResource( 15 )
+custom_styles/normal = SubResource( 14 )
+pressed = true
+enabled_focus_mode = 0
+icon_align = 1
+
+[node name="Done" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer"]
+margin_top = 120.0
+margin_right = 201.0
+margin_bottom = 146.0
 text = "Done"
 
 [connection signal="value_changed" from="CenterContainer/PanelContainer/VBoxContainer/Sound/MasterSlider" to="." method="_on_MasterSlider_value_changed"]
 [connection signal="value_changed" from="CenterContainer/PanelContainer/VBoxContainer/Music/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
 [connection signal="toggled" from="CenterContainer/PanelContainer/VBoxContainer/Fullscreen/FullscreenCheckbox" to="." method="_on_FullscreenCheckbox_toggled"]
+[connection signal="toggled" from="CenterContainer/PanelContainer/VBoxContainer/Lives/OneHitKill" to="." method="_on_OneHitKill_toggled"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/Done" to="." method="_on_Done_pressed"]

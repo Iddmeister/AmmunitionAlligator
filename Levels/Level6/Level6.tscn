@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://Levels/Parent/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Level3/Floor2.png" type="Texture" id=2]
@@ -22,6 +22,13 @@
 [ext_resource path="res://Levels/Level1/GunPickup.wav" type="AudioStream" id=20]
 [ext_resource path="res://Enemies/Parent/Speech.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Levels/Level6/Rhino.png" type="Texture" id=22]
+[ext_resource path="res://Enemies/Parent/Squelch.wav" type="AudioStream" id=23]
+[ext_resource path="res://Enemies/Tortoise/Ricochet.wav" type="AudioStream" id=24]
+[ext_resource path="res://Alligator/Bite.wav" type="AudioStream" id=25]
+[ext_resource path="res://Alligator/Weapons/Revolver/RevolverShoot.wav" type="AudioStream" id=26]
+[ext_resource path="res://Enemies/Pig/PigDeath.wav" type="AudioStream" id=27]
+[ext_resource path="res://Blood/BloodSplats.png" type="Texture" id=28]
+[ext_resource path="res://Objects/Ammo/Ammo.tscn" type="PackedScene" id=29]
 
 [sub_resource type="OpenSimplexNoise" id=4]
 octaves = 1
@@ -89,6 +96,168 @@ bg_color = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 64, 10 )
 
+[sub_resource type="Animation" id=22]
+resource_name = "Death"
+length = 6.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Hidden:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Black/Black:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.5, 4.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Gunshot:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Gunshot2:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 2.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Squelch:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 2.9 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Squelch2:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 3.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Richochet:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 3.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Squelch3:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 3.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Bite:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Oink:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 4.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/10/type = "method"
+tracks/10/path = NodePath("..")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 2.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "killEveryone"
+} ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("EndSpeech:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 2.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Blood:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 2.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
 [sub_resource type="Animation" id=20]
 length = 0.001
 tracks/0/type = "value"
@@ -114,6 +283,138 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Black/Black:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Gunshot:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Gunshot2:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Squelch:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Squelch2:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Richochet:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Squelch3:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Bite:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Oink:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("EndSpeech:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Blood:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=21]
@@ -143,9 +444,12 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0, 0, 0, 1 )
+
 [node name="Level6" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
-tracks = PoolStringArray( "notlikethis" )
+tracks = PoolStringArray( "notlikethis", "neverknow" )
 
 [node name="Navigation" type="Navigation2D" parent="." index="0"]
 cell_size = 10.0
@@ -157,7 +461,6 @@ material = SubResource( 6 )
 custom_styles/panel = SubResource( 1 )
 
 [node name="Alligator" parent="Alligator" index="0"]
-invincible = true
 hasGun = false
 
 [node name="Start" type="Node2D" parent="." index="5"]
@@ -689,6 +992,38 @@ frame = 1
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Room5" index="7"]
 navpoly = SubResource( 16 )
 
+[node name="Ammo" parent="Room5" index="8" instance=ExtResource( 29 )]
+position = Vector2( 368, 1264 )
+rotation = -0.741463
+
+[node name="Ammo2" parent="Room5" index="9" instance=ExtResource( 29 )]
+position = Vector2( 376, 1184 )
+rotation = 0.598839
+
+[node name="Ammo3" parent="Room5" index="10" instance=ExtResource( 29 )]
+position = Vector2( 384, 1192 )
+rotation = -0.679535
+
+[node name="Ammo4" parent="Room5" index="11" instance=ExtResource( 29 )]
+position = Vector2( 328, 1264 )
+rotation = 0.6588
+
+[node name="Ammo5" parent="Room5" index="12" instance=ExtResource( 29 )]
+position = Vector2( 448, 1624 )
+rotation = 0.6588
+
+[node name="Ammo6" parent="Room5" index="13" instance=ExtResource( 29 )]
+position = Vector2( 432, 1640 )
+rotation = -1.5485
+
+[node name="Ammo7" parent="Room5" index="14" instance=ExtResource( 29 )]
+position = Vector2( 392, 1752 )
+rotation = -1.0472
+
+[node name="Ammo8" parent="Room5" index="15" instance=ExtResource( 29 )]
+position = Vector2( 392, 1744 )
+rotation = 0.556389
+
 [node name="Room6" type="Node2D" parent="." index="11"]
 position = Vector2( 696, 1544 )
 
@@ -820,85 +1155,400 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Rhino" type="Sprite" parent="End" index="3"]
+[node name="Enemies" type="Node2D" parent="End" index="3"]
+
+[node name="Rhino" type="Sprite" parent="End/Enemies" index="0"]
 position = Vector2( 0, 88 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 22 )
 
-[node name="DoorStop" type="StaticBody2D" parent="End" index="4"]
+[node name="DoorStop" type="StaticBody2D" parent="End/Enemies" index="1"]
 position = Vector2( 0, -24 )
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="End/DoorStop" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="End/Enemies/DoorStop" index="0"]
 shape = SubResource( 18 )
 
-[node name="Alligator" type="Position2D" parent="End" index="5"]
-position = Vector2( 0, -136 )
-
-[node name="CinematicCamera" type="Camera2D" parent="End" index="6"]
-zoom = Vector2( 1.2, 1.2 )
-
-[node name="Pig" parent="End" index="7" instance=ExtResource( 10 )]
+[node name="Pig" parent="End/Enemies" index="2" instance=ExtResource( 10 )]
 position = Vector2( 192, -32 )
 rotation = -2.60863
 aggressive = false
 
-[node name="Pig5" parent="End" index="8" instance=ExtResource( 10 )]
+[node name="Pig5" parent="End/Enemies" index="3" instance=ExtResource( 10 )]
 position = Vector2( 224, -96 )
 rotation = -2.96043
 aggressive = false
 
-[node name="Pig6" parent="End" index="9" instance=ExtResource( 10 )]
+[node name="Pig6" parent="End/Enemies" index="4" instance=ExtResource( 10 )]
 position = Vector2( -224, -96 )
 rotation = -0.264685
 aggressive = false
 
-[node name="Pig2" parent="End" index="10" instance=ExtResource( 10 )]
+[node name="Pig2" parent="End/Enemies" index="5" instance=ExtResource( 10 )]
 position = Vector2( -192, -32 )
-rotation = 5.74626
+rotation = -0.536925
 aggressive = false
 
-[node name="Pig3" parent="End" index="11" instance=ExtResource( 10 )]
+[node name="Pig3" parent="End/Enemies" index="6" instance=ExtResource( 10 )]
 position = Vector2( -144, 24 )
-rotation = 5.37054
+rotation = -0.912645
 aggressive = false
 
-[node name="Pig4" parent="End" index="12" instance=ExtResource( 10 )]
+[node name="Pig4" parent="End/Enemies" index="7" instance=ExtResource( 10 )]
 position = Vector2( 144, 24 )
-rotation = 3.9872
+rotation = -2.29599
 aggressive = false
 
-[node name="Tortoise" parent="End" index="13" instance=ExtResource( 7 )]
+[node name="Tortoise" parent="End/Enemies" index="8" instance=ExtResource( 7 )]
 position = Vector2( 112, 112 )
 rotation = -1.83259
+scale = Vector2( 1, 1 )
 aggressive = false
 
-[node name="Tortoise3" parent="End" index="14" instance=ExtResource( 7 )]
+[node name="Tortoise3" parent="End/Enemies" index="9" instance=ExtResource( 7 )]
 position = Vector2( 224, 48 )
 rotation = -2.35619
 aggressive = false
 
-[node name="Tortoise4" parent="End" index="15" instance=ExtResource( 7 )]
+[node name="Tortoise4" parent="End/Enemies" index="10" instance=ExtResource( 7 )]
 position = Vector2( -224, 48 )
 rotation = -0.785397
 aggressive = false
 
-[node name="Tortoise2" parent="End" index="16" instance=ExtResource( 7 )]
+[node name="Tortoise2" parent="End/Enemies" index="11" instance=ExtResource( 7 )]
 position = Vector2( -112, 112 )
 rotation = -1.309
 aggressive = false
 
-[node name="EndSpeech" parent="End" index="17" instance=ExtResource( 21 )]
+[node name="Blood" type="Position2D" parent="End/Enemies" index="12"]
+position = Vector2( 56, 0 )
+
+[node name="Blood2" type="Position2D" parent="End/Enemies" index="13"]
+position = Vector2( -40, -64 )
+
+[node name="Blood3" type="Position2D" parent="End/Enemies" index="14"]
+position = Vector2( -256, -32 )
+
+[node name="Blood4" type="Position2D" parent="End/Enemies" index="15"]
+position = Vector2( 136, -72 )
+
+[node name="Blood5" type="Position2D" parent="End/Enemies" index="16"]
+position = Vector2( 240, 8 )
+
+[node name="Blood6" type="Position2D" parent="End/Enemies" index="17"]
+position = Vector2( -192, 88 )
+
+[node name="Blood7" type="Position2D" parent="End/Enemies" index="18"]
+position = Vector2( -248, -144 )
+
+[node name="Blood8" type="Position2D" parent="End/Enemies" index="19"]
+position = Vector2( -160, -96 )
+
+[node name="Blood9" type="Position2D" parent="End/Enemies" index="20"]
+position = Vector2( 248, -136 )
+
+[node name="Blood10" type="Position2D" parent="End/Enemies" index="21"]
+position = Vector2( 240, -56 )
+
+[node name="Blood11" type="Position2D" parent="End/Enemies" index="22"]
+position = Vector2( -56, 40 )
+
+[node name="Blood12" type="Position2D" parent="End/Enemies" index="23"]
+position = Vector2( 40, 120 )
+
+[node name="EndSpeech" parent="End" index="4" instance=ExtResource( 21 )]
 visible = false
 position = Vector2( 0, 8 )
 
-[node name="Animation" type="AnimationPlayer" parent="End" index="18"]
+[node name="Animation" type="AnimationPlayer" parent="End" index="5"]
+anims/Death = SubResource( 22 )
 anims/RESET = SubResource( 20 )
 anims/Reveal = SubResource( 21 )
 
+[node name="Oink" type="AudioStreamPlayer" parent="End" index="6"]
+stream = ExtResource( 27 )
+volume_db = 10.0
+bus = "Flames"
+
+[node name="Squelch" type="AudioStreamPlayer" parent="End" index="7"]
+stream = ExtResource( 23 )
+volume_db = 20.0
+bus = "Flames"
+
+[node name="Squelch2" type="AudioStreamPlayer" parent="End" index="8"]
+stream = ExtResource( 23 )
+volume_db = 20.0
+bus = "Flames"
+
+[node name="Squelch3" type="AudioStreamPlayer" parent="End" index="9"]
+stream = ExtResource( 23 )
+volume_db = 20.0
+bus = "Flames"
+
+[node name="Richochet" type="AudioStreamPlayer" parent="End" index="10"]
+stream = ExtResource( 24 )
+volume_db = 20.0
+bus = "Flames"
+
+[node name="Gunshot" type="AudioStreamPlayer" parent="End" index="11"]
+stream = ExtResource( 26 )
+
+[node name="Gunshot2" type="AudioStreamPlayer" parent="End" index="12"]
+stream = ExtResource( 26 )
+
+[node name="Bite" type="AudioStreamPlayer" parent="End" index="13"]
+stream = ExtResource( 25 )
+volume_db = 10.0
+bus = "Flames"
+
+[node name="Alligator" type="Position2D" parent="End" index="14"]
+position = Vector2( 0, -136 )
+
+[node name="Exit" type="Position2D" parent="End" index="15"]
+position = Vector2( 0, 352 )
+
+[node name="CinematicCamera" type="Camera2D" parent="End" index="16"]
+zoom = Vector2( 1.2, 1.2 )
+
+[node name="Blood" type="Node2D" parent="End" index="17"]
+visible = false
+
+[node name="Sprite" type="Sprite" parent="End/Blood" index="0"]
+modulate = Color( 1, 0.152941, 0.152941, 1 )
+position = Vector2( 40, 104 )
+rotation = 0.785397
+scale = Vector2( 2.52734, 2.52734 )
+texture = ExtResource( 28 )
+hframes = 4
+
+[node name="Sprite2" type="Sprite" parent="End/Blood" index="1"]
+modulate = Color( 0.713726, 0.0509804, 0.0509804, 1 )
+position = Vector2( -16, 120 )
+rotation = -2.02747
+scale = Vector2( 2.52734, 2.52734 )
+texture = ExtResource( 28 )
+hframes = 4
+
+[node name="Sprite3" type="Sprite" parent="End/Blood" index="2"]
+modulate = Color( 0.858824, 0.176471, 0.176471, 1 )
+position = Vector2( -32, 80 )
+rotation = -2.02747
+scale = Vector2( 2.52734, 2.52734 )
+texture = ExtResource( 28 )
+hframes = 4
+
+[node name="Sprite4" type="Sprite" parent="End/Blood" index="3"]
+modulate = Color( 1, 0.152941, 0.152941, 1 )
+position = Vector2( -120, 128 )
+rotation = -2.02747
+scale = Vector2( 2.52734, 2.52734 )
+texture = ExtResource( 28 )
+hframes = 4
+
+[node name="Sprite5" type="Sprite" parent="End/Blood" index="4"]
+modulate = Color( 1, 0.152941, 0.152941, 1 )
+position = Vector2( -112, 48 )
+rotation = -2.02747
+scale = Vector2( 2.52734, 2.52734 )
+texture = ExtResource( 28 )
+hframes = 4
+
+[node name="Sprite6" type="Sprite" parent="End/Blood" index="5"]
+modulate = Color( 1, 0.152941, 0.152941, 1 )
+position = Vector2( -216, 56 )
+rotation = -2.02747
+scale = Vector2( 2.52734, 2.52734 )
+texture = ExtResource( 28 )
+hframes = 4
+
+[node name="Sprite7" type="Sprite" parent="End/Blood" index="6"]
+modulate = Color( 1, 0.152941, 0.152941, 1 )
+position = Vector2( -176, -16 )
+rotation = -0.338521
+scale = Vector2( 2.52734, 2.52734 )
+texture = ExtResource( 28 )
+hframes = 4
+
+[node name="Sprite8" type="Sprite" parent="End/Blood" index="7"]
+modulate = Color( 0.8, 0.117647, 0.117647, 1 )
+position = Vector2( 120, 64 )
+rotation = 0.0885159
+scale = Vector2( 2.52734, 2.52734 )
+texture = ExtResource( 28 )
+hframes = 4
+frame = 1
+
+[node name="Sprite9" type="Sprite" parent="End/Blood" index="8"]
+modulate = Color( 0.831373, 0.0235294, 0.0235294, 1 )
+position = Vector2( -240, 0 )
+rotation = 0.0885159
+scale = Vector2( 2.52734, 2.52734 )
+texture = ExtResource( 28 )
+hframes = 4
+frame = 1
+
+[node name="Sprite10" type="Sprite" parent="End/Blood" index="9"]
+modulate = Color( 1, 0.152941, 0.152941, 1 )
+position = Vector2( -200, -80 )
+rotation = 0.0885159
+scale = Vector2( 2.52734, 2.52734 )
+texture = ExtResource( 28 )
+hframes = 4
+frame = 1
+
+[node name="Sprite11" type="Sprite" parent="End/Blood" index="10"]
+modulate = Color( 1, 0.152941, 0.152941, 1 )
+position = Vector2( 224, -32 )
+rotation = 0.0885159
+scale = Vector2( 2.52734, 2.52734 )
+texture = ExtResource( 28 )
+hframes = 4
+frame = 1
+
+[node name="Sprite12" type="Sprite" parent="End/Blood" index="11"]
+modulate = Color( 1, 0.152941, 0.152941, 1 )
+position = Vector2( 184, 72 )
+rotation = 0.0885159
+scale = Vector2( 2.52734, 2.52734 )
+texture = ExtResource( 28 )
+hframes = 4
+frame = 1
+
+[node name="Sprite13" type="Sprite" parent="End/Blood" index="12"]
+modulate = Color( 0.752941, 0.137255, 0.137255, 1 )
+position = Vector2( 64, -24 )
+rotation = -0.188767
+scale = Vector2( 2.52734, 2.52734 )
+texture = ExtResource( 28 )
+hframes = 4
+frame = 1
+
+[node name="Sprite14" type="Sprite" parent="End/Blood" index="13"]
+modulate = Color( 1, 0.152941, 0.152941, 1 )
+position = Vector2( -80, -40 )
+rotation = 1.41222
+scale = Vector2( 2.52734, 2.52734 )
+texture = ExtResource( 28 )
+hframes = 4
+frame = 1
+
+[node name="Sprite15" type="Sprite" parent="End/Blood" index="14"]
+modulate = Color( 1, 0.152941, 0.152941, 1 )
+position = Vector2( 24, -88 )
+rotation = -1.60341
+scale = Vector2( 2.52734, 2.52734 )
+texture = ExtResource( 28 )
+hframes = 4
+frame = 1
+
+[node name="Sprite18" type="Sprite" parent="End/Blood" index="15"]
+modulate = Color( 0.8, 0.109804, 0.109804, 1 )
+position = Vector2( 248, 24 )
+rotation = -1.60341
+scale = Vector2( 2.52734, 2.52734 )
+texture = ExtResource( 28 )
+hframes = 4
+frame = 2
+
+[node name="Sprite19" type="Sprite" parent="End/Blood" index="16"]
+modulate = Color( 1, 0.152941, 0.152941, 1 )
+position = Vector2( 16, 24 )
+rotation = -1.60341
+scale = Vector2( 2.52734, 2.52734 )
+texture = ExtResource( 28 )
+hframes = 4
+frame = 2
+
+[node name="Sprite20" type="Sprite" parent="End/Blood" index="17"]
+modulate = Color( 0.72549, 0.0627451, 0.0627451, 1 )
+position = Vector2( -72, 24 )
+rotation = -2.61799
+scale = Vector2( 2.52734, 2.52734 )
+texture = ExtResource( 28 )
+hframes = 4
+frame = 2
+
+[node name="Sprite21" type="Sprite" parent="End/Blood" index="18"]
+modulate = Color( 0.709804, 0.113725, 0.113725, 1 )
+position = Vector2( -176, 96 )
+rotation = -3.87529
+scale = Vector2( 2.52734, 2.52734 )
+texture = ExtResource( 28 )
+hframes = 4
+frame = 2
+
+[node name="Sprite22" type="Sprite" parent="End/Blood" index="19"]
+modulate = Color( 0.905882, 0.188235, 0.188235, 1 )
+position = Vector2( 168, -88 )
+rotation = -3.67296
+scale = Vector2( 2.52734, 2.52734 )
+texture = ExtResource( 28 )
+hframes = 4
+frame = 2
+
+[node name="Sprite23" type="Sprite" parent="End/Blood" index="20"]
+modulate = Color( 1, 0.152941, 0.152941, 1 )
+position = Vector2( 104, 40 )
+rotation = -3.87529
+scale = Vector2( 2.52734, 2.52734 )
+texture = ExtResource( 28 )
+hframes = 4
+frame = 2
+
+[node name="Sprite24" type="Sprite" parent="End/Blood" index="21"]
+modulate = Color( 1, 0.152941, 0.152941, 1 )
+position = Vector2( -232, -96 )
+rotation = -3.87529
+scale = Vector2( 2.52734, 2.52734 )
+texture = ExtResource( 28 )
+hframes = 4
+frame = 2
+
+[node name="Sprite25" type="Sprite" parent="End/Blood" index="22"]
+modulate = Color( 1, 0.152941, 0.152941, 1 )
+position = Vector2( 128, 120 )
+rotation = -5.94419
+scale = Vector2( 2.52734, 2.52734 )
+texture = ExtResource( 28 )
+hframes = 4
+frame = 2
+
+[node name="Sprite16" type="Sprite" parent="End/Blood" index="23"]
+modulate = Color( 1, 0.152941, 0.152941, 1 )
+position = Vector2( 128, -40 )
+rotation = 0.0885159
+scale = Vector2( 2.52734, 2.52734 )
+texture = ExtResource( 28 )
+hframes = 4
+frame = 1
+
+[node name="Sprite17" type="Sprite" parent="End/Blood" index="24"]
+modulate = Color( 0.858824, 0.101961, 0.101961, 1 )
+position = Vector2( 80, -72 )
+rotation = -1.25185
+scale = Vector2( 2.52734, 2.52734 )
+texture = ExtResource( 28 )
+hframes = 4
+frame = 1
+
+[node name="DramaticPause" type="Timer" parent="." index="13"]
+wait_time = 2.0
+one_shot = true
+
+[node name="Black" type="CanvasLayer" parent="." index="14"]
+layer = 20
+
+[node name="Black" type="Panel" parent="Black" index="0"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 7 )
+
 [connection signal="body_entered" from="Room5/Revolver" to="." method="_on_Revolver_body_entered"]
 [connection signal="smashed" from="Room6/EndDoor" to="." method="_on_EndDoor_smashed"]
+[connection signal="trigger" from="End/EndSpeech" to="." method="_on_EndSpeech_trigger"]
+[connection signal="timeout" from="DramaticPause" to="." method="_on_DramaticPause_timeout"]
 
 [editable path="Background"]
 [editable path="Room2/Ethanol2"]

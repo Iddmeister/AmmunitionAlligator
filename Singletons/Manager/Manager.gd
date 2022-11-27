@@ -10,6 +10,7 @@ signal changedSceneVisible()
 onready var animation: AnimationPlayer = $Layer/Animation
 
 var playerData:Dictionary
+var lives:bool = false
 
 var inTransition:bool = false
 

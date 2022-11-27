@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/One Man Symphony - A Wrench In The Works (Free) - 03 You'll Never Know I Was Here (Stealth Theme).mp3-790faa3967bbb5c5a456a1467752474e.mp3str"
+
+[deps]
+
+source_file="res://Levels/Level6/One Man Symphony - A Wrench In The Works (Free) - 03 You'll Never Know I Was Here (Stealth Theme).mp3"
+dest_files=[ "res://.import/One Man Symphony - A Wrench In The Works (Free) - 03 You'll Never Know I Was Here (Stealth Theme).mp3-790faa3967bbb5c5a456a1467752474e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

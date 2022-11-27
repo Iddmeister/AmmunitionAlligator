@@ -7,6 +7,7 @@ var allTracks:Dictionary = {
 	"iamhere":"res://Levels/Level4/One Man Symphony - A Wrench In The Works (Free) - 07 I Want Them To Know That... I Am Here (Action 02).mp3",
 	"hideout":"res://Levels/Level5/One Man Symphony - A Wrench In The Works (Free) - 02 Unknown (Hideout Theme).mp3",
 	"notlikethis":"res://Levels/Level5/One Man Symphony - A Wrench In The Works (Free) - 08 I Wasn't Always Like This (Action 03).mp3",
+	"neverknow":"res://Levels/Level6/One Man Symphony - A Wrench In The Works (Free) - 03 You'll Never Know I Was Here (Stealth Theme).mp3"
 	}
 
 var loadedTracks:Dictionary = {}

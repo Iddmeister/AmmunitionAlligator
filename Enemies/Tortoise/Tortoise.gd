@@ -47,6 +47,8 @@ func think(delta:float):
 		global_rotation = lerp_angle(global_rotation, velocity.angle(), 0.2*delta*60)
 	
 func navUpdate():
+	if not aggressive:
+		return
 	canSeeAlligator = not castToAlligator()
 	if not seenAlligator and canSeeAlligator:
 		seenAlligator = canSeeAlligator

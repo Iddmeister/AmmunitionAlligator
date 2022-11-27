@@ -31,6 +31,7 @@ signal restart()
 export var hasGun:bool = true setget setHasGun
 export var canMove:bool = true
 export var canAct:bool = true
+var cutsceneMove:bool = false
 
 func setHasGun(val):
 	hasGun = val
@@ -43,6 +44,8 @@ func setHasGun(val):
 func _ready() -> void:
 	weapon.alligator = self
 	get_tree().set_group("Enemy", "alligator", self)
+	
+	health = 3 if Manager.lives else 1
 	
 	if health <= 1:
 		lives.hide()
@@ -168,8 +171,10 @@ func _physics_process(delta: float) -> void:
 	if not dead:
 		if canMove:
 			movement(delta)
-		else:
+		elif not cutsceneMove:
 			$Graphics/Legs.play("default")
+		else:
+			$Graphics/Legs.play("walk")
 		if canAct:
 			actions(delta)
 	else:
