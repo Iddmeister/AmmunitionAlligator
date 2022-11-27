@@ -7,8 +7,7 @@ func ignite(dir:float=0):
 	$Body/Fire.emitting = true
 	$Body/Fire.global_rotation = 0
 	die()
-	yield(get_tree().create_timer(5), "timeout")
-	$Body/Fire.emitting = false
+	$FlameTime.start()
 	
 func shot(dir:float=0):
 	.shot(dir)
@@ -27,3 +26,7 @@ func eaten(_alligator):
 	_alligator.swallow(Head.instance())
 	$Squelch.play()
 	_alligator.camera.shake(20, 0.2, 5)
+
+
+func _on_FlameTime_timeout() -> void:
+	$Body/Fire.emitting = false

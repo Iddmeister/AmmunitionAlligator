@@ -254,6 +254,9 @@ func hit(damage:int, dir:float=0):
 		spawnBlood()
 		$UI/Restart.show()
 		$Grey/Animation.play("FadeIn")
+		$Lighter.hide()
+		for flamethrower in $Flames.get_children():
+			flamethrower.queue_free()
 		
 	camera.shake(20, 0.2, 20)
 	

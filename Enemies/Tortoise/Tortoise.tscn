@@ -126,11 +126,12 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.7, 1 ), 0.0, 0.0, 0, 0, Ve
 [sub_resource type="Curve" id=8]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.7, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[node name="Tortoise" instance=ExtResource( 1 )]
+[node name="Tortoise" groups=["Tortoise"] instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 Head = ExtResource( 5 )
 moveSpeed = 200.0
 swingDistance = 50.0
+aggressive = true
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )
@@ -142,7 +143,6 @@ pitch_scale = 1.5
 
 [node name="Legs" parent="Graphics" index="0"]
 self_modulate = Color( 0.411765, 0.505882, 0.129412, 1 )
-frame = 5
 
 [node name="Bat" type="Node2D" parent="Graphics" index="1"]
 position = Vector2( -6.86646e-05, -19 )

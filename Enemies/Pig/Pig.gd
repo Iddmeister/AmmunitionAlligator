@@ -26,8 +26,7 @@ func ignite(dir:float=0):
 	$Body/Fire.global_rotation = 0
 	$Pistol.hide()
 	die()
-	yield(get_tree().create_timer(5), "timeout")
-	$Body/Fire.emitting = false
+	$FlameTime.start()
 	
 func shot(dir:float=0):
 	.shot(dir)
@@ -105,3 +104,7 @@ func shoot():
 func _on_Firerate_timeout() -> void:
 	if not dead:
 		canShoot = true
+
+
+func _on_FlameTime_timeout() -> void:
+	$Body/Fire.emitting = false

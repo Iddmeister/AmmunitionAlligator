@@ -6,6 +6,8 @@ var seenAlligator:bool = false
 var canSeeAlligator:bool = false
 export var swingDistance:float = 50
 
+export var aggressive:bool = true
+
 func hit(_damage:int=1, dir:float=0):
 	var s = Sparks.instance()
 	get_parent().add_child(s)
@@ -33,6 +35,10 @@ func doDamage():
 			body.hit(1, (body.global_position-global_position).angle())
 			
 func think(delta:float):
+	
+	if not aggressive:
+		return
+	
 	if canSeeAlligator:
 		global_rotation = lerp_angle(global_rotation, (alligator.global_position-global_position).angle(), 0.5*delta*60)
 		if not $Graphics/Bat/Animation.is_playing() and global_position.distance_to(alligator.global_position) <= swingDistance:

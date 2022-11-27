@@ -58,3 +58,9 @@ color_ramp = SubResource( 3 )
 __meta__ = {
 "_editor_description_": ""
 }
+
+[node name="FlameTime" type="Timer" parent="." index="7"]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="FlameTime" to="." method="_on_FlameTime_timeout"]
